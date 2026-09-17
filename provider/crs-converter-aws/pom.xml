@@ -21,12 +21,12 @@
     <parent>
         <groupId>org.opengroup.osdu.crs-converter-service</groupId>
         <artifactId>crs-converter-service</artifactId>
-        <version>0.30.3-SNAPSHOT</version>
+        <version>0.30.4-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>crs-converter-aws</artifactId>
-    <version>0.30.3-SNAPSHOT</version>
+    <version>0.30.4-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>crs-converter-aws</name>
     <description>CRS Converter service on AWS</description>
