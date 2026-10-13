@@ -1,0 +1,88 @@
+# Per-service upstream filter config (ADR-038), hand-planted on the fork's main
+# before initialization because the layout deviates from the conventional shape:
+# the Azure provider is a nested reactor and the Azure tests are a Python suite
+# with no testing/pom.xml, so fork_owned lists the trees (engine 1.1.0).
+# Every upstream top-level entry, testing/ entry, root pom profile, and
+# .fossa.yml module must appear here: the engine halts rather than guess.
+service: crs-converter
+
+fork_owned:
+  - provider/crs-converter-azure
+  - testing/crs_converter_test_azure
+
+top_level:
+  .config: keep
+  .dockerignore: keep
+  .editorconfig: keep
+  .envrc.template: keep
+  .fossa.yml: keep
+  .gitattributes: keep
+  .gitignore: keep
+  .gitlab: strip
+  .gitlab-ci.yml: strip
+  .mvn: keep
+  .sonarlint: keep
+  .trufflehog-exclude: strip
+  apachesis_setup: keep
+  crs-converter-core: keep
+  crs-converter-core-plus: strip
+  crs-converter_acceptance_test: keep
+  docs: keep
+  example.txt: keep
+  LICENSE: keep
+  NOTICE: keep
+  pom.xml: keep
+  publish.yml: strip
+  README.md: strip
+  skaffold.yaml: strip
+
+testing:
+  .idea: strip
+  crs_converter_test_aws: strip
+  crs_converter_test_azure: fork
+  crs_converter_test_baremetal: strip
+  crs_converter_test_core: keep
+  crs_converter_test_gc: strip
+  crs_converter_test_gcp: strip
+  crs_converter_test_ibm: strip
+  README.md: keep
+
+profiles:
+  Default: keep
+  core: keep
+  azure: inject
+  aws: strip
+  gc: strip
+  gcp: strip
+  ibm: strip
+
+fossa_modules:
+  crs-converter-service: keep
+  crs-converter-core: keep
+  crs-converter-core-plus: strip
+  crs-converter-aks: strip
+  crs-converter-ocp: strip
+
+expected_kept:
+  - pom.xml
+  - crs-converter-core
+  - testing/crs_converter_test_core
+
+expected_absent:
+  - provider
+  - devops
+  - crs-converter-core-plus
+  - .gitlab-ci.yml
+  - testing/crs_converter_test_azure
+  - testing/crs_converter_test_ibm
+  - testing/crs_converter_test_baremetal
+
+inject_root_pom_azure_profile: |
+        <profile>
+            <id>azure</id>
+            <modules>
+                <module>provider/crs-converter-azure/crs-converter-aks</module>
+            </modules>
+        </profile>
+
+inject_testing_pom_azure_module: |
