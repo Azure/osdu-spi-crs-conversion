@@ -13,7 +13,7 @@
 
 # Fork-owned Azure source, descriptor, filter config, contributing guide, and README.
 /provider/crs-converter-azure/      @Azure/azure-global-energy
-/testing/crs-converter-test-azure/  @Azure/azure-global-energy
+/testing/crs_converter_test_azure/  @Azure/azure-global-energy
 /.spi/                          @Azure/azure-global-energy
 /.github/upstream-filter.yml    @Azure/azure-global-energy
 /.github/CODEOWNERS             @Azure/azure-global-energy
