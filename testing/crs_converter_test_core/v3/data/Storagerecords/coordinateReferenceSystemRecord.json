@@ -1,0 +1,515 @@
+[
+  {
+    "id": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::32064_EPSG::15851",
+    "kind": "osdu:wks:reference-data--CoordinateReferenceSystem:1.1.0",
+    "acl": {
+      "owners": [
+        "data.default.owners@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+      ],
+      "viewers": [
+        "data.default.viewers@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{LEGAL_TAG}}"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "BaseCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4267
+        },
+        "BaseCRSID": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4267:",
+        "Name": "NAD27"
+      },
+      "Code": "32064079",
+      "CodeAsNumber": 32064079,
+      "CodeSpace": "OSDU",
+      "CoordinateReferenceSystemType": "BoundCRS",
+      "CoordinateSystem": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4497
+        },
+        "Name": "Cartesian 2D CS. Axes: easting, northing (X,Y). Orientations: east, north. UoM: ftUS.",
+        "HorizontalAxisUnitID": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:ft%5BUS%5D:"
+      },
+      "ID": "BoundProjected:EPSG::32064_EPSG::15851",
+      "Kind": "BoundProjected",
+      "Name": "NAD27 * OGP-Usa Conus / BLM 14N (ftUS) [32064,15851]",
+      "PersistableReference": "{\"authCode\":{\"auth\":\"OSDU\",\"code\":\"32064079\"},\"lateBoundCRS\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"32064\"},\"name\":\"NAD_1927_BLM_Zone_14N\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"PROJCS[\\\"NAD_1927_BLM_Zone_14N\\\",GEOGCS[\\\"GCS_North_American_1927\\\",DATUM[\\\"D_North_American_1927\\\",SPHEROID[\\\"Clarke_1866\\\",6378206.4,294.9786982]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Transverse_Mercator\\\"],PARAMETER[\\\"False_Easting\\\",1640416.666666667],PARAMETER[\\\"False_Northing\\\",0.0],PARAMETER[\\\"Central_Meridian\\\",-99.0],PARAMETER[\\\"Scale_Factor\\\",0.9996],PARAMETER[\\\"Latitude_Of_Origin\\\",0.0],UNIT[\\\"Foot_US\\\",0.3048006096012192],AUTHORITY[\\\"EPSG\\\",32064]]\"},\"name\":\"NAD27 * OGP-Usa Conus / BLM 14N (ftUS) [32064,15851]\",\"singleCT\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"15851\"},\"name\":\"NAD_1927_To_WGS_1984_79_CONUS\",\"type\":\"ST\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGTRAN[\\\"NAD_1927_To_WGS_1984_79_CONUS\\\",GEOGCS[\\\"GCS_North_American_1927\\\",DATUM[\\\"D_North_American_1927\\\",SPHEROID[\\\"Clarke_1866\\\",6378206.4,294.9786982]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"NADCON\\\"],PARAMETER[\\\"Dataset_conus\\\",0.0],OPERATIONACCURACY[5.0],AUTHORITY[\\\"EPSG\\\",15851]]\"},\"type\":\"EBC\",\"ver\":\"PE_10_9_1\"}",
+      "PreferredUsage": {
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 3637
+          },
+          "BoundingBoxEastBoundLongitude": -95.87,
+          "BoundingBoxNorthBoundLatitude": 49.01,
+          "BoundingBoxSouthBoundLatitude": 25.83,
+          "BoundingBoxWestBoundLongitude": -102.0,
+          "Description": "United States (USA) - between 102\u00b0W and 96\u00b0W. Iowa; Kansas; Minnesota; Nebraska; North Dakota; Oklahoma; South Dakota; Texas; Gulf of Mexico outer continental shelf (GoM OCS) west of approximately 96\u00b0W - protraction areas Corpus Christi; Port Isabel.",
+          "Name": "USA - 102\u00b0W to 96\u00b0W and GoM OCS"
+        },
+        "Name": "USA - 102\u00b0W to 96\u00b0W and GoM OCS (from coordinate reference system)",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1249
+          },
+          "Name": "Minerals management (including oil and gas exploration and production)."
+        }
+      },
+      "Projection": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 15914
+        },
+        "Name": "BLM zone 14N (US survey feet)"
+      },
+      "RevisionDate": "2023-01-21T13:19:59+00:00",
+      "SourceCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 32064
+        },
+        "Name": "NAD27 / BLM 14N (ftUS)",
+        "SourceCRSID": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:Projected:EPSG::32064:"
+      },
+      "Transformation": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 15851
+        },
+        "Name": "NAD27 to WGS 84 (79)",
+        "TransformationID": "{{DATA_PARTITION_ID}}:reference-data--CoordinateTransformation:EPSG::15851:"
+      },
+      "Usages": [
+        {
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 3637
+            },
+            "BoundingBoxEastBoundLongitude": -95.87,
+            "BoundingBoxNorthBoundLatitude": 49.01,
+            "BoundingBoxSouthBoundLatitude": 25.83,
+            "BoundingBoxWestBoundLongitude": -102.0,
+            "Description": "United States (USA) - between 102\u00b0W and 96\u00b0W. Iowa; Kansas; Minnesota; Nebraska; North Dakota; Oklahoma; South Dakota; Texas; Gulf of Mexico outer continental shelf (GoM OCS) west of approximately 96\u00b0W - protraction areas Corpus Christi; Port Isabel.",
+            "Name": "USA - 102\u00b0W to 96\u00b0W and GoM OCS"
+          },
+          "Name": "USA - 102\u00b0W to 96\u00b0W and GoM OCS (from coordinate reference system)",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1249
+            },
+            "Name": "Minerals management (including oil and gas exploration and production)."
+          }
+        }
+      ],
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    -102.0,
+                    25.83
+                  ],
+                  [
+                    -95.87,
+                    25.83
+                  ],
+                  [
+                    -95.87,
+                    49.01
+                  ],
+                  [
+                    -102.0,
+                    49.01
+                  ],
+                  [
+                    -102.0,
+                    25.83
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateReferenceSystem.1.1.0.json",
+      "CommitDate": "2022-12-21T08:41:03+01:00"
+    }
+  },
+  {
+    "id": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m",
+    "kind": "osdu:wks:reference-data--CoordinateReferenceSystem:1.1.0",
+    "acl": {
+      "owners": [
+        "data.default.owners@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+      ],
+      "viewers": [
+        "data.default.viewers@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{LEGAL_TAG}}"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "Name": "metre",
+      "NameAlias": [
+        {
+          "AliasName": "9001",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.EPSG:"
+        },
+        {
+          "AliasName": "m",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.OpenSpirit:"
+        },
+        {
+          "AliasName": "sm",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.OpenSpirit:"
+        },
+        {
+          "AliasName": "m",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.POSC:"
+        },
+        {
+          "AliasName": "m",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.RP66_V1:"
+        },
+        {
+          "AliasName": "m",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.RP66_V2:"
+        }
+      ],
+      "ID": "m",
+      "InactiveIndicator": false,
+      "Description": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding \n\t\t\t\tto the transition between the levels 2p10 and 5d5 of the krypton-86 atom. \n\t\t\t\tIn the US, this is called a meter.\n\t\t\t",
+      "Code": "m",
+      "AttributionAuthority": "Energistics",
+      "AttributionPublication": "Energistics Unit of Measure Dictionary V1.0",
+      "AttributionRevision": "1.0",
+      "CoefficientA": 0,
+      "CoefficientB": 1,
+      "CoefficientC": 1,
+      "CoefficientD": 0,
+      "IsBaseUnit": true,
+      "PersistableReference": "{\"abcd\":{\"a\":0.0,\"b\":1.0,\"c\":1.0,\"d\":0.0},\"symbol\":\"m\",\"baseMeasurement\":{\"ancestry\":\"L\",\"type\":\"UM\"},\"type\":\"UAD\"}",
+      "UnitDimensionCode": "L",
+      "UnitDimensionName": "length",
+      "UnitQuantityID": "osdu:reference-data--UnitQuantity:L:",
+      "Source": "Workbook Published/UnitOfMeasure.1.0.0.xlsx",
+      "CommitDate": "2021-10-30T16:40:06+02:00"
+    }
+  },
+  {
+    "id": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:BoundGeographic2D:EPSG::4230_EPSG::1612",
+    "kind": "osdu:wks:reference-data--CoordinateReferenceSystem:1.1.0",
+    "acl": {
+      "owners": [
+        "data.default.owners@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+      ],
+      "viewers": [
+        "data.default.viewers@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{LEGAL_TAG}}"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "Code": "4230023",
+      "CodeAsNumber": 4230023,
+      "CodeSpace": "OSDU",
+      "CoordinateReferenceSystemType": "BoundCRS",
+      "CoordinateSystem": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 6422
+        },
+        "Name": "Ellipsoidal 2D CS. Axes: latitude, longitude. Orientations: north, east. UoM: degree",
+        "HorizontalAxisUnitID": "osdu:reference-data--UnitOfMeasure:dega:"
+      },
+      "ID": "BoundGeographic2D:EPSG::4230_EPSG::1612",
+      "Kind": "BoundGeographic2D",
+      "Name": "ED50 * EPSG-Nor N62 2001 [4230,1612]",
+      "PersistableReference": "{\"authCode\":{\"auth\":\"OSDU\",\"code\":\"4230023\"},\"lateBoundCRS\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4230\"},\"name\":\"GCS_European_1950\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGCS[\\\"GCS_European_1950\\\",DATUM[\\\"D_European_1950\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4230]]\"},\"name\":\"ED50 * EPSG-Nor N62 2001 [4230,1612]\",\"singleCT\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"1612\"},\"name\":\"ED_1950_To_WGS_1984_23\",\"type\":\"ST\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGTRAN[\\\"ED_1950_To_WGS_1984_23\\\",GEOGCS[\\\"GCS_European_1950\\\",DATUM[\\\"D_European_1950\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"Position_Vector\\\"],PARAMETER[\\\"X_Axis_Translation\\\",-116.641],PARAMETER[\\\"Y_Axis_Translation\\\",-56.931],PARAMETER[\\\"Z_Axis_Translation\\\",-110.559],PARAMETER[\\\"X_Axis_Rotation\\\",0.893],PARAMETER[\\\"Y_Axis_Rotation\\\",0.921],PARAMETER[\\\"Z_Axis_Rotation\\\",-0.917],PARAMETER[\\\"Scale_Difference\\\",-3.52],OPERATIONACCURACY[1.0],AUTHORITY[\\\"EPSG\\\",1612]]\"},\"type\":\"EBC\",\"ver\":\"PE_10_9_1\"}",
+      "PreferredUsage": {
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 2601
+          },
+          "BoundingBoxEastBoundLongitude": 38.01,
+          "BoundingBoxNorthBoundLatitude": 84.73,
+          "BoundingBoxSouthBoundLatitude": 62,
+          "BoundingBoxWestBoundLongitude": -3.35,
+          "Description": "Norway - offshore north of 62°N. Also Svalbard - onshore and offshore.",
+          "Name": "Norway - offshore north of 62°N; Svalbard"
+        },
+        "Name": "Norway - offshore north of 62°N; Svalbard (from bound transformation)",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1027
+          },
+          "Name": "Geodesy."
+        }
+      },
+      "RevisionDate": "2023-01-21T13:19:59+00:00",
+      "SourceCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4230
+        },
+        "Name": "ED50",
+        "SourceCRSID": "osdu:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4230:"
+      },
+      "Transformation": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 1612
+        },
+        "Name": "ED50 to WGS 84 (23)",
+        "TransformationID": "osdu:reference-data--CoordinateTransformation:EPSG::1612:"
+      },
+      "Usages": [
+        {
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 2601
+            },
+            "BoundingBoxEastBoundLongitude": 38.01,
+            "BoundingBoxNorthBoundLatitude": 84.73,
+            "BoundingBoxSouthBoundLatitude": 62,
+            "BoundingBoxWestBoundLongitude": -3.35,
+            "Description": "Norway - offshore north of 62°N. Also Svalbard - onshore and offshore.",
+            "Name": "Norway - offshore north of 62°N; Svalbard"
+          },
+          "Name": "Norway - offshore north of 62°N; Svalbard (from bound transformation)",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1027
+            },
+            "Name": "Geodesy."
+          }
+        }
+      ],
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    -3.35,
+                    62
+                  ],
+                  [
+                    38.01,
+                    62
+                  ],
+                  [
+                    38.01,
+                    84.73
+                  ],
+                  [
+                    -3.35,
+                    84.73
+                  ],
+                  [
+                    -3.35,
+                    62
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateReferenceSystem.1.1.0.json",
+      "CommitDate": "2022-12-21T08:41:03+01:00"
+    }
+  },
+  {
+    "id": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:Projected:EPSG::32615",
+    "kind": "osdu:wks:reference-data--CoordinateReferenceSystem:1.1.0",
+    "acl": {
+      "owners": [
+        "data.default.owners@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+      ],
+      "viewers": [
+        "data.default.viewers@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{LEGAL_TAG}}"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "BaseCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4326
+        },
+        "BaseCRSID": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:",
+        "Name": "WGS 84"
+      },
+      "Code": "32615",
+      "CodeAsNumber": 32615,
+      "CodeSpace": "EPSG",
+      "CoordinateReferenceSystemType": "ProjectedCRS",
+      "CoordinateSystem": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4400
+        },
+        "Name": "Cartesian 2D CS. Axes: easting, northing (E,N). Orientations: east, north. UoM: m.",
+        "HorizontalAxisUnitID": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m:"
+      },
+      "Datum": {},
+      "ID": "Projected:EPSG::32615",
+      "Kind": "projected",
+      "Name": "WGS 84 / UTM zone 15N",
+      "PersistableReference": "{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"32615\"},\"name\":\"WGS_1984_UTM_Zone_15N\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"PROJCS[\\\"WGS_1984_UTM_Zone_15N\\\",GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Transverse_Mercator\\\"],PARAMETER[\\\"False_Easting\\\",500000.0],PARAMETER[\\\"False_Northing\\\",0.0],PARAMETER[\\\"Central_Meridian\\\",-93.0],PARAMETER[\\\"Scale_Factor\\\",0.9996],PARAMETER[\\\"Latitude_Of_Origin\\\",0.0],UNIT[\\\"Meter\\\",1.0],AUTHORITY[\\\"EPSG\\\",32615]]\"}",
+      "PreferredUsage": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 7526
+        },
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 2028
+          },
+          "BoundingBoxEastBoundLongitude": -90.0,
+          "BoundingBoxNorthBoundLatitude": 84.0,
+          "BoundingBoxSouthBoundLatitude": 0.0,
+          "BoundingBoxWestBoundLongitude": -96.0,
+          "Description": "Between 96\u00b0W and 90\u00b0W, northern hemisphere between equator and 84\u00b0N, onshore and offshore. Canada - Manitoba; Nunavut; Ontario. Ecuador -Galapagos. Guatemala. Mexico. United States (USA).",
+          "Name": "World - N hemisphere - 96\u00b0W to 90\u00b0W - by country"
+        },
+        "Name": "World - N hemisphere - 96\u00b0W to 90\u00b0W - by country",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1279
+          },
+          "Name": "Navigation and medium accuracy spatial referencing."
+        }
+      },
+      "Projection": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 16015
+        },
+        "Name": "UTM zone 15N"
+      },
+      "RevisionDate": "2022-12-12T00:00:00+00:00",
+      "Usages": [
+        {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 7526
+          },
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 2028
+            },
+            "BoundingBoxEastBoundLongitude": -90.0,
+            "BoundingBoxNorthBoundLatitude": 84.0,
+            "BoundingBoxSouthBoundLatitude": 0.0,
+            "BoundingBoxWestBoundLongitude": -96.0,
+            "Description": "Between 96\u00b0W and 90\u00b0W, northern hemisphere between equator and 84\u00b0N, onshore and offshore. Canada - Manitoba; Nunavut; Ontario. Ecuador -Galapagos. Guatemala. Mexico. United States (USA).",
+            "Name": "World - N hemisphere - 96\u00b0W to 90\u00b0W - by country"
+          },
+          "Name": "World - N hemisphere - 96\u00b0W to 90\u00b0W - by country",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1279
+            },
+            "Name": "Navigation and medium accuracy spatial referencing."
+          }
+        }
+      ],
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    -96.0,
+                    0.0
+                  ],
+                  [
+                    -90.0,
+                    0.0
+                  ],
+                  [
+                    -90.0,
+                    84.0
+                  ],
+                  [
+                    -96.0,
+                    84.0
+                  ],
+                  [
+                    -96.0,
+                    0.0
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateReferenceSystem.1.1.0.json",
+      "CommitDate": "2022-12-21T08:41:03+01:00"
+    }
+  }
+]

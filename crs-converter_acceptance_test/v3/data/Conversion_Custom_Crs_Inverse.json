@@ -1,0 +1,26 @@
+{
+    "CreateDate": "2017-08-08T09:39:27.3589238+00:00",
+    "TestData": [
+        {
+			"FromCrsPersistableReference": "osdu:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:",
+            "ToCrsPersistableReference": "{\"authCode\":{\"auth\":\"OSDU\",\"code\":\"4230023\"},\"lateBoundCRS\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4230\"},\"name\":\"GCS_European_1950\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGCS[\\\"GCS_European_1950\\\",DATUM[\\\"D_European_1950\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4230]]\"},\"name\":\"ED50 * EPSG-Nor N62 2001 [4230,1612]\",\"singleCT\":{\"authCode\":{\"auth\":\"TEST\",\"code\":\"1612\"},\"name\":\"ED_1950_To_WGS_1984_23\",\"type\":\"ST\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGTRAN[\\\"ED_1950_To_WGS_1984_23\\\",GEOGCS[\\\"GCS_European_1950\\\",DATUM[\\\"D_European_1950\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"Position_Vector\\\"],PARAMETER[\\\"X_Axis_Translation\\\",-116.641],PARAMETER[\\\"Y_Axis_Translation\\\",-56.931],PARAMETER[\\\"Z_Axis_Translation\\\",-110.559],PARAMETER[\\\"X_Axis_Rotation\\\",0.893],PARAMETER[\\\"Y_Axis_Rotation\\\",0.921],PARAMETER[\\\"Z_Axis_Rotation\\\",-0.917],PARAMETER[\\\"Scale_Difference\\\",-3.52],OPERATIONACCURACY[1.0],AUTHORITY[\\\"EPSG\\\",1612]]\"},\"type\":\"EBC\",\"ver\":\"PE_10_9_1\"}",
+            "FromInfo": "GCS_WGS_1984",
+            "ToInfo": "GCS_European_1950",
+            "Info": "Late-bound CRS Conversions",
+            "FromToPoints": [
+                {
+                    "FromPoint": {
+                        "X": 9.998475714549945,
+                        "Y": 62.99967496200938,
+                        "Z": 0.0
+                    },
+                    "ToPoint": {
+                        "X": 10.00000000010031,
+                        "Y": 63.000000000016605,
+                        "Z": 0.0
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1686 @@
+{
+    "trajectoryCRS": "{\"wkt\":\"PROJCS[\\\"WGS_1984_UTM_Zone_31N\\\",GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Transverse_Mercator\\\"],PARAMETER[\\\"False_Easting\\\",500000.0],PARAMETER[\\\"False_Northing\\\",0.0],PARAMETER[\\\"Central_Meridian\\\",3.0],PARAMETER[\\\"Scale_Factor\\\",0.9996],PARAMETER[\\\"Latitude_Of_Origin\\\",0.0],UNIT[\\\"Meter\\\",1.0],AUTHORITY[\\\"EPSG\\\",32631]]\",\"ver\":\"PE_10_3_1\",\"name\":\"WGS_1984_UTM_Zone_31N\",\"authCode\":{\"auth\":\"EPSG\",\"code\":\"32631\"},\"type\":\"LBC\"}",
+    "azimuthReference": "TRUE_NORTH",
+    "unitXY": "{\"scaleOffset\":{\"scale\":1.0,\"offset\":0.0},\"symbol\":\"m\",\"baseMeasurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"type\":\"USO\"}",
+    "unitZ": "{\"scaleOffset\":{\"scale\":1.0,\"offset\":0.0},\"symbol\":\"m\",\"baseMeasurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"type\":\"USO\"}",
+    "referencePoint": {
+        "x": 402063.15,
+        "y": 6825219.83,
+        "z": 0
+    },
+    "inputStations": [
+        {
+            "md": 0,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 30,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 60,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 90,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 120,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 150,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 180,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 210,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 240,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 270,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 300,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 330,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 360,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 390,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 420,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 450,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 480,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 510,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 540,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 570,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 600,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 630,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 660,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 690,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 720,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 750,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 780,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 810,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 840,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 870,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 900,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 930,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 960,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 990,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1020,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1050,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1080,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1110,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1140,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1170,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1200,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1230,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1260,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1290,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1320,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1350,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1380,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1410,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1440,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1470,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1500,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1530,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1560,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1590,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1620,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1650,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1680,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1710,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1740,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1770,
+            "inclination": 0,
+            "azimuth": 0
+        },
+        {
+            "md": 1800,
+            "inclination": 2.5,
+            "azimuth": 65
+        },
+        {
+            "md": 1830,
+            "inclination": 5,
+            "azimuth": 65
+        },
+        {
+            "md": 1860,
+            "inclination": 7.5,
+            "azimuth": 65
+        },
+        {
+            "md": 1890,
+            "inclination": 10,
+            "azimuth": 65
+        },
+        {
+            "md": 1920,
+            "inclination": 12.5,
+            "azimuth": 65
+        },
+        {
+            "md": 1950,
+            "inclination": 15,
+            "azimuth": 65
+        },
+        {
+            "md": 1980,
+            "inclination": 17.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2010,
+            "inclination": 20,
+            "azimuth": 65
+        },
+        {
+            "md": 2040,
+            "inclination": 22.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2070,
+            "inclination": 25,
+            "azimuth": 65
+        },
+        {
+            "md": 2100,
+            "inclination": 27.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2130,
+            "inclination": 30,
+            "azimuth": 65
+        },
+        {
+            "md": 2160,
+            "inclination": 32.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2190,
+            "inclination": 35,
+            "azimuth": 65
+        },
+        {
+            "md": 2220,
+            "inclination": 37.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2250,
+            "inclination": 40,
+            "azimuth": 65
+        },
+        {
+            "md": 2280,
+            "inclination": 42.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2310,
+            "inclination": 45,
+            "azimuth": 65
+        },
+        {
+            "md": 2340,
+            "inclination": 47.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2370,
+            "inclination": 50,
+            "azimuth": 65
+        },
+        {
+            "md": 2400,
+            "inclination": 52.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2430,
+            "inclination": 55,
+            "azimuth": 65
+        },
+        {
+            "md": 2460,
+            "inclination": 57.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2490,
+            "inclination": 60,
+            "azimuth": 65
+        },
+        {
+            "md": 2520,
+            "inclination": 62.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2550,
+            "inclination": 65,
+            "azimuth": 65
+        },
+        {
+            "md": 2580,
+            "inclination": 67.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2610,
+            "inclination": 70,
+            "azimuth": 65
+        },
+        {
+            "md": 2640,
+            "inclination": 72.5,
+            "azimuth": 65
+        },
+        {
+            "md": 2670,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 2700,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 2730,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 2760,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 2790,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 2820,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 2850,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 2880,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 2910,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 2940,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 2970,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3000,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3030,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3060,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3090,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3120,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3150,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3180,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3210,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3240,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3270,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3300,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3330,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3360,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3390,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3420,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3450,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3480,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3510,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3540,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3570,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3600,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3630,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3660,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3690,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3720,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3750,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3780,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3810,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3840,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3870,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3900,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3930,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3960,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 3990,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4020,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4050,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4080,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4110,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4140,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4170,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4200,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4230,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4260,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4290,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4320,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4350,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4380,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4410,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4440,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4470,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4500,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4530,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4560,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4590,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4620,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4650,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4680,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4710,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4740,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4770,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4800,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4830,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4860,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4890,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4920,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4950,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 4980,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5010,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5040,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5070,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5100,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5130,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5160,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5190,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5220,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5250,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5280,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5310,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5340,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5370,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5400,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5430,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5460,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5490,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5520,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5550,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5580,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5610,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5640,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5670,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5700,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5730,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5760,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5790,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5820,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5850,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5880,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5910,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5940,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 5970,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6000,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6030,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6060,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6090,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6120,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6150,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6180,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6210,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6240,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6270,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6300,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6330,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6360,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6390,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6420,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6450,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6480,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6510,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6540,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6570,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6600,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6630,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6660,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6690,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6720,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6750,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6780,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6810,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6840,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6870,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6900,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6930,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6960,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 6990,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7020,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7050,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7080,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7110,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7140,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7170,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7200,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7230,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7260,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7290,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7320,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7350,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7380,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7410,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7440,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7470,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7500,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7530,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7560,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7590,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7620,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7650,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7680,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7710,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7740,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7770,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7800,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7830,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7860,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7890,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7920,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7950,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 7980,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 8010,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 8040,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 8070,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 8100,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 8130,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 8160,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 8190,
+            "inclination": 75,
+            "azimuth": 65
+        },
+        {
+            "md": 8220,
+            "inclination": 77.5,
+            "azimuth": 65
+        },
+        {
+            "md": 8250,
+            "inclination": 80,
+            "azimuth": 65
+        },
+        {
+            "md": 8280,
+            "inclination": 82.5,
+            "azimuth": 65
+        },
+        {
+            "md": 8310,
+            "inclination": 85,
+            "azimuth": 65
+        },
+        {
+            "md": 8340,
+            "inclination": 87.5,
+            "azimuth": 65
+        },
+        {
+            "md": 8370,
+            "inclination": 90,
+            "azimuth": 65
+        },
+        {
+            "md": 8400,
+            "inclination": 90,
+            "azimuth": 65
+        },
+        {
+            "md": 8430,
+            "inclination": 90,
+            "azimuth": 67.5
+        },
+        {
+            "md": 8460,
+            "inclination": 90,
+            "azimuth": 70
+        },
+        {
+            "md": 8490,
+            "inclination": 90,
+            "azimuth": 72.5
+        },
+        {
+            "md": 8520,
+            "inclination": 90,
+            "azimuth": 75
+        },
+        {
+            "md": 8550,
+            "inclination": 90,
+            "azimuth": 77.5
+        },
+        {
+            "md": 8580,
+            "inclination": 90,
+            "azimuth": 80
+        },
+        {
+            "md": 8610,
+            "inclination": 90,
+            "azimuth": 82.5
+        },
+        {
+            "md": 8640,
+            "inclination": 90,
+            "azimuth": 85
+        },
+        {
+            "md": 8670,
+            "inclination": 90,
+            "azimuth": 87.5
+        },
+        {
+            "md": 8700,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 8730,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 8760,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 8790,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 8820,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 8850,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 8880,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 8910,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 8940,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 8970,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9000,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9030,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9060,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9090,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9120,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9150,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9180,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9210,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9240,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9270,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9300,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9330,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9360,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9390,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9420,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9450,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9480,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9510,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9540,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9570,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9600,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9630,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9660,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9690,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9720,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9750,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9780,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9810,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9840,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9870,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9900,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9930,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9960,
+            "inclination": 90,
+            "azimuth": 90
+        },
+        {
+            "md": 9990,
+            "inclination": 90,
+            "azimuth": 90
+        }
+    ],
+    "method": "LeesModifiedProposal",
+    "inputKind": "MD_Incl_Azim",
+    "interpolate": true
+}

@@ -1,0 +1,107 @@
+[
+    {
+        "kind": "{{DATA_PARTITION_ID}}:wks:reference-data--CoordinateReferenceSystem:1.0.0",
+        "id": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:BoundCRS::{{DATA_PARTITION_ID}}::toCRStrajectory{{TEST_ID}}",
+        "acl": {
+            "owners": [
+                "data.default.owners@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+            ],
+            "viewers": [
+                "data.default.viewers@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+            ]
+        },
+        "legal": {
+            "legaltags": [
+                "{{LEGAL_TAG}}"
+            ],
+            "otherRelevantDataCountries": [
+                "US"
+            ]
+        },        
+        "authority": "{{DATA_PARTITION_ID}}",
+        "namespace": "{{DATA_PARTITION_ID}}:wks",
+        "data": {
+            "PersistableReference":"{\"wkt\":\"PROJCS[\\\"WGS_1984_UTM_Zone_31N\\\",GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Transverse_Mercator\\\"],PARAMETER[\\\"False_Easting\\\",500000.0],PARAMETER[\\\"False_Northing\\\",0.0],PARAMETER[\\\"Central_Meridian\\\",3.0],PARAMETER[\\\"Scale_Factor\\\",0.9996],PARAMETER[\\\"Latitude_Of_Origin\\\",0.0],UNIT[\\\"Meter\\\",1.0],AUTHORITY[\\\"EPSG\\\",32631]]\",\"ver\":\"PE_10_3_1\",\"name\":\"WGS_1984_UTM_Zone_31N\",\"authCode\":{\"auth\":\"EPSG\",\"code\":\"32631\"},\"type\":\"LBC\"}",
+            "ResourceCurationStatus": null,
+            "VerticalCRS.AuthorityCode.Authority": null,
+            "Name": "ED50 / UTM zone 31N * EPSG-Nor S62 2001 [23031,1613]",
+            "PreferredUsage.Scope.AuthorityCode.Authority": null,
+            "PreferredUsage.Extent.BoundingBoxSouthBoundLatitude": 56.08,
+            "BaseCRS.AuthorityCode.Authority": "EPSG",
+            "HorizontalCRS.Name": null,
+            "PreferredUsage.Extent.BoundingBoxWestBoundLongitude": 1.37,
+            "PreferredUsage.Name": "Usage intersection between 'Europe - 0°E to 6°E and ED50 by country' and 'Norway - North Sea - offshore south of 62°N' [6394,8534]",
+            "Kind": "bound CRS",
+            "ResourceSecurityClassification": null,
+            "PreferredUsage.Extent.AuthorityCode.Authority": null,
+            "VerticalCRS.Name": null,
+            "ID": "BoundCRS::{{DATA_PARTITION_ID}}::{{TEST_ID}}",
+            "ExistenceKind": null,
+            "Usages": [
+                {
+                    "Scope": {
+                        "Name": "Scope intersection between 'Engineering survey, topographic mapping.' and 'Approximation at the 1m level.' [1142,1253]"
+                    },
+                    "Extent": {
+                        "BoundingBoxWestBoundLongitude": 1.37,
+                        "BoundingBoxNorthBoundLatitude": 62,
+                        "BoundingBoxEastBoundLongitude": 6.01,
+                        "BoundingBoxSouthBoundLatitude": 56.08,
+                        "Name": "Extent intersection between 'Europe - 0°E to 6°E and ED50 by country' and 'Norway - North Sea - offshore south of 62°N' [1634,2334]"
+                    },
+                    "Name": "Usage intersection between 'Europe - 0°E to 6°E and ED50 by country' and 'Norway - North Sea - offshore south of 62°N' [6394,8534]"
+                }
+            ],
+            "DatumEnsemble.AuthorityCode.Authority": null,
+            "Projection.Name": "UTM zone 31N",
+            "DatumEnsemble.Name": null,
+            "Transformation.AuthorityCode.Code": 1613,
+            "Projection.AuthorityCode.Code": 16031,
+            "HorizontalCRS.HorizontalCRSID": null,
+            "Code": "{{TEST_ID}}",
+            "CoordinateSystem.VerticalAxisUnitID": null,
+            "BaseCRS.BaseCRSID": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:GeodeticCRS::EPSG::4230::",
+            "AttributionAuthority": null,
+            "Datum.Name": null,
+            "AttributionRevision": null,
+            "TargetCRS.AuthorityCode.Authority": null,
+            "Datum.AuthorityCode.Authority": null,
+            "CoordinateSystem.AuthorityCode.Authority": "EPSG",
+            "TargetCRS.Name": null,
+            "Description": null,
+            "PreferredUsage.Extent.BoundingBoxEastBoundLongitude": 6.01,
+            "SourceCRS.SourceCRSID": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:ProjectedCRS::EPSG::23031:",
+            "ResourceLifecycleStatus": null,
+            "Transformation.AuthorityCode.Authority": "EPSG",
+            "TargetCRS.TargetCRSID": null,
+            "Source": "Workbook Published/CoordinateReferenceSystem.1.0.0.xlsx; commit SHA c1d72417.",
+            "Projection.AuthorityCode.Authority": "EPSG",
+            "SourceCRS.AuthorityCode.Authority": "EPSG",
+            "VerticalCRS.VerticalCRSID": null,
+            "CoordinateSystem.HorizontalAxisUnitID": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m:",
+            "Transformation.Name": "ED50 to WGS 84 (24)",
+            "PreferredUsage.Extent.BoundingBoxNorthBoundLatitude": 62.0,
+            "AttributionPublication": null,
+            "InactiveIndicator": null,
+            "CodeSpace": null,
+            "CodeAsNumber": "{{TEST_ID}}",
+            "Transformation.TransformationID": "{{DATA_PARTITION_ID}}:reference-data--CoordinateTransformation:Transformation::EPSG::1613:",
+            "BaseCRS.Name": "ED50",
+            "BaseCRS.AuthorityCode.Code": 4230,
+            "SourceCRS.AuthorityCode.Code": 23031,
+            "InformationSource": null,
+            "ResourceHomeRegionID": null,
+            "RevisionDate": "2021-02-15T00:00:00+0000",
+            "CoordinateReferenceSystemType": "BoundCRS",
+            "SourceCRS.Name": "ED50 / UTM zone 31N",
+            "PreferredUsage.Extent.Name": "Extent intersection between 'Europe - 0°E to 6°E and ED50 by country' and 'Norway - North Sea - offshore south of 62°N' [1634,2334]",
+            "CoordinateSystem.Name": "Cartesian 2D CS. Axes: easting, northing (E,N). Orientations: east, north. UoM: m.",
+            "CoordinateSystem.AuthorityCode.Code": 4400,
+            "PreferredUsage.AuthorityCode.Authority": null,
+            "PreferredUsage.Scope.Name": "Scope intersection between 'Engineering survey, topographic mapping.' and 'Approximation at the 1m level.' [1142,1253]",
+            "HorizontalCRS.AuthorityCode.Authority": null
+        },
+        "source": "wks",
+        "type": "reference-data--CoordinateReferenceSystem"
+    }
+]

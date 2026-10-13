@@ -1,0 +1,96 @@
+{
+  "inBinGrid": {
+    "BinGridName": "TestBinGridName",
+    "BinGridTypeID": "TestBinGridTypeID",
+    "SourceBinGridID": 123,
+    "SourceBinGridAppID": "TestSourceBinGridAppID",
+    "CoveragePercent": 1,
+    "ABCDBinGridSpatialLocation": {
+      "AsIngestedCoordinates": {
+        "type": "AnyCrsFeatureCollection",
+        "CoordinateReferenceSystemID": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:Projected:EPSG::32221:",
+        "features": [
+          {
+            "type": "AnyCrsFeature",
+            "properties": {
+              "Kind": "{{DATA_PARTITION_ID}}:wks:AbstractGeoJson.PropertiesBinGridCorners:1.0.0",
+              "PointProperties": [
+                {
+                  "Inline": 1,
+                  "Crossline": 1000
+                }
+              ]
+            },
+            "geometry": {
+              "type": "AnyCrsPoint",
+              "coordinates": [
+                500000,
+                3000000
+              ]
+            }
+          },
+          {
+            "type": "AnyCrsFeature",
+            "properties": {
+              "Kind": "{{DATA_PARTITION_ID}}:wks:AbstractGeoJson.PropertiesBinGridCorners:1.0.0",
+              "PointProperties": [
+                {
+                  "Inline": 1,
+                  "Crossline": 2000
+                }
+              ]
+            },
+            "geometry": {
+              "type": "AnyCrsPoint",
+              "coordinates": [
+                500000,
+                3100000
+              ]
+            }
+          },
+          {
+            "type": "AnyCrsFeature",
+            "properties": {
+              "Kind": "{{DATA_PARTITION_ID}}:wks:AbstractGeoJson.PropertiesBinGridCorners:1.0.0",
+              "PointProperties": [
+                {
+                  "Inline": 101,
+                  "Crossline": 1000
+                }
+              ]
+            },
+            "geometry": {
+              "type": "AnyCrsPoint",
+              "coordinates": [
+                600000,
+                3000000
+              ]
+            }
+          },
+          {
+            "type": "AnyCrsFeature",
+            "properties": {
+              "Kind": "{{DATA_PARTITION_ID}}:wks:AbstractGeoJson.PropertiesBinGridCorners:1.0.0",
+              "PointProperties": [
+                {
+                  "Inline": 101,
+                  "Crossline": 2000
+                }
+              ]
+            },
+            "geometry": {
+              "type": "AnyCrsPoint",
+              "coordinates": [
+                600000,
+                3100000
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "P6ScaleFactorOfBinGrid": 1,
+    "P6BinNodeIncrementOnIaxis": 1,
+    "P6BinNodeIncrementOnJaxis": 1
+  }
+}

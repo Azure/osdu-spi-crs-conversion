@@ -1,0 +1,50 @@
+package org.opengroup.osdu.crs.sis;
+
+public class SisParameterDefs {
+
+    public static final int PE_PRJ_AZIMUTHAL_EQUIDISTANT = 43032;
+    public static final int PE_PAR_AUXILIARY_SPHERE_TYPE = 100035;
+    public static final int PE_PAR_AZIMUTH = 100004;
+    public static final int PE_PAR_CENTRAL_MERIDIAN = 100010;
+    public static final int PE_PAR_CENTRAL_PARALLEL = 100020;
+    public static final int PE_PAR_DIRECTION = 100007;
+    public static final int PE_PAR_FALSE_EASTING = 100001;
+    public static final int PE_PAR_FALSE_NORTHING = 100002;
+    public static final int PE_PAR_HEIGHT = 100005;
+    public static final int PE_PAR_INCLINATION_EAST = 100064;
+    public static final int PE_PAR_INCLINATION_NORTH = 100063;
+    public static final int PE_PAR_INTERPOLATION_TYPE = 100065;
+    public static final int PE_PAR_LATITUDE_OF_1ST = 100023;
+    public static final int PE_PAR_LATITUDE_OF_2ND = 100024;
+    public static final int PE_PAR_LATITUDE_OF_CENTER = 100022;
+    public static final int PE_PAR_LATITUDE_OF_EVALUATION = 100061;
+    public static final int PE_PAR_LATITUDE_OF_ORIGIN = 100021;
+    public static final int PE_PAR_LATITUDE_OFFSET = 100052;
+    public static final int PE_PAR_LONGITUDE_OF_1ST = 100013;
+    public static final int PE_PAR_LONGITUDE_OF_2ND = 100014;
+    public static final int PE_PAR_LONGITUDE_OF_CENTER = 100012;
+    public static final int PE_PAR_LONGITUDE_OF_EVALUATION = 100062;
+    public static final int PE_PAR_LONGITUDE_OF_ORIGIN = 100011;
+    public static final int PE_PAR_LONGITUDE_OFFSET = 100051;
+    public static final int PE_PAR_NAME_DATASET = 100047;
+    public static final int PE_PAR_OPTION = 100036;
+    public static final int PE_PAR_PSEUDO_STANDARD_PARALLEL_1 = 100027;
+    public static final int PE_PAR_SCALE_DIFFERENCE = 100046;
+    public static final int PE_PAR_SCALE_FACTOR = 100003;
+    public static final int PE_PAR_STANDARD_PARALLEL_1 = 100025;
+    public static final int PE_PAR_STANDARD_PARALLEL_2 = 100026;
+    public static final int PE_PAR_VERTICAL_OFFSET = 100060;
+    public static final int PE_PAR_VERTICAL_SHIFT = 100006;
+    public static final int PE_PAR_X_AXIS_ROTATION = 100043;
+    public static final int PE_PAR_X_AXIS_TRANSLATION = 100040;
+    public static final int PE_PAR_X_COORD_OF_ROTATION_ORIGIN = 100048;
+    public static final int PE_PAR_X_SCALE = 100037;
+    public static final int PE_PAR_XY_PLANE_ROTATION = 100039;
+    public static final int PE_PAR_Y_AXIS_ROTATION = 100044;
+    public static final int PE_PAR_Y_AXIS_TRANSLATION = 100041;
+    public static final int PE_PAR_Y_COORD_OF_ROTATION_ORIGIN = 100049;
+    public static final int PE_PAR_Y_SCALE = 100038;
+    public static final int PE_PAR_Z_AXIS_ROTATION = 100045;
+    public static final int PE_PAR_Z_AXIS_TRANSLATION = 100042;
+    public static final int PE_PAR_Z_COORD_OF_ROTATION_ORIGIN = 100050;
+}

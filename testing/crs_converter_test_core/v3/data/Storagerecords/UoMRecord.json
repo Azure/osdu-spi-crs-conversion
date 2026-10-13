@@ -1,0 +1,41 @@
+[
+    {
+        "id": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:msTest{{TEST_ID}}",
+        "kind": "{{DATA_PARTITION_ID}}:wks:reference-data--UnitOfMeasure:1.0.0",
+        "acl": {
+            "owners": [
+                "data.default.owners@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+            ],
+            "viewers": [
+                "data.default.viewers@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+            ]
+        },
+        "legal": {
+            "legaltags": [
+                "{{LEGAL_TAG}}"
+            ],
+            "otherRelevantDataCountries": [
+                "US"
+            ]
+        },
+        "data": {
+            "Name": "millisecond",
+            "ID": "ms",
+            "InactiveIndicator": false,
+            "Code": "ms",
+            "AttributionAuthority": "Energistics",
+            "AttributionPublication": "Energistics Unit of Measure Dictionary V1.0",
+            "AttributionRevision": "1.0",
+            "CoefficientA": 0,
+            "CoefficientB": 0.001,
+            "CoefficientC": 1,
+            "CoefficientD": 0,
+            "IsBaseUnit": false,
+            "PersistableReference": "{\"scaleOffset\":{\"scale\":1.0,\"offset\":0.0},\"symbol\":\"m\",\"baseMeasurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"type\":\"USO\"}",
+            "UnitDimensionCode": "T",
+            "UnitDimensionName": "time",
+            "UnitQuantityID": "{{DATA_PARTITION_ID}}:reference-data--UnitQuantity:T:",
+            "Source": "Workbook Published/UnitOfMeasure.1.0.0.xlsx; commit SHA c1d72417."
+        }
+    }
+]

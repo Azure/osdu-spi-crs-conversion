@@ -1,0 +1,41 @@
+[
+    {
+        "id": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m:",
+        "kind": "{{DATA_PARTITION_ID}}:wks:reference-data--UnitOfMeasure:1.0.0",
+        "acl": {
+            "owners": [
+                "data.default.owners@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+            ],
+            "viewers": [
+                "data.default.viewers@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+            ]
+        },
+        "legal": {
+            "legaltags": [
+                "{{LEGAL_TAG}}"
+            ],
+            "otherRelevantDataCountries": [
+                "US"
+            ]
+        },
+        "data": {
+            "Name": "millisecond",
+            "ID": "m",
+            "InactiveIndicator": false,
+            "Code": "m",
+            "AttributionAuthority": "Energistics",
+            "AttributionPublication": "Energistics Unit of Measure Dictionary V1.0",
+            "AttributionRevision": "1.0",
+            "CoefficientA": 0,
+            "CoefficientB": 1,
+            "CoefficientC": 1,
+            "CoefficientD": 0,
+            "IsBaseUnit": false,
+            "PersistableReference": "{\"abcd\":{\"a\":0.0,\"b\":1.0,\"c\":1.0,\"d\":0.0},\"symbol\":\"m\",\"baseMeasurement\":{\"ancestry\":\"L\",\"type\":\"UM\"},\"type\":\"UAD\"}",
+            "UnitDimensionCode": "L",
+            "UnitDimensionName": "length",
+            "UnitQuantityID": "{{DATA_PARTITION_ID}}:reference-data--UnitQuantity:L:",
+            "Source": "Workbook Published/UnitOfMeasure.1.0.0.xlsx; commit SHA 4b3c8e86."
+        }
+    }
+]

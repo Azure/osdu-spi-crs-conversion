@@ -1,0 +1,27 @@
+{
+    "interpolate": false,
+    "azimuthReference": "GN",
+    "referencePoint": {
+        "x": 400000,
+        "y": 6500000,
+        "z": 100
+    },
+    "unitZ":  "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m_{{TEST_ID}}:",
+    "unitMD": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m_{{TEST_ID}}:",
+	"unitXY": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m_{{TEST_ID}}:",
+    "inputStations": [
+        {
+            "dx": 0,
+            "dy": 0,
+            "dz": 0
+        },
+	    {
+            "dx": -1.5115234,
+            "dy": 8.5722752,
+            "dz": 99.4930770
+        }
+    ],
+    "trajectoryCRS": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:Projected:EPSG::32615_{{TEST_ID}}:",
+    "inputKind": "dX_dY_dZ",
+    "method": "AzimuthalEquidistant"
+}

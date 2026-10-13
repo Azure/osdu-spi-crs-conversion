@@ -1,0 +1,6032 @@
+{
+    "trajectoryCRS": "{\"wkt\":\"PROJCS[\\\"WGS_1984_UTM_Zone_31N\\\",GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Transverse_Mercator\\\"],PARAMETER[\\\"False_Easting\\\",500000.0],PARAMETER[\\\"False_Northing\\\",0.0],PARAMETER[\\\"Central_Meridian\\\",3.0],PARAMETER[\\\"Scale_Factor\\\",0.9996],PARAMETER[\\\"Latitude_Of_Origin\\\",0.0],UNIT[\\\"Meter\\\",1.0],AUTHORITY[\\\"EPSG\\\",32631]]\",\"ver\":\"PE_10_3_1\",\"name\":\"WGS_1984_UTM_Zone_31N\",\"authCode\":{\"auth\":\"EPSG\",\"code\":\"32631\"},\"type\":\"LBC\"}",
+    "unitXY": "{\"baseMeasurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}",
+    "unitZ": "{\"baseMeasurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}",
+    "unitDls": "{\"scaleOffset\":{\"scale\":5.81776417331443E-4,\"offset\":0.0},\"symbol\":\"deg/30m\",\"baseMeasurement\":{\"ancestry\":\"Rotation_Per_Length\",\"type\":\"UM\"},\"type\":\"USO\"}",
+    "stations": [
+        {
+            "md": 0,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": 0
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0.0,
+            "original": true,
+            "dz": 0
+        },
+        {
+            "md": 30,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -30
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 30
+        },
+        {
+            "md": 60,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -60
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 60
+        },
+        {
+            "md": 90,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -90
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 90
+        },
+        {
+            "md": 120,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -120
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 120
+        },
+        {
+            "md": 150,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -150
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 150
+        },
+        {
+            "md": 180,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -180
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 180
+        },
+        {
+            "md": 210,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -210
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 210
+        },
+        {
+            "md": 240,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -240
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 240
+        },
+        {
+            "md": 270,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -270
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 270
+        },
+        {
+            "md": 300,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -300
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 300
+        },
+        {
+            "md": 330,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -330
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 330
+        },
+        {
+            "md": 360,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -360
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 360
+        },
+        {
+            "md": 390,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -390
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 390
+        },
+        {
+            "md": 420,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -420
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 420
+        },
+        {
+            "md": 450,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -450
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 450
+        },
+        {
+            "md": 480,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -480
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 480
+        },
+        {
+            "md": 510,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -510
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 510
+        },
+        {
+            "md": 540,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -540
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 540
+        },
+        {
+            "md": 570,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -570
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 570
+        },
+        {
+            "md": 600,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -600
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 600
+        },
+        {
+            "md": 630,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -630
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 630
+        },
+        {
+            "md": 660,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -660
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 660
+        },
+        {
+            "md": 690,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -690
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 690
+        },
+        {
+            "md": 720,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -720
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 720
+        },
+        {
+            "md": 750,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -750
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 750
+        },
+        {
+            "md": 780,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -780
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 780
+        },
+        {
+            "md": 810,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -810
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 810
+        },
+        {
+            "md": 840,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -840
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 840
+        },
+        {
+            "md": 870,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -870
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 870
+        },
+        {
+            "md": 900,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -900
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 900
+        },
+        {
+            "md": 930,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -930
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 930
+        },
+        {
+            "md": 960,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -960
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 960
+        },
+        {
+            "md": 990,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -990
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 990
+        },
+        {
+            "md": 1020,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1020
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1020
+        },
+        {
+            "md": 1050,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1050
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1050
+        },
+        {
+            "md": 1080,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1080
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1080
+        },
+        {
+            "md": 1110,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1110
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1110
+        },
+        {
+            "md": 1140,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1140
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1140
+        },
+        {
+            "md": 1170,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1170
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1170
+        },
+        {
+            "md": 1200,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1200
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1200
+        },
+        {
+            "md": 1230,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1230
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1230
+        },
+        {
+            "md": 1260,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1260
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1260
+        },
+        {
+            "md": 1290,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1290
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1290
+        },
+        {
+            "md": 1320,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1320
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1320
+        },
+        {
+            "md": 1350,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1350
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1350
+        },
+        {
+            "md": 1380,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1380
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1380
+        },
+        {
+            "md": 1410,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1410
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1410
+        },
+        {
+            "md": 1440,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1440
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1440
+        },
+        {
+            "md": 1470,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1470
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1470
+        },
+        {
+            "md": 1500,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1500
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1500
+        },
+        {
+            "md": 1530,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1530
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1530
+        },
+        {
+            "md": 1560,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1560
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1560
+        },
+        {
+            "md": 1590,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1590
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1590
+        },
+        {
+            "md": 1620,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1620
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1620
+        },
+        {
+            "md": 1650,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1650
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1650
+        },
+        {
+            "md": 1680,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1680
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1680
+        },
+        {
+            "md": 1710,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1710
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1710
+        },
+        {
+            "md": 1740,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1740
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1740
+        },
+        {
+            "md": 1770,
+            "inclination": 0,
+            "azimuthTN": 0,
+            "azimuthGN": 1.6203237784225077,
+            "dxTN": 0,
+            "dyTN": 0,
+            "point": {
+                "x": 402063.15,
+                "y": 6825219.83,
+                "z": -1770
+            },
+            "wgs84Longitude": 1.1572281256991377,
+            "wgs84Latitude": 61.54805721163683,
+            "dls": 0,
+            "original": true,
+            "dz": 1770
+        },
+        {
+            "md": 1800,
+            "inclination": 2.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.62031400465622,
+            "dxTN": 0.5930829550310227,
+            "dyTN": 0.2765591238521625,
+            "point": {
+                "x": 402063.7506652047,
+                "y": 6825220.089678307,
+                "z": -1799.9904816117603
+            },
+            "wgs84Longitude": 1.1572392827272522,
+            "wgs84Latitude": 61.548059694063525,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 1799.9904816117603
+        },
+        {
+            "md": 1830,
+            "inclination": 5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.6202847019253,
+            "dxTN": 2.3712028530105576,
+            "dyTN": 1.1057100493978045,
+            "point": {
+                "x": 402065.5515254383,
+                "y": 6825220.868223187,
+                "z": -1829.923874637225
+            },
+            "wgs84Longitude": 1.157272732732851,
+            "wgs84Latitude": 61.548067136653096,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 1829.923874637225
+        },
+        {
+            "md": 1860,
+            "inclination": 7.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.62023592575589,
+            "dxTN": 5.330974941651072,
+            "dyTN": 2.4858744407242916,
+            "point": {
+                "x": 402068.54916283314,
+                "y": 6825222.164159305,
+                "z": -1859.7431991614674
+            },
+            "wgs84Longitude": 1.1573284122618588,
+            "wgs84Latitude": 61.548079525284344,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 1859.7431991614674
+        },
+        {
+            "md": 1890,
+            "inclination": 10,
+            "azimuthTN": 65,
+            "azimuthGN": 66.62016776866827,
+            "dxTN": 9.466765126559391,
+            "dyTN": 4.4144250764693185,
+            "point": {
+                "x": 402072.7378807134,
+                "y": 6825223.975027591,
+                "z": -1889.3916924054358
+            },
+            "wgs84Longitude": 1.1574062155529254,
+            "wgs84Latitude": 61.54809683642043,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 1889.3916924054358
+        },
+        {
+            "md": 1920,
+            "inclination": 12.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.6200803603971,
+            "dxTN": 14.770700696055595,
+            "dyTN": 6.8876908508860915,
+            "point": {
+                "x": 402078.10971438815,
+                "y": 6825226.297389865,
+                "z": -1918.8129167771303
+            },
+            "wgs84Longitude": 1.157505994737407,
+            "wgs84Latitude": 61.548119037153384,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 1918.8129167771303
+        },
+        {
+            "md": 1950,
+            "inclination": 15,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61997386701344,
+            "dxTN": 21.232685307327156,
+            "dyTN": 9.900963762001771,
+            "point": {
+                "x": 402084.65444626636,
+                "y": 6825229.12683532,
+                "z": -1947.9508673037665
+            },
+            "wgs84Longitude": 1.1576275601194514,
+            "wgs84Latitude": 61.54814608526647,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 1947.9508673037665
+        },
+        {
+            "md": 1980,
+            "inclination": 17.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61984849085648,
+            "dxTN": 28.840418205391323,
+            "dyTN": 13.448507873566813,
+            "point": {
+                "x": 402092.35962526756,
+                "y": 6825232.457988858,
+                "z": -1976.7500782404236
+            },
+            "wgs84Longitude": 1.1577706805356651,
+            "wgs84Latitude": 61.548177929314356,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 1976.7500782404236
+        },
+        {
+            "md": 2010,
+            "inclination": 20,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61970447050193,
+            "dxTN": 37.579417638281356,
+            "dyTN": 17.523570233735626,
+            "point": {
+                "x": 402101.21059048886,
+                "y": 6825236.2845212445,
+                "z": -2005.1557286522439
+            },
+            "wgs84Longitude": 1.1579350837936824,
+            "wgs84Latitude": 61.548214508720775,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 2005.1557286522439
+        },
+        {
+            "md": 2040,
+            "inclination": 22.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61954207983277,
+            "dxTN": 47.4330484238845,
+            "dyTN": 22.118393729694226,
+            "point": {
+                "x": 402111.19049908593,
+                "y": 6825240.599161076,
+                "z": -2033.1137467691967
+            },
+            "wgs84Longitude": 1.1581204571888293,
+            "wgs84Latitude": 61.5482557538936,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 2033.1137467691967
+        },
+        {
+            "md": 2070,
+            "inclination": 25,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61936162751395,
+            "dxTN": 58.38255361595659,
+            "dyTN": 27.22423185376536,
+            "point": {
+                "x": 402122.2803583137,
+                "y": 6825245.393708539,
+                "z": -2060.5709129147667
+            },
+            "wgs84Longitude": 1.1583264480978852,
+            "wgs84Latitude": 61.54830158635718,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2060.5709129147667
+        },
+        {
+            "md": 2100,
+            "inclination": 27.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61916345722416,
+            "dxTN": 70.40709020903532,
+            "dyTN": 32.83136535288299,
+            "point": {
+                "x": 402134.45906166633,
+                "y": 6825250.659050917,
+                "z": -2087.474960812632
+            },
+            "wgs84Longitude": 1.1585526646488495,
+            "wgs84Latitude": 61.548351918901425,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2087.474960812632
+        },
+        {
+            "md": 2130,
+            "inclination": 30,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61894794549788,
+            "dxTN": 83.48376881428578,
+            "dyTN": 38.92912072974291,
+            "point": {
+                "x": 402147.7034290476,
+                "y": 6825256.385179854,
+                "z": -2113.774677078494
+            },
+            "wgs84Longitude": 1.1587986764654266,
+            "wgs84Latitude": 61.548406655747755,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 2113.774677078494
+        },
+        {
+            "md": 2160,
+            "inclination": 32.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61871550252405,
+            "dxTN": 97.58769723075308,
+            "dyTN": 45.505890560411515,
+            "point": {
+                "x": 402161.98825089564,
+                "y": 6825262.56121029,
+                "z": -2139.4199987076613
+            },
+            "wgs84Longitude": 1.1590640154848397,
+            "wgs84Latitude": 61.548465692731156,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 2139.4199987076613
+        },
+        {
+            "md": 2190,
+            "inclination": 35,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61846657045669,
+            "dxTN": 112.69202782908155,
+            "dyTN": 52.54915558971696,
+            "point": {
+                "x": 402177.28633617825,
+                "y": 6825269.175401092,
+                "z": -2164.3621083728285
+            },
+            "wgs84Longitude": 1.1593481768474267,
+            "wgs84Latitude": 61.54852891749843,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2164.3621083728285
+        },
+        {
+            "md": 2220,
+            "inclination": 37.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61820162287962,
+            "dxTN": 128.76800865750326,
+            "dyTN": 60.04550856236295,
+            "point": {
+                "x": 402193.5685641656,
+                "y": 6825276.215177277,
+                "z": -2188.553527350631
+            },
+            "wgs84Longitude": 1.1596506198563117,
+            "wgs84Latitude": 61.54859620972185,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2188.553527350631
+        },
+        {
+            "md": 2250,
+            "inclination": 40,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61792116403817,
+            "dxTN": 145.78503817281228,
+            "dyTN": 67.98067974440119,
+            "point": {
+                "x": 402210.80393988494,
+                "y": 6825283.667153866,
+                "z": -2211.9482059000943
+            },
+            "wgs84Longitude": 1.1599707690053802,
+            "wgs84Latitude": 61.548667441328206,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2211.9482059000943
+        },
+        {
+            "md": 2280,
+            "inclination": 42.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61762572747337,
+            "dxTN": 163.7107234921415,
+            "dyTN": 76.33956408648103,
+            "point": {
+                "x": 402228.95965314773,
+                "y": 6825291.51716123,
+                "z": -2234.5016109209328
+            },
+            "wgs84Longitude": 1.1603080150735587,
+            "wgs84Latitude": 61.54874247674244,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2234.5016109209328
+        },
+        {
+            "md": 2310,
+            "inclination": 45,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61731587528818,
+            "dxTN": 182.51094205465623,
+            "dyTN": 85.10624997716941,
+            "point": {
+                "x": 402248.00114103995,
+                "y": 6825299.750271965,
+                "z": -2256.1708107248373
+            },
+            "wgs84Longitude": 1.1606617162833661,
+            "wgs84Latitude": 61.548821173145726,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2256.1708107248373
+        },
+        {
+            "md": 2340,
+            "inclination": 47.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61699219706533,
+            "dxTN": 202.14990657578815,
+            "dyTN": 94.26404953160754,
+            "point": {
+                "x": 402267.8921537545,
+                "y": 6825308.350829195,
+                "z": -2276.914556758385
+            },
+            "wgs84Longitude": 1.1610311995215288,
+            "wgs84Latitude": 61.54890338074729,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 2276.914556758385
+        },
+        {
+            "md": 2370,
+            "inclination": 50,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61665530887566,
+            "dxTN": 222.5902331703655,
+            "dyTN": 103.79553035784824,
+            "point": {
+                "x": 402288.59482364054,
+                "y": 6825317.302476273,
+                "z": -2296.6933621220032
+            },
+            "wgs84Longitude": 1.1614157616193277,
+            "wgs84Latitude": 61.54898894306957,
+            "dls": 2.4999999999998073,
+            "original": true,
+            "dz": 2296.6933621220032
+        },
+        {
+            "md": 2400,
+            "inclination": 52.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61630585172705,
+            "dxTN": 243.7930125149633,
+            "dyTN": 113.68254874040481,
+            "point": {
+                "x": 402310.06973733817,
+                "y": 6825326.588187805,
+                "z": -2315.4695767355283
+            },
+            "wgs84Longitude": 1.161814670690267,
+            "wgs84Latitude": 61.54907769724602,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2315.4695767355283
+        },
+        {
+            "md": 2430,
+            "inclination": 55,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61594449080044,
+            "dxTN": 265.7178839140119,
+            "dyTN": 123.90628417784467,
+            "point": {
+                "x": 402332.2760108601,
+                "y": 6825336.190301961,
+                "z": -2333.2074590072734
+            },
+            "wgs84Longitude": 1.1622271675225146,
+            "wgs84Latitude": 61.54916947433127,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2333.2074590072734
+        },
+        {
+            "md": 2460,
+            "inclination": 57.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61557191354198,
+            "dxTN": 288.323112128675,
+            "dyTN": 134.4472752086835,
+            "point": {
+                "x": 402355.1713674784,
+                "y": 6825346.090553999,
+                "z": -2349.8732438701786
+            },
+            "wgs84Longitude": 1.162652467023482,
+            "wgs84Latitude": 61.54926409962271,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2349.8732438701786
+        },
+        {
+            "md": 2490,
+            "inclination": 60,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61518882912715,
+            "dxTN": 311.5656668222488,
+            "dyTN": 145.28545645738333,
+            "point": {
+                "x": 402378.71221826546,
+                "y": 6825356.270110933,
+                "z": -2365.4352070555365
+            },
+            "wgs84Longitude": 1.1630897597137737,
+            "wgs84Latitude": 61.549361392993184,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2365.4352070555365
+        },
+        {
+            "md": 2520,
+            "inclination": 62.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61479596677374,
+            "dxTN": 335.4013044708536,
+            "dyTN": 156.40019682993534,
+            "point": {
+                "x": 402402.85374513763,
+                "y": 6825366.709607305,
+                "z": -2379.863725481939
+            },
+            "wgs84Longitude": 1.163538213267691,
+            "wgs84Latitude": 61.549461169233965,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2379.863725481939
+        },
+        {
+            "md": 2550,
+            "inclination": 65,
+            "azimuthTN": 65,
+            "azimuthGN": 66.6143940742025,
+            "dxTN": 359.78465258349615,
+            "dyTN": 167.77033878631983,
+            "point": {
+                "x": 402427.5499862411,
+                "y": 6825377.389181961,
+                "z": -2393.1313336444987
+            },
+            "wgs84Longitude": 1.1639969740973535,
+            "wgs84Latitude": 61.54956323840741,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2393.1313336444987
+        },
+        {
+            "md": 2580,
+            "inclination": 67.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61398391610606,
+            "dxTN": 384.6692960711853,
+            "dyTN": 179.37423861508617,
+            "point": {
+                "x": 402452.7539235181,
+                "y": 6825388.288515788,
+                "z": -2405.2127758969964
+            },
+            "wgs84Longitude": 1.1644651689774166,
+            "wgs84Latitude": 61.54966740620876,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2405.2127758969964
+        },
+        {
+            "md": 2610,
+            "inclination": 70,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61356627333949,
+            "dxTN": 410.0078656006914,
+            "dyTN": 191.18980763338777,
+            "point": {
+                "x": 402478.4175722852,
+                "y": 6825399.386870311,
+                "z": -2416.0850545274398
+            },
+            "wgs84Longitude": 1.1649419067073004,
+            "wgs84Latitude": 61.54977347433602,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2416.0850545274398
+        },
+        {
+            "md": 2640,
+            "inclination": 72.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61314194098463,
+            "dxTN": 435.75212776476496,
+            "dyTN": 203.19455423404526,
+            "point": {
+                "x": 402504.4920726541,
+                "y": 6825410.663127135,
+                "z": -2425.7274735355163
+            },
+            "wgs84Longitude": 1.165426279807767,
+            "wgs84Latitude": 61.549881240867805,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 2425.7274735355163
+        },
+        {
+            "md": 2670,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61271172636815,
+            "dxTN": 461.8530768971684,
+            "dyTN": 215.36562669959906,
+            "point": {
+                "x": 402530.92778261774,
+                "y": 6825422.095828071,
+                "z": -2434.121678028605
+            },
+            "wgs84Longitude": 1.1659173662486102,
+            "wgs84Latitude": 61.54999050064774,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 2434.121678028605
+        },
+        {
+            "md": 2700,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61227884159555,
+            "dxTN": 488.1158598391362,
+            "dyTN": 227.6121635099011,
+            "point": {
+                "x": 402557.5273457037,
+                "y": 6825433.599628844,
+                "z": -2441.8862493816805
+            },
+            "wgs84Longitude": 1.166411499911133,
+            "wgs84Latitude": 61.55010043800345,
+            "dls": 0,
+            "original": true,
+            "dz": 2441.8862493816805
+        },
+        {
+            "md": 2730,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61184595382682,
+            "dxTN": 514.378642781104,
+            "dyTN": 239.85870032020316,
+            "point": {
+                "x": 402584.1268524948,
+                "y": 6825445.103643853,
+                "z": -2449.650820734756
+            },
+            "wgs84Longitude": 1.1669056359210828,
+            "wgs84Latitude": 61.550210375491126,
+            "dls": 0,
+            "original": true,
+            "dz": 2449.650820734756
+        },
+        {
+            "md": 2760,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.6114130632386,
+            "dxTN": 540.6414257230717,
+            "dyTN": 252.1052371305052,
+            "point": {
+                "x": 402610.7263029892,
+                "y": 6825456.607873095,
+                "z": -2457.4153920878316
+            },
+            "wgs84Longitude": 1.1673997742784794,
+            "wgs84Latitude": 61.55032031311075,
+            "dls": 0,
+            "original": true,
+            "dz": 2457.4153920878316
+        },
+        {
+            "md": 2790,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.6109801695509,
+            "dxTN": 566.9042086650395,
+            "dyTN": 264.3517739408072,
+            "point": {
+                "x": 402637.3256971851,
+                "y": 6825468.112316574,
+                "z": -2465.179963440907
+            },
+            "wgs84Longitude": 1.167893914983346,
+            "wgs84Latitude": 61.550430250862355,
+            "dls": 0,
+            "original": true,
+            "dz": 2465.179963440907
+        },
+        {
+            "md": 2820,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61054727310382,
+            "dxTN": 593.1669916070073,
+            "dyTN": 276.59831075110924,
+            "point": {
+                "x": 402663.92503508093,
+                "y": 6825479.616974288,
+                "z": -2472.9445347939827
+            },
+            "wgs84Longitude": 1.1683880580357067,
+            "wgs84Latitude": 61.550540188745906,
+            "dls": 0,
+            "original": true,
+            "dz": 2472.9445347939827
+        },
+        {
+            "md": 2850,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.61011437359392,
+            "dxTN": 619.429774548975,
+            "dyTN": 288.84484756141126,
+            "point": {
+                "x": 402690.52431667474,
+                "y": 6825491.121846242,
+                "z": -2480.7091061470583
+            },
+            "wgs84Longitude": 1.1688822034355812,
+            "wgs84Latitude": 61.55065012676141,
+            "dls": 0,
+            "original": true,
+            "dz": 2480.7091061470583
+        },
+        {
+            "md": 2880,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60968147137793,
+            "dxTN": 645.6925574909428,
+            "dyTN": 301.0913843717133,
+            "point": {
+                "x": 402717.12354196486,
+                "y": 6825502.626932434,
+                "z": -2488.473677500134
+            },
+            "wgs84Longitude": 1.1693763511829915,
+            "wgs84Latitude": 61.55076006490889,
+            "dls": 0,
+            "original": true,
+            "dz": 2488.473677500134
+        },
+        {
+            "md": 2910,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60924856609905,
+            "dxTN": 671.9553404329106,
+            "dyTN": 313.3379211820153,
+            "point": {
+                "x": 402743.7227109495,
+                "y": 6825514.132232868,
+                "z": -2496.2382488532094
+            },
+            "wgs84Longitude": 1.1698705012779604,
+            "wgs84Latitude": 61.55087000318834,
+            "dls": 0,
+            "original": true,
+            "dz": 2496.2382488532094
+        },
+        {
+            "md": 2940,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60881565786748,
+            "dxTN": 698.2181233748784,
+            "dyTN": 325.5844579923173,
+            "point": {
+                "x": 402770.3218236269,
+                "y": 6825525.637747545,
+                "z": -2504.002820206285
+            },
+            "wgs84Longitude": 1.1703646537205101,
+            "wgs84Latitude": 61.55097994159973,
+            "dls": 0,
+            "original": true,
+            "dz": 2504.002820206285
+        },
+        {
+            "md": 2970,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.6083827467664,
+            "dxTN": 724.4809063168461,
+            "dyTN": 337.83099480261933,
+            "point": {
+                "x": 402796.9208799952,
+                "y": 6825537.143476464,
+                "z": -2511.7673915593605
+            },
+            "wgs84Longitude": 1.1708588085106624,
+            "wgs84Latitude": 61.55108988014308,
+            "dls": 0,
+            "original": true,
+            "dz": 2511.7673915593605
+        },
+        {
+            "md": 3000,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60794983286243,
+            "dxTN": 750.7436892588139,
+            "dyTN": 350.07753161292135,
+            "point": {
+                "x": 402823.5198800528,
+                "y": 6825548.649419629,
+                "z": -2519.531962912436
+            },
+            "wgs84Longitude": 1.1713529656484376,
+            "wgs84Latitude": 61.551199818818404,
+            "dls": 0,
+            "original": true,
+            "dz": 2519.531962912436
+        },
+        {
+            "md": 3030,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60751691589283,
+            "dxTN": 777.0064722007817,
+            "dyTN": 362.32406842322337,
+            "point": {
+                "x": 402850.11882379773,
+                "y": 6825560.15557704,
+                "z": -2527.2965342655116
+            },
+            "wgs84Longitude": 1.1718471251338596,
+            "wgs84Latitude": 61.551309757625695,
+            "dls": 0,
+            "original": true,
+            "dz": 2527.2965342655116
+        },
+        {
+            "md": 3060,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60708399605642,
+            "dxTN": 803.2692551427494,
+            "dyTN": 374.5706052335254,
+            "point": {
+                "x": 402876.71771122847,
+                "y": 6825571.6619486995,
+                "z": -2535.061105618587
+            },
+            "wgs84Longitude": 1.1723412869669505,
+            "wgs84Latitude": 61.551419696564935,
+            "dls": 0,
+            "original": true,
+            "dz": 2535.061105618587
+        },
+        {
+            "md": 3090,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60665107337765,
+            "dxTN": 829.5320380847172,
+            "dyTN": 386.8171420438274,
+            "point": {
+                "x": 402903.31654234306,
+                "y": 6825583.1685346095,
+                "z": -2542.8256769716627
+            },
+            "wgs84Longitude": 1.1728354511477308,
+            "wgs84Latitude": 61.55152963563614,
+            "dls": 0,
+            "original": true,
+            "dz": 2542.8256769716627
+        },
+        {
+            "md": 3120,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60621814765912,
+            "dxTN": 855.794821026685,
+            "dyTN": 399.0636788541294,
+            "point": {
+                "x": 402929.9153171399,
+                "y": 6825594.67533477,
+                "z": -2550.5902483247382
+            },
+            "wgs84Longitude": 1.1733296176762242,
+            "wgs84Latitude": 61.55163957483932,
+            "dls": 0,
+            "original": true,
+            "dz": 2550.5902483247382
+        },
+        {
+            "md": 3150,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60578521918124,
+            "dxTN": 882.0576039686528,
+            "dyTN": 411.31021566443144,
+            "point": {
+                "x": 402956.514035617,
+                "y": 6825606.182349183,
+                "z": -2558.354819677814
+            },
+            "wgs84Longitude": 1.1738237865524512,
+            "wgs84Latitude": 61.55174951417446,
+            "dls": 0,
+            "original": true,
+            "dz": 2558.354819677814
+        },
+        {
+            "md": 3180,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60535228761061,
+            "dxTN": 908.3203869106205,
+            "dyTN": 423.55675247473346,
+            "point": {
+                "x": 402983.1126977728,
+                "y": 6825617.689577848,
+                "z": -2566.1193910308893
+            },
+            "wgs84Longitude": 1.1743179577764353,
+            "wgs84Latitude": 61.551859453641555,
+            "dls": 0,
+            "original": true,
+            "dz": 2566.1193910308893
+        },
+        {
+            "md": 3210,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.604919353237,
+            "dxTN": 934.5831698525883,
+            "dyTN": 435.8032892850355,
+            "point": {
+                "x": 403009.7113036054,
+                "y": 6825629.197020767,
+                "z": -2573.883962383965
+            },
+            "wgs84Longitude": 1.1748121313481976,
+            "wgs84Latitude": 61.55196939324061,
+            "dls": 0,
+            "original": true,
+            "dz": 2573.883962383965
+        },
+        {
+            "md": 3240,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.6044864159109,
+            "dxTN": 960.8459527945561,
+            "dyTN": 448.0498260953375,
+            "point": {
+                "x": 403036.30985311314,
+                "y": 6825640.704677945,
+                "z": -2581.6485337370405
+            },
+            "wgs84Longitude": 1.1753063072677605,
+            "wgs84Latitude": 61.55207933297165,
+            "dls": 0,
+            "original": true,
+            "dz": 2581.6485337370405
+        },
+        {
+            "md": 3270,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60405347561854,
+            "dxTN": 987.1087357365238,
+            "dyTN": 460.2963629056395,
+            "point": {
+                "x": 403062.9083462942,
+                "y": 6825652.21254938,
+                "z": -2589.413105090116
+            },
+            "wgs84Longitude": 1.1758004855351458,
+            "wgs84Latitude": 61.55218927283464,
+            "dls": 0,
+            "original": true,
+            "dz": 2589.413105090116
+        },
+        {
+            "md": 3300,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60362053241269,
+            "dxTN": 1013.3715186784916,
+            "dyTN": 472.54289971594153,
+            "point": {
+                "x": 403089.50678314676,
+                "y": 6825663.720635073,
+                "z": -2597.1776764431916
+            },
+            "wgs84Longitude": 1.1762946661503744,
+            "wgs84Latitude": 61.552299212829595,
+            "dls": 0,
+            "original": true,
+            "dz": 2597.1776764431916
+        },
+        {
+            "md": 3330,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60318758639472,
+            "dxTN": 1039.6343016204594,
+            "dyTN": 484.78943652624355,
+            "point": {
+                "x": 403116.1051636692,
+                "y": 6825675.228935029,
+                "z": -2604.942247796267
+            },
+            "wgs84Longitude": 1.1767888491134706,
+            "wgs84Latitude": 61.55240915295652,
+            "dls": 0,
+            "original": true,
+            "dz": 2604.942247796267
+        },
+        {
+            "md": 3360,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60275463727707,
+            "dxTN": 1065.8970845624272,
+            "dyTN": 497.03597333654557,
+            "point": {
+                "x": 403142.7034878596,
+                "y": 6825686.737449244,
+                "z": -2612.7068191493427
+            },
+            "wgs84Longitude": 1.177283034424454,
+            "wgs84Latitude": 61.5525190932154,
+            "dls": 0,
+            "original": true,
+            "dz": 2612.7068191493427
+        },
+        {
+            "md": 3390,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60232168539315,
+            "dxTN": 1092.159867504395,
+            "dyTN": 509.2825101468476,
+            "point": {
+                "x": 403169.30175571627,
+                "y": 6825698.2461777255,
+                "z": -2620.471390502418
+            },
+            "wgs84Longitude": 1.1777772220833473,
+            "wgs84Latitude": 61.552629033606266,
+            "dls": 0,
+            "original": true,
+            "dz": 2620.471390502418
+        },
+        {
+            "md": 3420,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60188873060957,
+            "dxTN": 1118.4226504463627,
+            "dyTN": 521.5290469571496,
+            "point": {
+                "x": 403195.89996723743,
+                "y": 6825709.755120468,
+                "z": -2628.2359618554938
+            },
+            "wgs84Longitude": 1.1782714120901752,
+            "wgs84Latitude": 61.55273897412908,
+            "dls": 0,
+            "original": true,
+            "dz": 2628.2359618554938
+        },
+        {
+            "md": 3450,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60145577290349,
+            "dxTN": 1144.6854333883305,
+            "dyTN": 533.7755837674516,
+            "point": {
+                "x": 403222.4981224213,
+                "y": 6825721.26427748,
+                "z": -2636.0005332085693
+            },
+            "wgs84Longitude": 1.1787656044449546,
+            "wgs84Latitude": 61.55284891478387,
+            "dls": 0,
+            "original": true,
+            "dz": 2636.0005332085693
+        },
+        {
+            "md": 3480,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60102281220121,
+            "dxTN": 1170.9482163302982,
+            "dyTN": 546.0221205777536,
+            "point": {
+                "x": 403249.0962212662,
+                "y": 6825732.7736487575,
+                "z": -2643.765104561645
+            },
+            "wgs84Longitude": 1.1792597991477127,
+            "wgs84Latitude": 61.55295885557062,
+            "dls": 0,
+            "original": true,
+            "dz": 2643.765104561645
+        },
+        {
+            "md": 3510,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60058984862907,
+            "dxTN": 1197.210999272266,
+            "dyTN": 558.2686573880557,
+            "point": {
+                "x": 403275.69426377025,
+                "y": 6825744.283234305,
+                "z": -2651.5296759147204
+            },
+            "wgs84Longitude": 1.1797539961984682,
+            "wgs84Latitude": 61.553068796489356,
+            "dls": 0,
+            "original": true,
+            "dz": 2651.5296759147204
+        },
+        {
+            "md": 3540,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.60015688211175,
+            "dxTN": 1223.4737822142338,
+            "dyTN": 570.5151941983577,
+            "point": {
+                "x": 403302.2922499317,
+                "y": 6825755.793034121,
+                "z": -2659.294247267796
+            },
+            "wgs84Longitude": 1.1802481955972435,
+            "wgs84Latitude": 61.553178737540044,
+            "dls": 0,
+            "original": true,
+            "dz": 2659.294247267796
+        },
+        {
+            "md": 3570,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59972391272458,
+            "dxTN": 1249.7365651562016,
+            "dyTN": 582.7617310086597,
+            "point": {
+                "x": 403328.8901797488,
+                "y": 6825767.30304821,
+                "z": -2667.0588186208715
+            },
+            "wgs84Longitude": 1.1807423973440618,
+            "wgs84Latitude": 61.553288678722694,
+            "dls": 0,
+            "original": true,
+            "dz": 2667.0588186208715
+        },
+        {
+            "md": 3600,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59929094047597,
+            "dxTN": 1275.9993480981693,
+            "dyTN": 595.0082678189617,
+            "point": {
+                "x": 403355.48805321986,
+                "y": 6825778.813276573,
+                "z": -2674.823389973947
+            },
+            "wgs84Longitude": 1.1812366014389437,
+            "wgs84Latitude": 61.55339862003733,
+            "dls": 0,
+            "original": true,
+            "dz": 2674.823389973947
+        },
+        {
+            "md": 3630,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59885796514038,
+            "dxTN": 1302.262131040137,
+            "dyTN": 607.2548046292637,
+            "point": {
+                "x": 403382.085870343,
+                "y": 6825790.323719208,
+                "z": -2682.5879613270226
+            },
+            "wgs84Longitude": 1.1817308078819135,
+            "wgs84Latitude": 61.553508561483916,
+            "dls": 0,
+            "original": true,
+            "dz": 2682.5879613270226
+        },
+        {
+            "md": 3660,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5984249869802,
+            "dxTN": 1328.5249139821049,
+            "dyTN": 619.5013414395657,
+            "point": {
+                "x": 403408.6836311165,
+                "y": 6825801.834376122,
+                "z": -2690.352532680098
+            },
+            "wgs84Longitude": 1.1822250166729902,
+            "wgs84Latitude": 61.55361850306249,
+            "dls": 0,
+            "original": true,
+            "dz": 2690.352532680098
+        },
+        {
+            "md": 3690,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59799200591192,
+            "dxTN": 1354.7876969240726,
+            "dyTN": 631.7478782498678,
+            "point": {
+                "x": 403435.28133553866,
+                "y": 6825813.345247311,
+                "z": -2698.1171040331737
+            },
+            "wgs84Longitude": 1.1827192278121985,
+            "wgs84Latitude": 61.55372844477302,
+            "dls": 0,
+            "original": true,
+            "dz": 2698.1171040331737
+        },
+        {
+            "md": 3720,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59755902193673,
+            "dxTN": 1381.0504798660404,
+            "dyTN": 643.9944150601698,
+            "point": {
+                "x": 403461.8789836075,
+                "y": 6825824.85633278,
+                "z": -2705.8816753862493
+            },
+            "wgs84Longitude": 1.1832134412995565,
+            "wgs84Latitude": 61.55383838661553,
+            "dls": 0,
+            "original": true,
+            "dz": 2705.8816753862493
+        },
+        {
+            "md": 3750,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59712603500229,
+            "dxTN": 1407.3132628080082,
+            "dyTN": 656.2409518704718,
+            "point": {
+                "x": 403488.4765753215,
+                "y": 6825836.367632528,
+                "z": -2713.646246739325
+            },
+            "wgs84Longitude": 1.183707657135091,
+            "wgs84Latitude": 61.55394832859,
+            "dls": 0,
+            "original": true,
+            "dz": 2713.646246739325
+        },
+        {
+            "md": 3780,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59669304513831,
+            "dxTN": 1433.576045749976,
+            "dyTN": 668.4874886807738,
+            "point": {
+                "x": 403515.0741106788,
+                "y": 6825847.879146556,
+                "z": -2721.4108180924004
+            },
+            "wgs84Longitude": 1.1842018753188222,
+            "wgs84Latitude": 61.55405827069644,
+            "dls": 0,
+            "original": true,
+            "dz": 2721.4108180924004
+        },
+        {
+            "md": 3810,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59626005247101,
+            "dxTN": 1459.8388286919437,
+            "dyTN": 680.7340254910758,
+            "point": {
+                "x": 403541.6715896776,
+                "y": 6825859.39087487,
+                "z": -2729.175389445476
+            },
+            "wgs84Longitude": 1.1846960958507693,
+            "wgs84Latitude": 61.55416821293486,
+            "dls": 0,
+            "original": true,
+            "dz": 2729.175389445476
+        },
+        {
+            "md": 3840,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59582705677772,
+            "dxTN": 1486.1016116339115,
+            "dyTN": 692.9805623013779,
+            "point": {
+                "x": 403568.2690123162,
+                "y": 6825870.902817467,
+                "z": -2736.9399607985515
+            },
+            "wgs84Longitude": 1.1851903187309598,
+            "wgs84Latitude": 61.55427815530525,
+            "dls": 0,
+            "original": true,
+            "dz": 2736.9399607985515
+        },
+        {
+            "md": 3870,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59539405816217,
+            "dxTN": 1512.3643945758793,
+            "dyTN": 705.2270991116799,
+            "point": {
+                "x": 403594.86637859273,
+                "y": 6825882.414974349,
+                "z": -2744.704532151627
+            },
+            "wgs84Longitude": 1.1856845439594117,
+            "wgs84Latitude": 61.5543880978076,
+            "dls": 0,
+            "original": true,
+            "dz": 2744.704532151627
+        },
+        {
+            "md": 3900,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59496105667654,
+            "dxTN": 1538.627177517847,
+            "dyTN": 717.4736359219819,
+            "point": {
+                "x": 403621.46368850546,
+                "y": 6825893.927345517,
+                "z": -2752.4691035047026
+            },
+            "wgs84Longitude": 1.1861787715361465,
+            "wgs84Latitude": 61.55449804044192,
+            "dls": 0,
+            "original": true,
+            "dz": 2752.4691035047026
+        },
+        {
+            "md": 3930,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59452805222439,
+            "dxTN": 1564.8899604598148,
+            "dyTN": 729.7201727322839,
+            "point": {
+                "x": 403648.06094205275,
+                "y": 6825905.439930977,
+                "z": -2760.233674857778
+            },
+            "wgs84Longitude": 1.1866730014611897,
+            "wgs84Latitude": 61.55460798320823,
+            "dls": 0,
+            "original": true,
+            "dz": 2760.233674857778
+        },
+        {
+            "md": 3960,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5940950448724,
+            "dxTN": 1591.1527434017826,
+            "dyTN": 741.9667095425859,
+            "point": {
+                "x": 403674.65813923266,
+                "y": 6825916.952730724,
+                "z": -2767.9982462108537
+            },
+            "wgs84Longitude": 1.18716723373456,
+            "wgs84Latitude": 61.5547179261065,
+            "dls": 0,
+            "original": true,
+            "dz": 2767.9982462108537
+        },
+        {
+            "md": 3990,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59366203470184,
+            "dxTN": 1617.4155263437503,
+            "dyTN": 754.213246352888,
+            "point": {
+                "x": 403701.25528004346,
+                "y": 6825928.465744763,
+                "z": -2775.7628175639293
+            },
+            "wgs84Longitude": 1.18766146835628,
+            "wgs84Latitude": 61.554827869136744,
+            "dls": 0,
+            "original": true,
+            "dz": 2775.7628175639293
+        },
+        {
+            "md": 4020,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59322902146104,
+            "dxTN": 1643.6783092857181,
+            "dyTN": 766.45978316319,
+            "point": {
+                "x": 403727.8523644835,
+                "y": 6825939.978973094,
+                "z": -2783.527388917005
+            },
+            "wgs84Longitude": 1.1881557053263747,
+            "wgs84Latitude": 61.55493781229897,
+            "dls": 0,
+            "original": true,
+            "dz": 2783.527388917005
+        },
+        {
+            "md": 4050,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59279600540911,
+            "dxTN": 1669.9410922276859,
+            "dyTN": 778.706319973492,
+            "point": {
+                "x": 403754.44939255086,
+                "y": 6825951.492415719,
+                "z": -2791.2919602700804
+            },
+            "wgs84Longitude": 1.1886499446448617,
+            "wgs84Latitude": 61.55504775559315,
+            "dls": 0,
+            "original": true,
+            "dz": 2791.2919602700804
+        },
+        {
+            "md": 4080,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59236298636121,
+            "dxTN": 1696.2038751696537,
+            "dyTN": 790.952856783794,
+            "point": {
+                "x": 403781.0463642439,
+                "y": 6825963.0060726395,
+                "z": -2799.056531623156
+            },
+            "wgs84Longitude": 1.1891441863117664,
+            "wgs84Latitude": 61.55515769901932,
+            "dls": 0,
+            "original": true,
+            "dz": 2799.056531623156
+        },
+        {
+            "md": 4110,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59192996447251,
+            "dxTN": 1722.4666581116214,
+            "dyTN": 803.199393594096,
+            "point": {
+                "x": 403807.6432795608,
+                "y": 6825974.519943858,
+                "z": -2806.8211029762315
+            },
+            "wgs84Longitude": 1.189638430327109,
+            "wgs84Latitude": 61.55526764257745,
+            "dls": 0,
+            "original": true,
+            "dz": 2806.8211029762315
+        },
+        {
+            "md": 4140,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59149693960987,
+            "dxTN": 1748.7294410535892,
+            "dyTN": 815.445930404398,
+            "point": {
+                "x": 403834.2401384997,
+                "y": 6825986.034029373,
+                "z": -2814.585674329307
+            },
+            "wgs84Longitude": 1.1901326766909122,
+            "wgs84Latitude": 61.55537758626756,
+            "dls": 0,
+            "original": true,
+            "dz": 2814.585674329307
+        },
+        {
+            "md": 4170,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59106391183246,
+            "dxTN": 1774.992223995557,
+            "dyTN": 827.6924672147001,
+            "point": {
+                "x": 403860.836941059,
+                "y": 6825997.5483291885,
+                "z": -2822.3502456823826
+            },
+            "wgs84Longitude": 1.190626925403198,
+            "wgs84Latitude": 61.55548753008966,
+            "dls": 0,
+            "original": true,
+            "dz": 2822.3502456823826
+        },
+        {
+            "md": 4200,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59063088124408,
+            "dxTN": 1801.2550069375247,
+            "dyTN": 839.9390040250021,
+            "point": {
+                "x": 403887.43368723686,
+                "y": 6826009.062843305,
+                "z": -2830.114817035458
+            },
+            "wgs84Longitude": 1.1911211764639884,
+            "wgs84Latitude": 61.555597474043715,
+            "dls": 0,
+            "original": true,
+            "dz": 2830.114817035458
+        },
+        {
+            "md": 4230,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.59019784759273,
+            "dxTN": 1827.5177898794925,
+            "dyTN": 852.1855408353041,
+            "point": {
+                "x": 403914.0303770314,
+                "y": 6826020.577571723,
+                "z": -2837.8793883885337
+            },
+            "wgs84Longitude": 1.1916154298733053,
+            "wgs84Latitude": 61.55570741812975,
+            "dls": 0,
+            "original": true,
+            "dz": 2837.8793883885337
+        },
+        {
+            "md": 4260,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58976481116011,
+            "dxTN": 1853.7805728214603,
+            "dyTN": 864.4320776456061,
+            "point": {
+                "x": 403940.62701044104,
+                "y": 6826032.092514444,
+                "z": -2845.6439597416093
+            },
+            "wgs84Longitude": 1.1921096856311697,
+            "wgs84Latitude": 61.55581736234776,
+            "dls": 0,
+            "original": true,
+            "dz": 2845.6439597416093
+        },
+        {
+            "md": 4290,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58933177159042,
+            "dxTN": 1880.043355763428,
+            "dyTN": 876.6786144559081,
+            "point": {
+                "x": 403967.2235874639,
+                "y": 6826043.607671471,
+                "z": -2853.408531094685
+            },
+            "wgs84Longitude": 1.1926039437376055,
+            "wgs84Latitude": 61.55592730669775,
+            "dls": 0,
+            "original": true,
+            "dz": 2853.408531094685
+        },
+        {
+            "md": 4320,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58889872933545,
+            "dxTN": 1906.3061387053958,
+            "dyTN": 888.9251512662102,
+            "point": {
+                "x": 403993.8201080982,
+                "y": 6826055.123042805,
+                "z": -2861.1731024477604
+            },
+            "wgs84Longitude": 1.1930982041926328,
+            "wgs84Latitude": 61.5560372511797,
+            "dls": 0,
+            "original": true,
+            "dz": 2861.1731024477604
+        },
+        {
+            "md": 4350,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58846568407711,
+            "dxTN": 1932.5689216473636,
+            "dyTN": 901.1716880765122,
+            "point": {
+                "x": 404020.41657234234,
+                "y": 6826066.638628447,
+                "z": -2868.937673800836
+            },
+            "wgs84Longitude": 1.1935924669962754,
+            "wgs84Latitude": 61.556147195793656,
+            "dls": 0,
+            "original": true,
+            "dz": 2868.937673800836
+        },
+        {
+            "md": 4380,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58803263595591,
+            "dxTN": 1958.8317045893314,
+            "dyTN": 913.4182248868142,
+            "point": {
+                "x": 404047.0129801943,
+                "y": 6826078.154428397,
+                "z": -2876.7022451539115
+            },
+            "wgs84Longitude": 1.1940867321485542,
+            "wgs84Latitude": 61.55625714053956,
+            "dls": 0,
+            "original": true,
+            "dz": 2876.7022451539115
+        },
+        {
+            "md": 4410,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5875995847567,
+            "dxTN": 1985.0944875312991,
+            "dyTN": 925.6647616971162,
+            "point": {
+                "x": 404073.6093316525,
+                "y": 6826089.6704426585,
+                "z": -2884.466816506987
+            },
+            "wgs84Longitude": 1.1945809996494927,
+            "wgs84Latitude": 61.556367085417456,
+            "dls": 0,
+            "original": true,
+            "dz": 2884.466816506987
+        },
+        {
+            "md": 4440,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5871665307097,
+            "dxTN": 2011.357270473267,
+            "dyTN": 937.9112985074182,
+            "point": {
+                "x": 404100.2056267151,
+                "y": 6826101.186671232,
+                "z": -2892.2313878600626
+            },
+            "wgs84Longitude": 1.1950752694991105,
+            "wgs84Latitude": 61.556477030427324,
+            "dls": 0,
+            "original": true,
+            "dz": 2892.2313878600626
+        },
+        {
+            "md": 4470,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5867334737847,
+            "dxTN": 2037.6200534152347,
+            "dyTN": 950.1578353177202,
+            "point": {
+                "x": 404126.8018653803,
+                "y": 6826112.703114119,
+                "z": -2899.995959213138
+            },
+            "wgs84Longitude": 1.195569541697431,
+            "wgs84Latitude": 61.55658697556917,
+            "dls": 0,
+            "original": true,
+            "dz": 2899.995959213138
+        },
+        {
+            "md": 4500,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58630041396725,
+            "dxTN": 2063.8828363572025,
+            "dyTN": 962.4043721280223,
+            "point": {
+                "x": 404153.3980476464,
+                "y": 6826124.219771321,
+                "z": -2907.7605305662137
+            },
+            "wgs84Longitude": 1.1960638162444757,
+            "wgs84Latitude": 61.556696920842995,
+            "dls": 0,
+            "original": true,
+            "dz": 2907.7605305662137
+        },
+        {
+            "md": 4530,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58586735116113,
+            "dxTN": 2090.1456192991704,
+            "dyTN": 974.6509089383243,
+            "point": {
+                "x": 404179.99417351163,
+                "y": 6826135.73664284,
+                "z": -2915.525101919289
+            },
+            "wgs84Longitude": 1.196558093140267,
+            "wgs84Latitude": 61.556806866248806,
+            "dls": 0,
+            "original": true,
+            "dz": 2915.525101919289
+        },
+        {
+            "md": 4560,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58543428555119,
+            "dxTN": 2116.4084022411384,
+            "dyTN": 986.8974457486263,
+            "point": {
+                "x": 404206.59024297417,
+                "y": 6826147.253728676,
+                "z": -2923.289673272365
+            },
+            "wgs84Longitude": 1.1970523723848272,
+            "wgs84Latitude": 61.55691681178659,
+            "dls": 0,
+            "original": true,
+            "dz": 2923.289673272365
+        },
+        {
+            "md": 4590,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58500121691544,
+            "dxTN": 2142.6711851831064,
+            "dyTN": 999.1439825589283,
+            "point": {
+                "x": 404233.18625603226,
+                "y": 6826158.77102883,
+                "z": -2931.0542446254403
+            },
+            "wgs84Longitude": 1.1975466539781783,
+            "wgs84Latitude": 61.55702675745634,
+            "dls": 0,
+            "original": true,
+            "dz": 2931.0542446254403
+        },
+        {
+            "md": 4620,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58456814531294,
+            "dxTN": 2168.9339681250744,
+            "dyTN": 1011.3905193692303,
+            "point": {
+                "x": 404259.7822126842,
+                "y": 6826170.288543306,
+                "z": -2938.818815978516
+            },
+            "wgs84Longitude": 1.1980409379203416,
+            "wgs84Latitude": 61.557136703258095,
+            "dls": 0,
+            "original": true,
+            "dz": 2938.818815978516
+        },
+        {
+            "md": 4650,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58413507089239,
+            "dxTN": 2195.1967510670424,
+            "dyTN": 1023.6370561795324,
+            "point": {
+                "x": 404286.3781129281,
+                "y": 6826181.8062721025,
+                "z": -2946.5833873315914
+            },
+            "wgs84Longitude": 1.1985352242113394,
+            "wgs84Latitude": 61.55724664919181,
+            "dls": 0,
+            "original": true,
+            "dz": 2946.5833873315914
+        },
+        {
+            "md": 4680,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5837019936013,
+            "dxTN": 2221.4595340090104,
+            "dyTN": 1035.8835929898344,
+            "point": {
+                "x": 404312.9739567624,
+                "y": 6826193.324215223,
+                "z": -2954.347958684667
+            },
+            "wgs84Longitude": 1.1990295128511947,
+            "wgs84Latitude": 61.55735659525752,
+            "dls": 0,
+            "original": true,
+            "dz": 2954.347958684667
+        },
+        {
+            "md": 4710,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58326891323954,
+            "dxTN": 2247.7223169509784,
+            "dyTN": 1048.1301298001365,
+            "point": {
+                "x": 404339.5697441851,
+                "y": 6826204.842372669,
+                "z": -2962.1125300377425
+            },
+            "wgs84Longitude": 1.1995238038399272,
+            "wgs84Latitude": 61.55746654145519,
+            "dls": 0,
+            "original": true,
+            "dz": 2962.1125300377425
+        },
+        {
+            "md": 4740,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58283583005976,
+            "dxTN": 2273.9850998929464,
+            "dyTN": 1060.3766666104386,
+            "point": {
+                "x": 404366.16547519446,
+                "y": 6826216.360744439,
+                "z": -2969.877101390818
+            },
+            "wgs84Longitude": 1.2000180971775611,
+            "wgs84Latitude": 61.55757648778485,
+            "dls": 0,
+            "original": true,
+            "dz": 2969.877101390818
+        },
+        {
+            "md": 4770,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58240274396445,
+            "dxTN": 2300.2478828349144,
+            "dyTN": 1072.6232034207408,
+            "point": {
+                "x": 404392.7611497889,
+                "y": 6826227.879330538,
+                "z": -2977.6416727438937
+            },
+            "wgs84Longitude": 1.200512392864118,
+            "wgs84Latitude": 61.5576864342465,
+            "dls": 0,
+            "original": true,
+            "dz": 2977.6416727438937
+        },
+        {
+            "md": 4800,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58196965489603,
+            "dxTN": 2326.5106657768824,
+            "dyTN": 1084.869740231043,
+            "point": {
+                "x": 404419.3567679665,
+                "y": 6826239.3981309645,
+                "z": -2985.406244096969
+            },
+            "wgs84Longitude": 1.2010066908996204,
+            "wgs84Latitude": 61.55779638084012,
+            "dls": 0,
+            "original": true,
+            "dz": 2985.406244096969
+        },
+        {
+            "md": 4830,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58153656297868,
+            "dxTN": 2352.7734487188504,
+            "dyTN": 1097.116277041345,
+            "point": {
+                "x": 404445.9523297255,
+                "y": 6826250.917145723,
+                "z": -2993.1708154500448
+            },
+            "wgs84Longitude": 1.2015009912840873,
+            "wgs84Latitude": 61.557906327565725,
+            "dls": 0,
+            "original": true,
+            "dz": 2993.1708154500448
+        },
+        {
+            "md": 4860,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5811034680728,
+            "dxTN": 2379.0362316608184,
+            "dyTN": 1109.3628138516472,
+            "point": {
+                "x": 404472.5478350642,
+                "y": 6826262.436374811,
+                "z": -3000.9353868031203
+            },
+            "wgs84Longitude": 1.2019952940175442,
+            "wgs84Latitude": 61.558016274423316,
+            "dls": 0,
+            "original": true,
+            "dz": 3000.9353868031203
+        },
+        {
+            "md": 4890,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58067037037847,
+            "dxTN": 2405.2990146027864,
+            "dyTN": 1121.6093506619493,
+            "point": {
+                "x": 404499.14328398067,
+                "y": 6826273.955818233,
+                "z": -3008.699958156196
+            },
+            "wgs84Longitude": 1.2024895991000109,
+            "wgs84Latitude": 61.55812622141287,
+            "dls": 0,
+            "original": true,
+            "dz": 3008.699958156196
+        },
+        {
+            "md": 4920,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.58023726958395,
+            "dxTN": 2431.5617975447544,
+            "dyTN": 1133.8558874722514,
+            "point": {
+                "x": 404525.7386764734,
+                "y": 6826285.475475991,
+                "z": -3016.4645295092714
+            },
+            "wgs84Longitude": 1.2029839065315115,
+            "wgs84Latitude": 61.558236168534435,
+            "dls": 0,
+            "original": true,
+            "dz": 3016.4645295092714
+        },
+        {
+            "md": 4950,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57980416600697,
+            "dxTN": 2457.8245804867224,
+            "dyTN": 1146.1024242825536,
+            "point": {
+                "x": 404552.3340125404,
+                "y": 6826296.995348083,
+                "z": -3024.229100862347
+            },
+            "wgs84Longitude": 1.2034782163120674,
+            "wgs84Latitude": 61.55834611578796,
+            "dls": 0,
+            "original": true,
+            "dz": 3024.229100862347
+        },
+        {
+            "md": 4980,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57937105936892,
+            "dxTN": 2484.0873634286904,
+            "dyTN": 1158.3489610928557,
+            "point": {
+                "x": 404578.92929218,
+                "y": 6826308.51543451,
+                "z": -3031.9936722154225
+            },
+            "wgs84Longitude": 1.203972528441699,
+            "wgs84Latitude": 61.55845606317347,
+            "dls": 0,
+            "original": true,
+            "dz": 3031.9936722154225
+        },
+        {
+            "md": 5010,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57893795003663,
+            "dxTN": 2510.3501463706584,
+            "dyTN": 1170.5954979031578,
+            "point": {
+                "x": 404605.5245153904,
+                "y": 6826320.035735279,
+                "z": -3039.758243568498
+            },
+            "wgs84Longitude": 1.20446684292043,
+            "wgs84Latitude": 61.55856601069098,
+            "dls": 0,
+            "original": true,
+            "dz": 3039.758243568498
+        },
+        {
+            "md": 5040,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57850483755308,
+            "dxTN": 2536.6129293126264,
+            "dyTN": 1182.84203471346,
+            "point": {
+                "x": 404632.1196821698,
+                "y": 6826331.556250388,
+                "z": -3047.5228149215736
+            },
+            "wgs84Longitude": 1.2049611597482808,
+            "wgs84Latitude": 61.558675958340466,
+            "dls": 0,
+            "original": true,
+            "dz": 3047.5228149215736
+        },
+        {
+            "md": 5070,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57807172230272,
+            "dxTN": 2562.8757122545944,
+            "dyTN": 1195.088571523762,
+            "point": {
+                "x": 404658.7147925165,
+                "y": 6826343.0769798355,
+                "z": -3055.287386274649
+            },
+            "wgs84Longitude": 1.2054554789252745,
+            "wgs84Latitude": 61.558785906121926,
+            "dls": 0,
+            "original": true,
+            "dz": 3055.287386274649
+        },
+        {
+            "md": 5100,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57763860409332,
+            "dxTN": 2589.1384951965624,
+            "dyTN": 1207.3351083340642,
+            "point": {
+                "x": 404685.30984642875,
+                "y": 6826354.597923629,
+                "z": -3063.0519576277247
+            },
+            "wgs84Longitude": 1.2059498004514335,
+            "wgs84Latitude": 61.558895854035384,
+            "dls": 0,
+            "original": true,
+            "dz": 3063.0519576277247
+        },
+        {
+            "md": 5130,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57720548282884,
+            "dxTN": 2615.4012781385304,
+            "dyTN": 1219.5816451443663,
+            "point": {
+                "x": 404711.90484390466,
+                "y": 6826366.119081764,
+                "z": -3070.8165289808003
+            },
+            "wgs84Longitude": 1.2064441243267796,
+            "wgs84Latitude": 61.55900580208081,
+            "dls": 0,
+            "original": true,
+            "dz": 3070.8165289808003
+        },
+        {
+            "md": 5160,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57677235881899,
+            "dxTN": 2641.6640610804984,
+            "dyTN": 1231.8281819546685,
+            "point": {
+                "x": 404738.4997849426,
+                "y": 6826377.640454246,
+                "z": -3078.581100333876
+            },
+            "wgs84Longitude": 1.2069384505513339,
+            "wgs84Latitude": 61.55911575025824,
+            "dls": 0,
+            "original": true,
+            "dz": 3078.581100333876
+        },
+        {
+            "md": 5190,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5763392317834,
+            "dxTN": 2667.9268440224664,
+            "dyTN": 1244.0747187649706,
+            "point": {
+                "x": 404765.0946695407,
+                "y": 6826389.162041075,
+                "z": -3086.3456716869514
+            },
+            "wgs84Longitude": 1.2074327791251196,
+            "wgs84Latitude": 61.55922569856766,
+            "dls": 0,
+            "original": true,
+            "dz": 3086.3456716869514
+        },
+        {
+            "md": 5220,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5759061020103,
+            "dxTN": 2694.1896269644344,
+            "dyTN": 1256.3212555752727,
+            "point": {
+                "x": 404791.6894976972,
+                "y": 6826400.683842252,
+                "z": -3094.110243040027
+            },
+            "wgs84Longitude": 1.2079271100481581,
+            "wgs84Latitude": 61.55933564700905,
+            "dls": 0,
+            "original": true,
+            "dz": 3094.110243040027
+        },
+        {
+            "md": 5250,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57547296916076,
+            "dxTN": 2720.4524099064024,
+            "dyTN": 1268.5677923855749,
+            "point": {
+                "x": 404818.2842694104,
+                "y": 6826412.205857776,
+                "z": -3101.8748143931025
+            },
+            "wgs84Longitude": 1.2084214433204725,
+            "wgs84Latitude": 61.55944559558242,
+            "dls": 0,
+            "original": true,
+            "dz": 3101.8748143931025
+        },
+        {
+            "md": 5280,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57503983337364,
+            "dxTN": 2746.7151928483704,
+            "dyTN": 1280.814329195877,
+            "point": {
+                "x": 404844.8789846785,
+                "y": 6826423.728087654,
+                "z": -3109.639385746178
+            },
+            "wgs84Longitude": 1.2089157789420821,
+            "wgs84Latitude": 61.55955554428778,
+            "dls": 0,
+            "original": true,
+            "dz": 3109.639385746178
+        },
+        {
+            "md": 5310,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57460669476093,
+            "dxTN": 2772.9779757903384,
+            "dyTN": 1293.0608660061791,
+            "point": {
+                "x": 404871.47364349966,
+                "y": 6826435.250531885,
+                "z": -3117.4039570992536
+            },
+            "wgs84Longitude": 1.2094101169130114,
+            "wgs84Latitude": 61.559665493125145,
+            "dls": 0,
+            "original": true,
+            "dz": 3117.4039570992536
+        },
+        {
+            "md": 5340,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57417355321058,
+            "dxTN": 2799.2407587323064,
+            "dyTN": 1305.3074028164813,
+            "point": {
+                "x": 404898.0682458723,
+                "y": 6826446.773190468,
+                "z": -3125.168528452329
+            },
+            "wgs84Longitude": 1.2099044572332833,
+            "wgs84Latitude": 61.559775442094484,
+            "dls": 0,
+            "original": true,
+            "dz": 3125.168528452329
+        },
+        {
+            "md": 5370,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57374040873059,
+            "dxTN": 2825.5035416742744,
+            "dyTN": 1317.5539396267834,
+            "point": {
+                "x": 404924.66279179434,
+                "y": 6826458.296063406,
+                "z": -3132.9330998054047
+            },
+            "wgs84Longitude": 1.2103987999029155,
+            "wgs84Latitude": 61.5598853911958,
+            "dls": 0,
+            "original": true,
+            "dz": 3132.9330998054047
+        },
+        {
+            "md": 5400,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57330726128355,
+            "dxTN": 2851.7663246162424,
+            "dyTN": 1329.8004764370855,
+            "point": {
+                "x": 404951.2572812643,
+                "y": 6826469.819150702,
+                "z": -3140.6976711584803
+            },
+            "wgs84Longitude": 1.210893144921935,
+            "wgs84Latitude": 61.55999534042911,
+            "dls": 0,
+            "original": true,
+            "dz": 3140.6976711584803
+        },
+        {
+            "md": 5430,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57287411090687,
+            "dxTN": 2878.0291075582104,
+            "dyTN": 1342.0470132473877,
+            "point": {
+                "x": 404977.85171428026,
+                "y": 6826481.342452357,
+                "z": -3148.462242511556
+            },
+            "wgs84Longitude": 1.2113874922903598,
+            "wgs84Latitude": 61.560105289794414,
+            "dls": 0,
+            "original": true,
+            "dz": 3148.462242511556
+        },
+        {
+            "md": 5460,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57244095774202,
+            "dxTN": 2904.2918905001784,
+            "dyTN": 1354.2935500576898,
+            "point": {
+                "x": 405004.4460908405,
+                "y": 6826492.86596837,
+                "z": -3156.2268138646314
+            },
+            "wgs84Longitude": 1.2118818420082142,
+            "wgs84Latitude": 61.5602152392917,
+            "dls": 0,
+            "original": true,
+            "dz": 3156.2268138646314
+        },
+        {
+            "md": 5490,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57200780155155,
+            "dxTN": 2930.5546734421464,
+            "dyTN": 1366.540086867992,
+            "point": {
+                "x": 405031.0404109433,
+                "y": 6826504.389698743,
+                "z": -3163.991385217707
+            },
+            "wgs84Longitude": 1.2123761940755204,
+            "wgs84Latitude": 61.56032518892098,
+            "dls": 0,
+            "original": true,
+            "dz": 3163.991385217707
+        },
+        {
+            "md": 5520,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57157464241519,
+            "dxTN": 2956.8174563841144,
+            "dyTN": 1378.786623678294,
+            "point": {
+                "x": 405057.63467458676,
+                "y": 6826515.91364348,
+                "z": -3171.7559565707825
+            },
+            "wgs84Longitude": 1.2128705484922988,
+            "wgs84Latitude": 61.56043513868225,
+            "dls": 0,
+            "original": true,
+            "dz": 3171.7559565707825
+        },
+        {
+            "md": 5550,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57114148048252,
+            "dxTN": 2983.0802393260824,
+            "dyTN": 1391.0331604885962,
+            "point": {
+                "x": 405084.22888176923,
+                "y": 6826527.437802581,
+                "z": -3179.520527923858
+            },
+            "wgs84Longitude": 1.2133649052585733,
+            "wgs84Latitude": 61.5605450885755,
+            "dls": 0,
+            "original": true,
+            "dz": 3179.520527923858
+        },
+        {
+            "md": 5580,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57070831547388,
+            "dxTN": 3009.3430222680504,
+            "dyTN": 1403.2796972988983,
+            "point": {
+                "x": 405110.8230324889,
+                "y": 6826538.9621760445,
+                "z": -3187.2850992769336
+            },
+            "wgs84Longitude": 1.2138592643743644,
+            "wgs84Latitude": 61.56065503860074,
+            "dls": 0,
+            "original": true,
+            "dz": 3187.2850992769336
+        },
+        {
+            "md": 5610,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.57027514765264,
+            "dxTN": 3035.6058052100184,
+            "dyTN": 1415.5262341092005,
+            "point": {
+                "x": 405137.41712674394,
+                "y": 6826550.486763876,
+                "z": -3195.049670630009
+            },
+            "wgs84Longitude": 1.214353625839695,
+            "wgs84Latitude": 61.56076498875798,
+            "dls": 0,
+            "original": true,
+            "dz": 3195.049670630009
+        },
+        {
+            "md": 5640,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56984197690173,
+            "dxTN": 3061.8685881519864,
+            "dyTN": 1427.7727709195026,
+            "point": {
+                "x": 405164.0111645326,
+                "y": 6826562.011566075,
+                "z": -3202.8142419830847
+            },
+            "wgs84Longitude": 1.2148479896545867,
+            "wgs84Latitude": 61.5608749390472,
+            "dls": 0,
+            "original": true,
+            "dz": 3202.8142419830847
+        },
+        {
+            "md": 5670,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56940880328784,
+            "dxTN": 3088.1313710939544,
+            "dyTN": 1440.0193077298047,
+            "point": {
+                "x": 405190.60514585325,
+                "y": 6826573.536582643,
+                "z": -3210.5788133361602
+            },
+            "wgs84Longitude": 1.2153423558190621,
+            "wgs84Latitude": 61.56098488946841,
+            "dls": 0,
+            "original": true,
+            "dz": 3210.5788133361602
+        },
+        {
+            "md": 5700,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56897562664012,
+            "dxTN": 3114.3941540359224,
+            "dyTN": 1452.2658445401069,
+            "point": {
+                "x": 405217.19907070394,
+                "y": 6826585.061813582,
+                "z": -3218.343384689236
+            },
+            "wgs84Longitude": 1.2158367243331414,
+            "wgs84Latitude": 61.56109484002162,
+            "dls": 0,
+            "original": true,
+            "dz": 3218.343384689236
+        },
+        {
+            "md": 5730,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56854244708747,
+            "dxTN": 3140.6569369778904,
+            "dyTN": 1464.512381350409,
+            "point": {
+                "x": 405243.79293908307,
+                "y": 6826596.587258893,
+                "z": -3226.1079560423113
+            },
+            "wgs84Longitude": 1.2163310951968498,
+            "wgs84Latitude": 61.56120479070681,
+            "dls": 0,
+            "original": true,
+            "dz": 3226.1079560423113
+        },
+        {
+            "md": 5760,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56810926468458,
+            "dxTN": 3166.9197199198584,
+            "dyTN": 1476.7589181607111,
+            "point": {
+                "x": 405270.3867509887,
+                "y": 6826608.112918578,
+                "z": -3233.872527395387
+            },
+            "wgs84Longitude": 1.2168254684102067,
+            "wgs84Latitude": 61.561314741524015,
+            "dls": 0,
+            "original": true,
+            "dz": 3233.872527395387
+        },
+        {
+            "md": 5790,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56767607918944,
+            "dxTN": 3193.1825028618264,
+            "dyTN": 1489.0054549710133,
+            "point": {
+                "x": 405296.98050641915,
+                "y": 6826619.638792637,
+                "z": -3241.6370987484624
+            },
+            "wgs84Longitude": 1.2173198439732347,
+            "wgs84Latitude": 61.56142469247318,
+            "dls": 0,
+            "original": true,
+            "dz": 3241.6370987484624
+        },
+        {
+            "md": 5820,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5672428910606,
+            "dxTN": 3219.4452858037944,
+            "dyTN": 1501.2519917813154,
+            "point": {
+                "x": 405323.57420537266,
+                "y": 6826631.164881072,
+                "z": -3249.401670101538
+            },
+            "wgs84Longitude": 1.2178142218859564,
+            "wgs84Latitude": 61.56153464355436,
+            "dls": 0,
+            "original": true,
+            "dz": 3249.401670101538
+        },
+        {
+            "md": 5850,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5668096997937,
+            "dxTN": 3245.7080687457624,
+            "dyTN": 1513.4985285916175,
+            "point": {
+                "x": 405350.1678478474,
+                "y": 6826642.691183883,
+                "z": -3257.1662414546136
+            },
+            "wgs84Longitude": 1.2183086021483935,
+            "wgs84Latitude": 61.561644594767515,
+            "dls": 0,
+            "original": true,
+            "dz": 3257.1662414546136
+        },
+        {
+            "md": 5880,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5663765055762,
+            "dxTN": 3271.9708516877304,
+            "dyTN": 1525.7450654019196,
+            "point": {
+                "x": 405376.7614338416,
+                "y": 6826654.217701076,
+                "z": -3264.930812807689
+            },
+            "wgs84Longitude": 1.2188029847605673,
+            "wgs84Latitude": 61.56175454611268,
+            "dls": 0,
+            "original": true,
+            "dz": 3264.930812807689
+        },
+        {
+            "md": 5910,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56594330869584,
+            "dxTN": 3298.2336346296984,
+            "dyTN": 1537.9916022122218,
+            "point": {
+                "x": 405403.3549633536,
+                "y": 6826665.744432648,
+                "z": -3272.6953841607647
+            },
+            "wgs84Longitude": 1.2192973697225014,
+            "wgs84Latitude": 61.56186449758983,
+            "dls": 0,
+            "original": true,
+            "dz": 3272.6953841607647
+        },
+        {
+            "md": 5940,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56551010863983,
+            "dxTN": 3324.4964175716664,
+            "dyTN": 1550.238139022524,
+            "point": {
+                "x": 405429.94843638147,
+                "y": 6826677.271378601,
+                "z": -3280.45995551384
+            },
+            "wgs84Longitude": 1.2197917570342167,
+            "wgs84Latitude": 61.56197444919897,
+            "dls": 0,
+            "original": true,
+            "dz": 3280.45995551384
+        },
+        {
+            "md": 5970,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5650769057084,
+            "dxTN": 3350.7592005136344,
+            "dyTN": 1562.484675832826,
+            "point": {
+                "x": 405456.5418529236,
+                "y": 6826688.798538939,
+                "z": -3288.2245268669158
+            },
+            "wgs84Longitude": 1.2202861466957347,
+            "wgs84Latitude": 61.56208440094011,
+            "dls": 0,
+            "original": true,
+            "dz": 3288.2245268669158
+        },
+        {
+            "md": 6000,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56464369996394,
+            "dxTN": 3377.0219834556024,
+            "dyTN": 1574.7312126431282,
+            "point": {
+                "x": 405483.1352129781,
+                "y": 6826700.32591366,
+                "z": -3295.9890982199913
+            },
+            "wgs84Longitude": 1.220780538707079,
+            "wgs84Latitude": 61.56219435281324,
+            "dls": 0,
+            "original": true,
+            "dz": 3295.9890982199913
+        },
+        {
+            "md": 6030,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5642104911732,
+            "dxTN": 3403.2847663975704,
+            "dyTN": 1586.9777494534303,
+            "point": {
+                "x": 405509.7285165432,
+                "y": 6826711.853502766,
+                "z": -3303.753669573067
+            },
+            "wgs84Longitude": 1.221274933068271,
+            "wgs84Latitude": 61.562304304818355,
+            "dls": 0,
+            "original": true,
+            "dz": 3303.753669573067
+        },
+        {
+            "md": 6060,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56377727966519,
+            "dxTN": 3429.5475493395384,
+            "dyTN": 1599.2242862637324,
+            "point": {
+                "x": 405536.3217636173,
+                "y": 6826723.38130626,
+                "z": -3311.5182409261424
+            },
+            "wgs84Longitude": 1.2217693297793328,
+            "wgs84Latitude": 61.56241425695548,
+            "dls": 0,
+            "original": true,
+            "dz": 3311.5182409261424
+        },
+        {
+            "md": 6090,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56334406506494,
+            "dxTN": 3455.8103322815064,
+            "dyTN": 1611.4708230740346,
+            "point": {
+                "x": 405562.9149541984,
+                "y": 6826734.909324145,
+                "z": -3319.282812279218
+            },
+            "wgs84Longitude": 1.2222637288402858,
+            "wgs84Latitude": 61.56252420922459,
+            "dls": 0,
+            "original": true,
+            "dz": 3319.282812279218
+        },
+        {
+            "md": 6120,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56291084753498,
+            "dxTN": 3482.0731152234744,
+            "dyTN": 1623.7173598843367,
+            "point": {
+                "x": 405589.50808828487,
+                "y": 6826746.4375564195,
+                "z": -3327.0473836322935
+            },
+            "wgs84Longitude": 1.2227581302511514,
+            "wgs84Latitude": 61.56263416162571,
+            "dls": 0,
+            "original": true,
+            "dz": 3327.0473836322935
+        },
+        {
+            "md": 6150,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56247762715049,
+            "dxTN": 3508.3358981654424,
+            "dyTN": 1635.9638966946388,
+            "point": {
+                "x": 405616.10116587486,
+                "y": 6826757.966003084,
+                "z": -3334.811954985369
+            },
+            "wgs84Longitude": 1.2232525340119536,
+            "wgs84Latitude": 61.562744114158804,
+            "dls": 0,
+            "original": true,
+            "dz": 3334.811954985369
+        },
+        {
+            "md": 6180,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56204440383632,
+            "dxTN": 3534.5986811074104,
+            "dyTN": 1648.210433504941,
+            "point": {
+                "x": 405642.6941869667,
+                "y": 6826769.494664141,
+                "z": -3342.5765263384446
+            },
+            "wgs84Longitude": 1.2237469401227143,
+            "wgs84Latitude": 61.562854066823895,
+            "dls": 0,
+            "original": true,
+            "dz": 3342.5765263384446
+        },
+        {
+            "md": 6210,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56161117758396,
+            "dxTN": 3560.8614640493784,
+            "dyTN": 1660.456970315243,
+            "point": {
+                "x": 405669.2871515585,
+                "y": 6826781.023539592,
+                "z": -3350.34109769152
+            },
+            "wgs84Longitude": 1.2242413485834542,
+            "wgs84Latitude": 61.562964019621,
+            "dls": 0,
+            "original": true,
+            "dz": 3350.34109769152
+        },
+        {
+            "md": 6240,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56117794840188,
+            "dxTN": 3587.1242469913464,
+            "dyTN": 1672.7035071255452,
+            "point": {
+                "x": 405695.8800596486,
+                "y": 6826792.55262944,
+                "z": -3358.1056690445957
+            },
+            "wgs84Longitude": 1.2247357593941957,
+            "wgs84Latitude": 61.563073972550086,
+            "dls": 0,
+            "original": true,
+            "dz": 3358.1056690445957
+        },
+        {
+            "md": 6270,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56074471633626,
+            "dxTN": 3613.3870299333144,
+            "dyTN": 1684.9500439358474,
+            "point": {
+                "x": 405722.4729112351,
+                "y": 6826804.0819336865,
+                "z": -3365.8702403976713
+            },
+            "wgs84Longitude": 1.2252301725549597,
+            "wgs84Latitude": 61.563183925611185,
+            "dls": 0,
+            "original": true,
+            "dz": 3365.8702403976713
+        },
+        {
+            "md": 6300,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.56031148132386,
+            "dxTN": 3639.6498128752824,
+            "dyTN": 1697.1965807461495,
+            "point": {
+                "x": 405749.06570631644,
+                "y": 6826815.61145233,
+                "z": -3373.634811750747
+            },
+            "wgs84Longitude": 1.225724588065772,
+            "wgs84Latitude": 61.563293878804274,
+            "dls": 0,
+            "original": true,
+            "dz": 3373.634811750747
+        },
+        {
+            "md": 6330,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55987824333218,
+            "dxTN": 3665.9125958172503,
+            "dyTN": 1709.4431175564516,
+            "point": {
+                "x": 405775.65844489064,
+                "y": 6826827.141185372,
+                "z": -3381.3993831038224
+            },
+            "wgs84Longitude": 1.2262190059266511,
+            "wgs84Latitude": 61.56340383212935,
+            "dls": 0,
+            "original": true,
+            "dz": 3381.3993831038224
+        },
+        {
+            "md": 6360,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55944500255609,
+            "dxTN": 3692.1753787592183,
+            "dyTN": 1721.6896543667538,
+            "point": {
+                "x": 405802.25112695596,
+                "y": 6826838.671132817,
+                "z": -3389.163954456898
+            },
+            "wgs84Longitude": 1.226713426137619,
+            "wgs84Latitude": 61.563513785586444,
+            "dls": 0,
+            "original": true,
+            "dz": 3389.163954456898
+        },
+        {
+            "md": 6390,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55901175878356,
+            "dxTN": 3718.4381617011863,
+            "dyTN": 1733.936191177056,
+            "point": {
+                "x": 405828.8437525108,
+                "y": 6826850.201294664,
+                "z": -3396.9285258099735
+            },
+            "wgs84Longitude": 1.2272078486986997,
+            "wgs84Latitude": 61.563623739175526,
+            "dls": 0,
+            "original": true,
+            "dz": 3396.9285258099735
+        },
+        {
+            "md": 6420,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55857851209852,
+            "dxTN": 3744.7009446431543,
+            "dyTN": 1746.182727987358,
+            "point": {
+                "x": 405855.4363215531,
+                "y": 6826861.731670914,
+                "z": -3404.693097163049
+            },
+            "wgs84Longitude": 1.2277022736099132,
+            "wgs84Latitude": 61.5637336928966,
+            "dls": 0,
+            "original": true,
+            "dz": 3404.693097163049
+        },
+        {
+            "md": 6450,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55814526248379,
+            "dxTN": 3770.9637275851223,
+            "dyTN": 1758.4292647976602,
+            "point": {
+                "x": 405882.0288340814,
+                "y": 6826873.262261572,
+                "z": -3412.4576685161246
+            },
+            "wgs84Longitude": 1.2281967008712844,
+            "wgs84Latitude": 61.56384364674968,
+            "dls": 0,
+            "original": true,
+            "dz": 3412.4576685161246
+        },
+        {
+            "md": 6480,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55771200998875,
+            "dxTN": 3797.2265105270903,
+            "dyTN": 1770.6758016079623,
+            "point": {
+                "x": 405908.6212900937,
+                "y": 6826884.793066634,
+                "z": -3420.2222398692
+            },
+            "wgs84Longitude": 1.2286911304828334,
+            "wgs84Latitude": 61.563953600734756,
+            "dls": 0,
+            "original": true,
+            "dz": 3420.2222398692
+        },
+        {
+            "md": 6510,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55727875446826,
+            "dxTN": 3823.4892934690583,
+            "dyTN": 1782.9223384182644,
+            "point": {
+                "x": 405935.21368958836,
+                "y": 6826896.324086106,
+                "z": -3427.9868112222757
+            },
+            "wgs84Longitude": 1.2291855624445822,
+            "wgs84Latitude": 61.564063554851835,
+            "dls": 0,
+            "original": true,
+            "dz": 3427.9868112222757
+        },
+        {
+            "md": 6540,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5568454961021,
+            "dxTN": 3849.7520764110263,
+            "dyTN": 1795.1688752285665,
+            "point": {
+                "x": 405961.80603256344,
+                "y": 6826907.855319988,
+                "z": -3435.7513825753513
+            },
+            "wgs84Longitude": 1.2296799967565515,
+            "wgs84Latitude": 61.564173509100904,
+            "dls": 0,
+            "original": true,
+            "dz": 3435.7513825753513
+        },
+        {
+            "md": 6570,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55641223487297,
+            "dxTN": 3876.0148593529943,
+            "dyTN": 1807.4154120388687,
+            "point": {
+                "x": 405988.3983190174,
+                "y": 6826919.3867682805,
+                "z": -3443.515953928427
+            },
+            "wgs84Longitude": 1.230174433418766,
+            "wgs84Latitude": 61.56428346348198,
+            "dls": 0,
+            "original": true,
+            "dz": 3443.515953928427
+        },
+        {
+            "md": 6600,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55597897065898,
+            "dxTN": 3902.2776422949623,
+            "dyTN": 1819.6619488491708,
+            "point": {
+                "x": 406014.99054894835,
+                "y": 6826930.918430984,
+                "z": -3451.2805252815024
+            },
+            "wgs84Longitude": 1.2306688724312478,
+            "wgs84Latitude": 61.56439341799505,
+            "dls": 0,
+            "original": true,
+            "dz": 3451.2805252815024
+        },
+        {
+            "md": 6630,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55554570354424,
+            "dxTN": 3928.5404252369303,
+            "dyTN": 1831.908485659473,
+            "point": {
+                "x": 406041.58272235445,
+                "y": 6826942.450308101,
+                "z": -3459.045096634578
+            },
+            "wgs84Longitude": 1.2311633137940163,
+            "wgs84Latitude": 61.564503372640125,
+            "dls": 0,
+            "original": true,
+            "dz": 3459.045096634578
+        },
+        {
+            "md": 6660,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55511243354619,
+            "dxTN": 3954.8032081788983,
+            "dyTN": 1844.155022469775,
+            "point": {
+                "x": 406068.1748392341,
+                "y": 6826953.982399636,
+                "z": -3466.8096679876535
+            },
+            "wgs84Longitude": 1.2316577575070957,
+            "wgs84Latitude": 61.56461332741721,
+            "dls": 0,
+            "original": true,
+            "dz": 3466.8096679876535
+        },
+        {
+            "md": 6690,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55467916042709,
+            "dxTN": 3981.0659911208663,
+            "dyTN": 1856.4015592800772,
+            "point": {
+                "x": 406094.7668995854,
+                "y": 6826965.514705584,
+                "z": -3474.574239340729
+            },
+            "wgs84Longitude": 1.2321522035705075,
+            "wgs84Latitude": 61.564723282326284,
+            "dls": 0,
+            "original": true,
+            "dz": 3474.574239340729
+        },
+        {
+            "md": 6720,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55424588455202,
+            "dxTN": 4007.3287740628343,
+            "dyTN": 1868.6480960903793,
+            "point": {
+                "x": 406121.35890340654,
+                "y": 6826977.047225953,
+                "z": -3482.3388106938046
+            },
+            "wgs84Longitude": 1.2326466519842716,
+            "wgs84Latitude": 61.56483323736737,
+            "dls": 0,
+            "original": true,
+            "dz": 3482.3388106938046
+        },
+        {
+            "md": 6750,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55381260576476,
+            "dxTN": 4033.5915570048023,
+            "dyTN": 1880.8946329006815,
+            "point": {
+                "x": 406147.95085069595,
+                "y": 6826988.579960741,
+                "z": -3490.10338204688
+            },
+            "wgs84Longitude": 1.2331411027484152,
+            "wgs84Latitude": 61.564943192540454,
+            "dls": 0,
+            "original": true,
+            "dz": 3490.10338204688
+        },
+        {
+            "md": 6780,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55337932402766,
+            "dxTN": 4059.8543399467703,
+            "dyTN": 1893.1411697109836,
+            "point": {
+                "x": 406174.54274145165,
+                "y": 6827000.112909949,
+                "z": -3497.8679533999557
+            },
+            "wgs84Longitude": 1.2336355558629548,
+            "wgs84Latitude": 61.56505314784553,
+            "dls": 0,
+            "original": true,
+            "dz": 3497.8679533999557
+        },
+        {
+            "md": 6810,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55294603946773,
+            "dxTN": 4086.1171228887383,
+            "dyTN": 1905.3877065212857,
+            "point": {
+                "x": 406201.1345756719,
+                "y": 6827011.646073578,
+                "z": -3505.6325247530312
+            },
+            "wgs84Longitude": 1.2341300113279152,
+            "wgs84Latitude": 61.565163103282615,
+            "dls": 0,
+            "original": true,
+            "dz": 3505.6325247530312
+        },
+        {
+            "md": 6840,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55251275176673,
+            "dxTN": 4112.379905830706,
+            "dyTN": 1917.6342433315879,
+            "point": {
+                "x": 406227.72635335504,
+                "y": 6827023.179451631,
+                "z": -3513.397096106107
+            },
+            "wgs84Longitude": 1.2346244691433184,
+            "wgs84Latitude": 61.565273058851695,
+            "dls": 0,
+            "original": true,
+            "dz": 3513.397096106107
+        },
+        {
+            "md": 6870,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55207946133842,
+            "dxTN": 4138.642688772674,
+            "dyTN": 1929.88078014189,
+            "point": {
+                "x": 406254.31807449926,
+                "y": 6827034.713044111,
+                "z": -3521.1616674591824
+            },
+            "wgs84Longitude": 1.2351189293091867,
+            "wgs84Latitude": 61.56538301455279,
+            "dls": 0,
+            "original": true,
+            "dz": 3521.1616674591824
+        },
+        {
+            "md": 6900,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55164616800695,
+            "dxTN": 4164.905471714642,
+            "dyTN": 1942.1273169521921,
+            "point": {
+                "x": 406280.9097391027,
+                "y": 6827046.246851017,
+                "z": -3528.926238812258
+            },
+            "wgs84Longitude": 1.2356133918255392,
+            "wgs84Latitude": 61.5654929703859,
+            "dls": 0,
+            "original": true,
+            "dz": 3528.926238812258
+        },
+        {
+            "md": 6930,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55121287161236,
+            "dxTN": 4191.16825465661,
+            "dyTN": 1954.3738537624943,
+            "point": {
+                "x": 406307.5013471637,
+                "y": 6827057.780872349,
+                "z": -3536.6908101653335
+            },
+            "wgs84Longitude": 1.2361078566924026,
+            "wgs84Latitude": 61.56560292635099,
+            "dls": 0,
+            "original": true,
+            "dz": 3536.6908101653335
+        },
+        {
+            "md": 6960,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55077957229909,
+            "dxTN": 4217.431037598578,
+            "dyTN": 1966.6203905727964,
+            "point": {
+                "x": 406334.09289868036,
+                "y": 6827069.31510811,
+                "z": -3544.455381518409
+            },
+            "wgs84Longitude": 1.2366023239097945,
+            "wgs84Latitude": 61.56571288244809,
+            "dls": 0,
+            "original": true,
+            "dz": 3544.455381518409
+        },
+        {
+            "md": 6990,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.55034627004501,
+            "dxTN": 4243.693820540546,
+            "dyTN": 1978.8669273830985,
+            "point": {
+                "x": 406360.684393651,
+                "y": 6827080.849558304,
+                "z": -3552.2199528714846
+            },
+            "wgs84Longitude": 1.237096793477739,
+            "wgs84Latitude": 61.565822838677214,
+            "dls": 0,
+            "original": true,
+            "dz": 3552.2199528714846
+        },
+        {
+            "md": 7020,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54991296505234,
+            "dxTN": 4269.956603482514,
+            "dyTN": 1991.1134641934007,
+            "point": {
+                "x": 406387.27583207394,
+                "y": 6827092.384222928,
+                "z": -3559.98452422456
+            },
+            "wgs84Longitude": 1.2375912653962604,
+            "wgs84Latitude": 61.56593279503833,
+            "dls": 0,
+            "original": true,
+            "dz": 3559.98452422456
+        },
+        {
+            "md": 7050,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54947965699652,
+            "dxTN": 4296.219386424482,
+            "dyTN": 2003.3600010037028,
+            "point": {
+                "x": 406413.86721394723,
+                "y": 6827103.919101985,
+                "z": -3567.7490955776357
+            },
+            "wgs84Longitude": 1.2380857396653773,
+            "wgs84Latitude": 61.56604275153144,
+            "dls": 0,
+            "original": true,
+            "dz": 3567.7490955776357
+        },
+        {
+            "md": 7080,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54904634609751,
+            "dxTN": 4322.48216936645,
+            "dyTN": 2015.606537814005,
+            "point": {
+                "x": 406440.4585392691,
+                "y": 6827115.454195478,
+                "z": -3575.513666930711
+            },
+            "wgs84Longitude": 1.2385802162851118,
+            "wgs84Latitude": 61.566152708156565,
+            "dls": 0,
+            "original": true,
+            "dz": 3575.513666930711
+        },
+        {
+            "md": 7110,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54861303220014,
+            "dxTN": 4348.744952308418,
+            "dyTN": 2027.853074624307,
+            "point": {
+                "x": 406467.04980803793,
+                "y": 6827126.989503407,
+                "z": -3583.278238283787
+            },
+            "wgs84Longitude": 1.2390746952554876,
+            "wgs84Latitude": 61.5662626649137,
+            "dls": 0,
+            "original": true,
+            "dz": 3583.278238283787
+        },
+        {
+            "md": 7140,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54817971535502,
+            "dxTN": 4375.007735250386,
+            "dyTN": 2040.0996114346092,
+            "point": {
+                "x": 406493.6410202518,
+                "y": 6827138.525025772,
+                "z": -3591.0428096368623
+            },
+            "wgs84Longitude": 1.2395691765765262,
+            "wgs84Latitude": 61.56637262180282,
+            "dls": 0,
+            "original": true,
+            "dz": 3591.0428096368623
+        },
+        {
+            "md": 7170,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54774639569375,
+            "dxTN": 4401.270518192354,
+            "dyTN": 2052.346148244911,
+            "point": {
+                "x": 406520.2321759091,
+                "y": 6827150.060762576,
+                "z": -3598.807380989938
+            },
+            "wgs84Longitude": 1.240063660248251,
+            "wgs84Latitude": 61.566482578823965,
+            "dls": 0,
+            "original": true,
+            "dz": 3598.807380989938
+        },
+        {
+            "md": 7200,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54731307310445,
+            "dxTN": 4427.533301134322,
+            "dyTN": 2064.592685055213,
+            "point": {
+                "x": 406546.8232750079,
+                "y": 6827161.59671382,
+                "z": -3606.5719523430134
+            },
+            "wgs84Longitude": 1.2405581462706814,
+            "wgs84Latitude": 61.56659253597711,
+            "dls": 0,
+            "original": true,
+            "dz": 3606.5719523430134
+        },
+        {
+            "md": 7230,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5468797475746,
+            "dxTN": 4453.79608407629,
+            "dyTN": 2076.8392218655154,
+            "point": {
+                "x": 406573.4143175465,
+                "y": 6827173.132879508,
+                "z": -3614.336523696089
+            },
+            "wgs84Longitude": 1.2410526346438413,
+            "wgs84Latitude": 61.56670249326228,
+            "dls": 0,
+            "original": true,
+            "dz": 3614.336523696089
+        },
+        {
+            "md": 7260,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54644641910593,
+            "dxTN": 4480.058867018258,
+            "dyTN": 2089.0857586758175,
+            "point": {
+                "x": 406600.00530352315,
+                "y": 6827184.669259638,
+                "z": -3622.1010950491645
+            },
+            "wgs84Longitude": 1.2415471253677517,
+            "wgs84Latitude": 61.566812450679436,
+            "dls": 0,
+            "original": true,
+            "dz": 3622.1010950491645
+        },
+        {
+            "md": 7290,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5460130876029,
+            "dxTN": 4506.321649960226,
+            "dyTN": 2101.3322954861196,
+            "point": {
+                "x": 406626.59623293596,
+                "y": 6827196.20585421,
+                "z": -3629.86566640224
+            },
+            "wgs84Longitude": 1.242041618442434,
+            "wgs84Latitude": 61.5669224082286,
+            "dls": 0,
+            "original": true,
+            "dz": 3629.86566640224
+        },
+        {
+            "md": 7320,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54557975335047,
+            "dxTN": 4532.584432902194,
+            "dyTN": 2113.5788322964218,
+            "point": {
+                "x": 406653.18710578326,
+                "y": 6827207.74266323,
+                "z": -3637.6302377553156
+            },
+            "wgs84Longitude": 1.2425361138679123,
+            "wgs84Latitude": 61.56703236590977,
+            "dls": 0,
+            "original": true,
+            "dz": 3637.6302377553156
+        },
+        {
+            "md": 7350,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54514641608331,
+            "dxTN": 4558.847215844162,
+            "dyTN": 2125.825369106724,
+            "point": {
+                "x": 406679.7779220633,
+                "y": 6827219.279686698,
+                "z": -3645.394809108391
+            },
+            "wgs84Longitude": 1.2430306116442076,
+            "wgs84Latitude": 61.567142323722955,
+            "dls": 0,
+            "original": true,
+            "dz": 3645.394809108391
+        },
+        {
+            "md": 7380,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54471307594255,
+            "dxTN": 4585.10999878613,
+            "dyTN": 2138.071905917026,
+            "point": {
+                "x": 406706.36868177424,
+                "y": 6827230.816924612,
+                "z": -3653.1593804614668
+            },
+            "wgs84Longitude": 1.2435251117713422,
+            "wgs84Latitude": 61.567252281668154,
+            "dls": 0,
+            "original": true,
+            "dz": 3653.1593804614668
+        },
+        {
+            "md": 7410,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54427973284328,
+            "dxTN": 4611.372781728098,
+            "dyTN": 2150.318442727328,
+            "point": {
+                "x": 406732.9593849144,
+                "y": 6827242.354376977,
+                "z": -3660.9239518145423
+            },
+            "wgs84Longitude": 1.2440196142493376,
+            "wgs84Latitude": 61.56736223974535,
+            "dls": 0,
+            "original": true,
+            "dz": 3660.9239518145423
+        },
+        {
+            "md": 7440,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54384638687304,
+            "dxTN": 4637.635564670066,
+            "dyTN": 2162.5649795376303,
+            "point": {
+                "x": 406759.5500314819,
+                "y": 6827253.892043797,
+                "z": -3668.688523167618
+            },
+            "wgs84Longitude": 1.2445141190782163,
+            "wgs84Latitude": 61.56747219795457,
+            "dls": 0,
+            "original": true,
+            "dz": 3668.688523167618
+        },
+        {
+            "md": 7470,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54341303798093,
+            "dxTN": 4663.898347612034,
+            "dyTN": 2174.8115163479324,
+            "point": {
+                "x": 406786.14062147494,
+                "y": 6827265.429925066,
+                "z": -3676.4530945206934
+            },
+            "wgs84Longitude": 1.245008626258,
+            "wgs84Latitude": 61.56758215629579,
+            "dls": 0,
+            "original": true,
+            "dz": 3676.4530945206934
+        },
+        {
+            "md": 7500,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54297968600729,
+            "dxTN": 4690.161130554002,
+            "dyTN": 2187.0580531582345,
+            "point": {
+                "x": 406812.7311548919,
+                "y": 6827276.968020789,
+                "z": -3684.217665873769
+            },
+            "wgs84Longitude": 1.2455031357887114,
+            "wgs84Latitude": 61.567692114769024,
+            "dls": 0,
+            "original": true,
+            "dz": 3684.217665873769
+        },
+        {
+            "md": 7530,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54254633129472,
+            "dxTN": 4716.42391349597,
+            "dyTN": 2199.3045899685367,
+            "point": {
+                "x": 406839.3216317309,
+                "y": 6827288.50633097,
+                "z": -3691.9822372268445
+            },
+            "wgs84Longitude": 1.2459976476703718,
+            "wgs84Latitude": 61.56780207337426,
+            "dls": 0,
+            "original": true,
+            "dz": 3691.9822372268445
+        },
+        {
+            "md": 7560,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54211297368002,
+            "dxTN": 4742.686696437938,
+            "dyTN": 2211.551126778839,
+            "point": {
+                "x": 406865.91205199016,
+                "y": 6827300.044855606,
+                "z": -3699.74680857992
+            },
+            "wgs84Longitude": 1.2464921619030034,
+            "wgs84Latitude": 61.567912032111515,
+            "dls": 0,
+            "original": true,
+            "dz": 3699.74680857992
+        },
+        {
+            "md": 7590,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54167961297445,
+            "dxTN": 4768.949479379906,
+            "dyTN": 2223.797663589141,
+            "point": {
+                "x": 406892.502415668,
+                "y": 6827311.583594702,
+                "z": -3707.5113799329956
+            },
+            "wgs84Longitude": 1.2469866784866286,
+            "wgs84Latitude": 61.56802199098079,
+            "dls": 0,
+            "original": true,
+            "dz": 3707.5113799329956
+        },
+        {
+            "md": 7620,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54124624944373,
+            "dxTN": 4795.212262321874,
+            "dyTN": 2236.044200399443,
+            "point": {
+                "x": 406919.0927227625,
+                "y": 6827323.122548257,
+                "z": -3715.275951286071
+            },
+            "wgs84Longitude": 1.2474811974212685,
+            "wgs84Latitude": 61.56813194998205,
+            "dls": 0,
+            "original": true,
+            "dz": 3715.275951286071
+        },
+        {
+            "md": 7650,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54081288304988,
+            "dxTN": 4821.475045263842,
+            "dyTN": 2248.290737209745,
+            "point": {
+                "x": 406945.68297327205,
+                "y": 6827334.66171627,
+                "z": -3723.0405226391467
+            },
+            "wgs84Longitude": 1.2479757187069476,
+            "wgs84Latitude": 61.568241909115336,
+            "dls": 0,
+            "original": true,
+            "dz": 3723.0405226391467
+        },
+        {
+            "md": 7680,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.54037951364943,
+            "dxTN": 4847.73782820581,
+            "dyTN": 2260.5372740200473,
+            "point": {
+                "x": 406972.2731671948,
+                "y": 6827346.201098749,
+                "z": -3730.8050939922223
+            },
+            "wgs84Longitude": 1.2484702423436846,
+            "wgs84Latitude": 61.56835186838064,
+            "dls": 0,
+            "original": true,
+            "dz": 3730.8050939922223
+        },
+        {
+            "md": 7710,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53994614130133,
+            "dxTN": 4874.000611147778,
+            "dyTN": 2272.7838108303495,
+            "point": {
+                "x": 406998.86330452893,
+                "y": 6827357.7406956935,
+                "z": -3738.569665345298
+            },
+            "wgs84Longitude": 1.2489647683315044,
+            "wgs84Latitude": 61.56846182777795,
+            "dls": 0,
+            "original": true,
+            "dz": 3738.569665345298
+        },
+        {
+            "md": 7740,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53951276606067,
+            "dxTN": 4900.263394089746,
+            "dyTN": 2285.0303476406516,
+            "point": {
+                "x": 407025.4533852727,
+                "y": 6827369.2805071,
+                "z": -3746.3342366983734
+            },
+            "wgs84Longitude": 1.249459296670426,
+            "wgs84Latitude": 61.56857178730726,
+            "dls": 0,
+            "original": true,
+            "dz": 3746.3342366983734
+        },
+        {
+            "md": 7770,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53907938799493,
+            "dxTN": 4926.526177031714,
+            "dyTN": 2297.2768844509537,
+            "point": {
+                "x": 407052.04340942437,
+                "y": 6827380.820532976,
+                "z": -3754.098808051449
+            },
+            "wgs84Longitude": 1.2499538273604733,
+            "wgs84Latitude": 61.56868174696861,
+            "dls": 0,
+            "original": true,
+            "dz": 3754.098808051449
+        },
+        {
+            "md": 7800,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.538646006952,
+            "dxTN": 4952.788959973682,
+            "dyTN": 2309.523421261256,
+            "point": {
+                "x": 407078.6333769822,
+                "y": 6827392.360773319,
+                "z": -3761.8633794045245
+            },
+            "wgs84Longitude": 1.25044836040167,
+            "wgs84Latitude": 61.568791706761964,
+            "dls": 0,
+            "original": true,
+            "dz": 3761.8633794045245
+        },
+        {
+            "md": 7830,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53821262301732,
+            "dxTN": 4979.05174291565,
+            "dyTN": 2321.769958071558,
+            "point": {
+                "x": 407105.22328794433,
+                "y": 6827403.901228131,
+                "z": -3769.6279507576
+            },
+            "wgs84Longitude": 1.250942895794036,
+            "wgs84Latitude": 61.56890166668732,
+            "dls": 0,
+            "original": true,
+            "dz": 3769.6279507576
+        },
+        {
+            "md": 7860,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53777923601002,
+            "dxTN": 5005.314525857618,
+            "dyTN": 2334.01649488186,
+            "point": {
+                "x": 407131.81314230897,
+                "y": 6827415.441897414,
+                "z": -3777.3925221106756
+            },
+            "wgs84Longitude": 1.251437433537593,
+            "wgs84Latitude": 61.56901162674469,
+            "dls": 0,
+            "original": true,
+            "dz": 3777.3925221106756
+        },
+        {
+            "md": 7890,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53734584617763,
+            "dxTN": 5031.577308799586,
+            "dyTN": 2346.2630316921623,
+            "point": {
+                "x": 407158.40294007445,
+                "y": 6827426.98278117,
+                "z": -3785.157093463751
+            },
+            "wgs84Longitude": 1.2519319736323642,
+            "wgs84Latitude": 61.56912158693409,
+            "dls": 0,
+            "original": true,
+            "dz": 3785.157093463751
+        },
+        {
+            "md": 7920,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53691245349155,
+            "dxTN": 5057.840091741554,
+            "dyTN": 2358.5095685024644,
+            "point": {
+                "x": 407184.9926812389,
+                "y": 6827438.523879399,
+                "z": -3792.9216648168267
+            },
+            "wgs84Longitude": 1.2524265160783716,
+            "wgs84Latitude": 61.569231547255484,
+            "dls": 0,
+            "original": true,
+            "dz": 3792.9216648168267
+        },
+        {
+            "md": 7950,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.536479057752,
+            "dxTN": 5084.102874683522,
+            "dyTN": 2370.7561053127665,
+            "point": {
+                "x": 407211.5823658006,
+                "y": 6827450.065192103,
+                "z": -3800.6862361699023
+            },
+            "wgs84Longitude": 1.2529210608756358,
+            "wgs84Latitude": 61.569341507708906,
+            "dls": 0,
+            "original": true,
+            "dz": 3800.6862361699023
+        },
+        {
+            "md": 7980,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5360456592063,
+            "dxTN": 5110.36565762549,
+            "dyTN": 2383.0026421230687,
+            "point": {
+                "x": 407238.17199375783,
+                "y": 6827461.606719282,
+                "z": -3808.450807522978
+            },
+            "wgs84Longitude": 1.2534156080241823,
+            "wgs84Latitude": 61.569451468294325,
+            "dls": 0,
+            "original": true,
+            "dz": 3808.450807522978
+        },
+        {
+            "md": 8010,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53561225765459,
+            "dxTN": 5136.628440567458,
+            "dyTN": 2395.249178933371,
+            "point": {
+                "x": 407264.76156510867,
+                "y": 6827473.148460941,
+                "z": -3816.2153788760534
+            },
+            "wgs84Longitude": 1.2539101575240281,
+            "wgs84Latitude": 61.569561429011785,
+            "dls": 0,
+            "original": true,
+            "dz": 3816.2153788760534
+        },
+        {
+            "md": 8040,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53517885317308,
+            "dxTN": 5162.891223509426,
+            "dyTN": 2407.495715743673,
+            "point": {
+                "x": 407291.35107985145,
+                "y": 6827484.69041708,
+                "z": -3823.979950229129
+            },
+            "wgs84Longitude": 1.2544047093751984,
+            "wgs84Latitude": 61.56967138986124,
+            "dls": 0,
+            "original": true,
+            "dz": 3823.979950229129
+        },
+        {
+            "md": 8070,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.5347454458189,
+            "dxTN": 5189.154006451394,
+            "dyTN": 2419.742252553975,
+            "point": {
+                "x": 407317.9405379844,
+                "y": 6827496.232587698,
+                "z": -3831.7445215822045
+            },
+            "wgs84Longitude": 1.2548992635777168,
+            "wgs84Latitude": 61.569781350842725,
+            "dls": 0,
+            "original": true,
+            "dz": 3831.7445215822045
+        },
+        {
+            "md": 8100,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53431203555392,
+            "dxTN": 5215.416789393362,
+            "dyTN": 2431.988789364277,
+            "point": {
+                "x": 407344.52993950574,
+                "y": 6827507.774972799,
+                "z": -3839.50909293528
+            },
+            "wgs84Longitude": 1.255393820131602,
+            "wgs84Latitude": 61.56989131195622,
+            "dls": 0,
+            "original": true,
+            "dz": 3839.50909293528
+        },
+        {
+            "md": 8130,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53387862235914,
+            "dxTN": 5241.67957233533,
+            "dyTN": 2444.2353261745793,
+            "point": {
+                "x": 407371.11928441364,
+                "y": 6827519.317572384,
+                "z": -3847.2736642883556
+            },
+            "wgs84Longitude": 1.2558883790368762,
+            "wgs84Latitude": 61.57000127320174,
+            "dls": 0,
+            "original": true,
+            "dz": 3847.2736642883556
+        },
+        {
+            "md": 8160,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53344520618687,
+            "dxTN": 5267.942355277298,
+            "dyTN": 2456.4818629848814,
+            "point": {
+                "x": 407397.7085727064,
+                "y": 6827530.860386454,
+                "z": -3855.038235641431
+            },
+            "wgs84Longitude": 1.2563829402935645,
+            "wgs84Latitude": 61.57011123457927,
+            "dls": 0,
+            "original": true,
+            "dz": 3855.038235641431
+        },
+        {
+            "md": 8190,
+            "inclination": 75,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53301178719916,
+            "dxTN": 5294.205138219266,
+            "dyTN": 2468.7283997951836,
+            "point": {
+                "x": 407424.29780438216,
+                "y": 6827542.403415008,
+                "z": -3862.8028069945067
+            },
+            "wgs84Longitude": 1.2568775039016866,
+            "wgs84Latitude": 61.57022119608881,
+            "dls": 0,
+            "original": true,
+            "dz": 3862.8028069945067
+        },
+        {
+            "md": 8220,
+            "inclination": 77.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53257596941644,
+            "dxTN": 5320.613089679845,
+            "dyTN": 2481.042629797437,
+            "point": {
+                "x": 407451.0339489423,
+                "y": 6827554.010463171,
+                "z": -3869.932818127259
+            },
+            "wgs84Longitude": 1.2573748035437937,
+            "wgs84Latitude": 61.57033176553648,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3869.932818127259
+        },
+        {
+            "md": 8250,
+            "inclination": 80,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53213591189983,
+            "dxTN": 5347.277774432064,
+            "dyTN": 2493.4765764996855,
+            "point": {
+                "x": 407478.0299504609,
+                "y": 6827565.730569331,
+                "z": -3875.785063518241
+            },
+            "wgs84Longitude": 1.2578769400894294,
+            "wgs84Latitude": 61.570443410020744,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 3875.785063518241
+        },
+        {
+            "md": 8280,
+            "inclination": 82.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53169245234146,
+            "dxTN": 5374.148434732976,
+            "dyTN": 2506.0065711776824,
+            "point": {
+                "x": 407505.23441315454,
+                "y": 6827577.541426778,
+                "z": -3880.3484030857303
+            },
+            "wgs84Longitude": 1.25838295764761,
+            "wgs84Latitude": 61.570555916998984,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 3880.3484030857303
+        },
+        {
+            "md": 8310,
+            "inclination": 85,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53124643480797,
+            "dxTN": 5401.17392075347,
+            "dyTN": 2518.6087622743994,
+            "point": {
+                "x": 407532.5955447,
+                "y": 6827589.420554788,
+                "z": -3883.614150253498
+            },
+            "wgs84Longitude": 1.2588918929252326,
+            "wgs84Latitude": 61.57066907228579,
+            "dls": 2.500000000000099,
+            "original": true,
+            "dz": 3883.614150253498
+        },
+        {
+            "md": 8340,
+            "inclination": 87.5,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53079870841647,
+            "dxTN": 5428.302787944877,
+            "dyTN": 2531.2591608028224,
+            "point": {
+                "x": 407560.0612548994,
+                "y": 6827601.345341429,
+                "z": -3885.576088486196
+            },
+            "wgs84Longitude": 1.2594027770616218,
+            "wgs84Latitude": 61.57078266046096,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3885.576088486196
+        },
+        {
+            "md": 8370,
+            "inclination": 90,
+            "azimuthTN": 65,
+            "azimuthGN": 66.53035012560967,
+            "dxTN": 5455.483394966595,
+            "dyTN": 2543.933686010351,
+            "point": {
+                "x": 407587.5792549088,
+                "y": 6827613.293086598,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2599146374737475,
+            "wgs84Latitude": 61.57089646527982,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8400,
+            "inclination": 90,
+            "azimuthTN": 65,
+            "azimuthGN": 66.52990139783324,
+            "dxTN": 5482.672628577695,
+            "dyTN": 2556.612233862572,
+            "point": {
+                "x": 407615.10589326965,
+                "y": 6827625.244838546,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2604266622160667,
+            "wgs84Latitude": 61.57101030621618,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8430,
+            "inclination": 90,
+            "azimuthTN": 67.5,
+            "azimuthGN": 69.02944815189531,
+            "dxTN": 5510.129794723265,
+            "dyTN": 2568.6936761150696,
+            "point": {
+                "x": 407642.88441390224,
+                "y": 6827636.59257188,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2609437345301313,
+            "wgs84Latitude": 61.57111878572751,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8460,
+            "inclination": 90,
+            "azimuthTN": 70,
+            "azimuthGN": 71.52898645028502,
+            "dxTN": 5538.087812840218,
+            "dyTN": 2579.565954745513,
+            "point": {
+                "x": 407671.1313974634,
+                "y": 6827646.718044216,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2614702407081648,
+            "wgs84Latitude": 61.571216408132976,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8490,
+            "inclination": 90,
+            "azimuthTN": 72.5,
+            "azimuthGN": 74.02851717214205,
+            "dxTN": 5566.493463252039,
+            "dyTN": 2589.2083737535895,
+            "point": {
+                "x": 407699.7930928121,
+                "y": 6827655.601992344,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2620051783911619,
+            "wgs84Latitude": 61.571302987603254,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8520,
+            "inclination": 90,
+            "azimuthTN": 75,
+            "azimuthGN": 76.52804121111505,
+            "dxTN": 5595.292674188696,
+            "dyTN": 2597.602578246678,
+            "point": {
+                "x": 407728.8149602968,
+                "y": 6827663.227515222,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2625475291518324,
+            "wgs84Latitude": 61.57137835932982,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8550,
+            "inclination": 90,
+            "azimuthTN": 77.5,
+            "azimuthGN": 79.02755947336581,
+            "dxTN": 5624.430624715332,
+            "dyTN": 2604.7325893794305,
+            "point": {
+                "x": 407758.1417754699,
+                "y": 6827669.580106068,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2630962604351486,
+            "wgs84Latitude": 61.57144237983875,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8580,
+            "inclination": 90,
+            "azimuthTN": 80,
+            "azimuthGN": 81.52707287641391,
+            "dxTN": 5653.8518490870265,
+            "dyTN": 2610.5848347704123,
+            "point": {
+                "x": 407787.71773409843,
+                "y": 6827674.647679902,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.263650327525888,
+            "wgs84Latitude": 61.57149492726367,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8610,
+            "inclination": 90,
+            "azimuthTN": 82.5,
+            "azimuthGN": 84.02658234658257,
+            "dxTN": 5683.500342330995,
+            "dyTN": 2615.1481743379018,
+            "point": {
+                "x": 407817.4865582745,
+                "y": 6827678.4205965,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2642086755394537,
+            "wgs84Latitude": 61.57153590157789,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8640,
+            "inclination": 90,
+            "azimuthTN": 85,
+            "azimuthGN": 86.52608881822852,
+            "dxTN": 5713.319666855238,
+            "dyTN": 2618.4139215056694,
+            "point": {
+                "x": 407847.39160342154,
+                "y": 6827680.891678686,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2647702414321396,
+            "wgs84Latitude": 61.57156522478468,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8670,
+            "inclination": 90,
+            "azimuthTN": 87.5,
+            "azimuthGN": 89.02559323092011,
+            "dxTN": 5743.2530598807025,
+            "dyTN": 2620.3758597383676,
+            "point": {
+                "x": 407877.37596599583,
+                "y": 6827682.056225965,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2653339560269952,
+            "wgs84Latitude": 61.57158284106581,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8700,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.52509652838116,
+            "dxTN": 5773.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 407907.3825916785,
+                "y": 6827681.912023444,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2658987460514464,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 2.499999999999953,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8730,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.52459958361719,
+            "dxTN": 5803.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 407937.38131819956,
+                "y": 6827681.113460215,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2664637154359932,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8760,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.52410263892797,
+            "dxTN": 5833.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 407967.38004961505,
+                "y": 6827680.315157228,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2670286848205403,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8790,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.52360569426656,
+            "dxTN": 5863.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 407997.3787859234,
+                "y": 6827679.517114485,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2675936542050883,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8820,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.5231087496898,
+            "dxTN": 5893.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408027.3775271231,
+                "y": 6827678.719331984,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.268158623589636,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8850,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.52261180515933,
+            "dxTN": 5923.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408057.3762732124,
+                "y": 6827677.921809725,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2687235929741836,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8880,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.52211486075178,
+            "dxTN": 5953.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408087.3750241897,
+                "y": 6827677.12454771,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2692885623587296,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8910,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.52161791642884,
+            "dxTN": 5983.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408117.3737800536,
+                "y": 6827676.327545937,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2698535317432775,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8940,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.52112097205709,
+            "dxTN": 6013.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408147.3725408023,
+                "y": 6827675.530804406,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2704185011278244,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 8970,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.52062402783663,
+            "dxTN": 6043.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408177.37130643433,
+                "y": 6827674.734323118,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2709834705123726,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9000,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.52012708367243,
+            "dxTN": 6073.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408207.37007694796,
+                "y": 6827673.938102072,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2715484398969188,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9030,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51963013955442,
+            "dxTN": 6103.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408237.3688523418,
+                "y": 6827673.142141269,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2721134092814672,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9060,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.5191331954927,
+            "dxTN": 6133.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408267.36763261404,
+                "y": 6827672.346440708,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2726783786660139,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9090,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.5186362516105,
+            "dxTN": 6163.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408297.36641776323,
+                "y": 6827671.551000389,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2732433480505614,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9120,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.5181393076229,
+            "dxTN": 6193.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408327.36520778766,
+                "y": 6827670.7558203135,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.273808317435109,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9150,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51764236374815,
+            "dxTN": 6223.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408357.3640026858,
+                "y": 6827669.960900479,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.274373286819656,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9180,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51714542009134,
+            "dxTN": 6253.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408387.3628024561,
+                "y": 6827669.166240888,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2749382562042026,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9210,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51664847631898,
+            "dxTN": 6283.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408417.36160709686,
+                "y": 6827668.371841539,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2755032255887504,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9240,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.5161515326696,
+            "dxTN": 6313.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408447.36041660653,
+                "y": 6827667.577702431,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.276068194973298,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9270,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51565458917145,
+            "dxTN": 6343.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408477.35923098354,
+                "y": 6827666.7838235665,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.276633164357846,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9300,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51515764562443,
+            "dxTN": 6373.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408507.3580502262,
+                "y": 6827665.990204943,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2771981337423917,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9330,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51466070219016,
+            "dxTN": 6403.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408537.356874333,
+                "y": 6827665.196846563,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2777631031269396,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9360,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51416375878394,
+            "dxTN": 6433.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408567.3557033023,
+                "y": 6827664.403748425,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2783280725114865,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9390,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51366681555717,
+            "dxTN": 6463.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408597.35453713255,
+                "y": 6827663.610910528,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2788930418960336,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9420,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.5131698722533,
+            "dxTN": 6493.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408627.3533758222,
+                "y": 6827662.818332874,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2794580112805822,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9450,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51267292915699,
+            "dxTN": 6523.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408657.35221936944,
+                "y": 6827662.026015461,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2800229806651282,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9480,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51217598599395,
+            "dxTN": 6553.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408687.3510677729,
+                "y": 6827661.233958292,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2805879500496762,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9510,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51167904303841,
+            "dxTN": 6583.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408717.3499210308,
+                "y": 6827660.442161364,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2811529194342228,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9540,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.5111821000725,
+            "dxTN": 6613.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408747.3487791417,
+                "y": 6827659.650624677,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2817178888187708,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9570,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51068515716292,
+            "dxTN": 6643.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408777.34764210397,
+                "y": 6827658.859348233,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2822828582033179,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9600,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.51018821436594,
+            "dxTN": 6673.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408807.34650991595,
+                "y": 6827658.06833203,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2828478275878652,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9630,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.50969127152003,
+            "dxTN": 6703.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408837.3453825761,
+                "y": 6827657.277576069,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2834127969724134,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9660,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.50919432889197,
+            "dxTN": 6733.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408867.34426008275,
+                "y": 6827656.4870803505,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2839777663569605,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9690,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.50869738625353,
+            "dxTN": 6763.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408897.3431424344,
+                "y": 6827655.696844874,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2845427357415073,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9720,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.50820044363286,
+            "dxTN": 6793.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408927.34202962933,
+                "y": 6827654.906869639,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.285107705126054,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9750,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.50770350123,
+            "dxTN": 6823.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408957.34092166607,
+                "y": 6827654.117154645,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2856726745106015,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9780,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.50720655871149,
+            "dxTN": 6853.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 408987.33981854294,
+                "y": 6827653.327699893,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2862376438951486,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9810,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.50670961641079,
+            "dxTN": 6883.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 409017.3387202584,
+                "y": 6827652.538505384,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.286802613279696,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9840,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.50621267412782,
+            "dxTN": 6913.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 409047.3376268108,
+                "y": 6827651.749571115,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2873675826642446,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9870,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.5057157319012,
+            "dxTN": 6943.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 409077.33653819864,
+                "y": 6827650.960897089,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2879325520487916,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9900,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.505218789759,
+            "dxTN": 6973.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 409107.3354544201,
+                "y": 6827650.172483304,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2884975214333378,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9930,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.50472184766252,
+            "dxTN": 7003.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 409137.33437547385,
+                "y": 6827649.38432976,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2890624908178852,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9960,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.50422490562242,
+            "dxTN": 7033.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 409167.33330135816,
+                "y": 6827648.596436459,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2896274602024331,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        },
+        {
+            "md": 9990,
+            "inclination": 90,
+            "azimuthTN": 90,
+            "azimuthGN": 91.5037279636387,
+            "dxTN": 7063.243541492463,
+            "dyTN": 2621.0302543750618,
+            "point": {
+                "x": 409197.33223207144,
+                "y": 6827647.808803398,
+                "z": -3886.2304831228903
+            },
+            "wgs84Longitude": 1.2901924295869798,
+            "wgs84Latitude": 61.57158871688783,
+            "dls": 0,
+            "original": true,
+            "dz": 3886.2304831228903
+        }
+    ],
+    "localCRS": "{\"name\":\"Azimuthal Equidistant Lng=1.15722813;Lat=61.54805721\",\"type\":\"LBC\",\"ver\":\"PE_10_3_1\",\"wkt\":\"PROJCS[\\\"Azimuthal Equidistant Lng=1.15722813;Lat=61.54805721\\\",GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Azimuthal_Equidistant\\\"],PARAMETER[\\\"False_Easting\\\",0.0],PARAMETER[\\\"False_Northing\\\",0.0],PARAMETER[\\\"Central_Meridian\\\",1.157228125699138],PARAMETER[\\\"Latitude_Of_Origin\\\",61.54805721163683],UNIT[\\\"Meter\\\",1.0]]\"}",
+    "method": "LeesModifiedProposal",
+    "operationsApplied": [
+        "derived GN from TN azimuth by grid convergence 1.620324",
+        "computed deflections via minimum curvature method",
+        "computation method: LeesModifiedProposal",
+        "reference point: conversion from 'WGS_1984_UTM_Zone_31N' to 'GCS_WGS_1984'",
+        "station points: conversion from 'GCS_WGS_1984' to 'WGS_1984_UTM_Zone_31N'",
+        "GN azimuth computed for each station location",
+        "to WGS 84: conversion from WGS_1984_UTM_Zone_31N to GCS_WGS_1984; 334 points converted"
+    ],
+    "inputKind": "MD_Incl_Azim"
+}

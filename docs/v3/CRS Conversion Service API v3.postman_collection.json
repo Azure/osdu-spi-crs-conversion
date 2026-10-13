@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "7a29d19a-0cd0-4c86-b2d4-7173057eccdd",
+		"name": "AWS_OSDUR3M13_CRS_conversion_v3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22278285"
+	},
+	"item": [
+		{
+			"name": "Configure collection",
+			"item": [
+				{
+					"name": "Refresh Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// this snippet extracts the new access and id tokens",
+									"// and puts them to environment variables",
+									"cp = pm.environment.get(\"cloud_platform\");",
+									"",
+									"var data = JSON.parse(responseBody)",
+									"pm.environment.set(\"access_token\", data.access_token);",
+									"if (cp == \"AWS\" || cp == \"IBM\") {",
+									"   pm.environment.set(\"id_token\", data.id_token);",
+									"}",
+									"// Uncomment if server returns a new refresh_token,",
+									"// otherwise comment out to prevent overwriting it with null",
+									"if (cp == \"Azure\") {",
+									"    pm.environment.set(\"refresh_token\", data.refresh_token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "xxxxxxxx",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"description": "Supply your client id as an environment variable",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"description": "Supply your client secret as an environment variable",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "{{refresh_token}}",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "{{Scope}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth_token_url}}",
+							"host": [
+								"{{auth_token_url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "V3",
+			"item": [
+				{
+					"name": "Single point conversion test case 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fromCRS\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n  \"toCRS\": \"osdu:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:\",\r\n  \"points\": [\r\n    {\r\n      \"x\": 697339.525,\r\n      \"y\": 7239989.403,\r\n      \"z\": 0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{osduonaws_base_url}}/api/crs/converter/v3/convert",
+							"host": [
+								"{{osduonaws_base_url}}"
+							],
+							"path": [
+								"api",
+								"crs",
+								"converter",
+								"v3",
+								"convert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single point conversion test case 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fromCRS\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n  \"toCRS\": \"osdu:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:\",\r\n  \"points\": [\r\n    {\r\n      \"x\": 697339.525,\r\n      \"y\": 7239989.403\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{osduonaws_base_url}}/api/crs/converter/v3/convert",
+							"host": [
+								"{{osduonaws_base_url}}"
+							],
+							"path": [
+								"api",
+								"crs",
+								"converter",
+								"v3",
+								"convert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "geoJSON single point - test case 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"toCRS\": \"osdu:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:\",\r\n    \"toUnitZ\": \"osdu:reference-data--UnitOfMeasure:m:\",\r\n    \"featureCollection\": {\r\n     \"type\": \"AnyCrsFeatureCollection\",\r\n     \"CoordinateReferenceSystemID\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n     \"persistableReferenceCrs\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n     \"persistableReferenceUnitZ\": \"osdu:reference-data--UnitOfMeasure:m:\",\r\n     \"features\": [\r\n      {\r\n        \"type\": \"AnyCrsFeature\",\r\n        \"properties\": {},\r\n        \"geometry\": {\r\n          \"type\": \"AnyCrsPoint\",\r\n          \"coordinates\": [\r\n            697339.525,\r\n            7239989.403,\r\n            0\r\n          ],\r\n          \"bbox\": null\r\n        },\r\n        \"bbox\": null\r\n      }\r\n    ],\r\n    \"bbox\": null,\r\n    \"properties\": {}\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{osduonaws_base_url}}/api/crs/converter/v3/convertGeoJson",
+							"host": [
+								"{{osduonaws_base_url}}"
+							],
+							"path": [
+								"api",
+								"crs",
+								"converter",
+								"v3",
+								"convertGeoJson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "geoJSON single point - test case 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"toCRS\": \"osdu:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:\",\r\n    \"toUnitZ\": \"osdu:reference-data--UnitOfMeasure:ft:\",\r\n    \"featureCollection\": {\r\n     \"type\": \"AnyCrsFeatureCollection\",\r\n     \"CoordinateReferenceSystemID\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n     \"persistableReferenceCrs\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n     \"persistableReferenceUnitZ\": \"osdu:reference-data--UnitOfMeasure:m:\",\r\n     \"features\": [\r\n      {\r\n        \"type\": \"AnyCrsFeature\",\r\n        \"properties\": {},\r\n        \"geometry\": {\r\n          \"type\": \"AnyCrsPoint\",\r\n          \"coordinates\": [\r\n            697339.525,\r\n            7239989.403,\r\n            2\r\n          ],\r\n          \"bbox\": null\r\n        },\r\n        \"bbox\": null\r\n      }\r\n    ],\r\n    \"bbox\": null,\r\n    \"properties\": {}\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{osduonaws_base_url}}/api/crs/converter/v3/convertGeoJson",
+							"host": [
+								"{{osduonaws_base_url}}"
+							],
+							"path": [
+								"api",
+								"crs",
+								"converter",
+								"v3",
+								"convertGeoJson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "geoJSON single point - 2D - test case 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"toCRS\": \"osdu:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:\",\r\n    \"featureCollection\": {\r\n     \"type\": \"AnyCrsFeatureCollection\",\r\n     \"CoordinateReferenceSystemID\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n     \"persistableReferenceCrs\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n     \"features\": [\r\n      {\r\n        \"type\": \"AnyCrsFeature\",\r\n        \"properties\": {},\r\n        \"geometry\": {\r\n          \"type\": \"AnyCrsPoint\",\r\n          \"coordinates\": [\r\n            697339.525,\r\n            7239989.403\r\n          ],\r\n          \"bbox\": null\r\n        },\r\n        \"bbox\": null\r\n      }\r\n    ],\r\n    \"bbox\": null,\r\n    \"properties\": {}\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{osduonaws_base_url}}/api/crs/converter/v3/convertGeoJson",
+							"host": [
+								"{{osduonaws_base_url}}"
+							],
+							"path": [
+								"api",
+								"crs",
+								"converter",
+								"v3",
+								"convertGeoJson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GeoJSON point - 2D - clean test case 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"toCRS\": \"osdu:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:\",\r\n    \"featureCollection\": {\r\n     \"type\": \"AnyCrsFeatureCollection\",\r\n     \"CoordinateReferenceSystemID\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n     \"features\": [\r\n      {\r\n        \"type\": \"AnyCrsFeature\",\r\n        \"properties\": {},\r\n        \"geometry\": {\r\n          \"type\": \"AnyCrsPoint\",\r\n          \"coordinates\": [\r\n            697339.525,\r\n            7239989.403\r\n          ],\r\n          \"bbox\": null\r\n        },\r\n        \"bbox\": null\r\n      }\r\n    ],\r\n    \"bbox\": null,\r\n    \"properties\": {}\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{osduonaws_base_url}}/api/crs/converter/v3/convertGeoJson",
+							"host": [
+								"{{osduonaws_base_url}}"
+							],
+							"path": [
+								"api",
+								"crs",
+								"converter",
+								"v3",
+								"convertGeoJson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GeoJSON polygon - test case 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"toCRS\": \"osdu:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:\",\r\n  \"toUnitZ\": \"osdu:reference-data--UnitOfMeasure:m:\",\r\n  \"featureCollection\": {\r\n    \"type\": \"AnyCrsFeatureCollection\",\r\n    \"CoordinateReferenceSystemID\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n    \"persistableReferenceCrs\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n    \"persistableReferenceUnitZ\": \"osdu:reference-data--UnitOfMeasure:m:\",\r\n    \"features\": [\r\n      {\r\n        \"type\": \"AnyCrsFeature\",\r\n        \"properties\": {},\r\n        \"geometry\": {\r\n          \"type\": \"AnyCrsPolygon\",\r\n          \"coordinates\": [\r\n            [\r\n             [697339.525, 7239989.403, 0],\r\n             [697339.525, 7239989.500, 0],\r\n             [697339.525, 7239989.600, 0],\r\n             [697339.525, 7239989.403, 0]\r\n            ]\r\n          ],\r\n          \"bbox\": null\r\n        },\r\n        \"bbox\": null\r\n      }\r\n    ],\r\n    \"bbox\": null,\r\n    \"properties\": {}\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{osduonaws_base_url}}/api/crs/converter/v3/convertGeoJson",
+							"host": [
+								"{{osduonaws_base_url}}"
+							],
+							"path": [
+								"api",
+								"crs",
+								"converter",
+								"v3",
+								"convertGeoJson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GeoJSON polygon - test case 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"toCRS\": \"osdu:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:\",\r\n  \"featureCollection\": {\r\n    \"type\": \"AnyCrsFeatureCollection\",\r\n    \"CoordinateReferenceSystemID\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:\",\r\n    \"features\": [\r\n      {\r\n        \"type\": \"AnyCrsFeature\",\r\n        \"properties\": {},\r\n        \"geometry\": {\r\n          \"type\": \"AnyCrsPolygon\",\r\n          \"coordinates\": [\r\n            [\r\n             [697339.525, 7239989.403],\r\n             [697339.525, 7239989.500],\r\n             [697339.525, 7239989.600],\r\n             [697339.525, 7239989.403]\r\n            ]\r\n          ],\r\n          \"bbox\": null\r\n        },\r\n        \"bbox\": null\r\n      }\r\n    ],\r\n    \"bbox\": null,\r\n    \"properties\": {}\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{osduonaws_base_url}}/api/crs/converter/v3/convertGeoJson",
+							"host": [
+								"{{osduonaws_base_url}}"
+							],
+							"path": [
+								"api",
+								"crs",
+								"converter",
+								"v3",
+								"convertGeoJson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Convert trajectory stations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"trajectoryCRS\": \"osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::23032_EPSG::1612:\",\n  \"azimuthReference\": \"TN\",\n  \"unitXY\": \"osdu:reference-data--UnitOfMeasure:m:\",\n  \"unitZ\": \"osdu:reference-data--UnitOfMeasure:m:\",\n  \"referencePoint\": {\n    \"x\": 400000,\n    \"y\": 6500000,\n    \"z\": 0\n  },\n  \"inputKind\": \"MD_Incl_Azim\",\n  \"interpolate\": true,\n  \"inputStations\": [\n    {\n      \"md\": 1000,\n      \"azimuth\": 100,\n      \"inclination\": 10\n    },\n    {\n      \"md\": 2000,\n      \"azimuth\": 200,\n      \"inclination\": 200\n    }\n  ],\n  \"method\": \"AzimuthalEquidistant\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{osduonaws_base_url}}/api/crs/converter/v3/convertTrajectory",
+							"host": [
+								"{{osduonaws_base_url}}"
+							],
+							"path": [
+								"api",
+								"crs",
+								"converter",
+								"v3",
+								"convertTrajectory"
+							]
+						},
+						"description": "Convert a list of trajectory stations, given the unit and spatial context and a reference point in 3D where MD==0."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

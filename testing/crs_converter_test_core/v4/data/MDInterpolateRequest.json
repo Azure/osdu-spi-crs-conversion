@@ -1,0 +1,43 @@
+{
+ "trajectoryCRS": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:Projected:EPSG::32615:",
+  "azimuthReference": "GN",
+  "unitZ": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m:",
+  "referencePoint": {
+        "y": 6500000,
+        "x": 400000,
+        "z": 0
+  },
+  "inputKind": "MD_Incl_Azim",
+  "interpolate": false,
+  "inputStations": [
+        {
+            "md": 0,
+            "azimuth": 20,
+            "inclination": 0
+        },
+        {
+            "md": 100,
+            "azimuth": 40,
+            "inclination": 10
+        },
+            {
+            "md": 150,
+            "azimuth": 60,
+            "inclination": 20
+        },
+        {
+            "md": 200,
+            "azimuth": 80,
+            "inclination": 40
+        }
+  ],
+      "MD_i": {
+        "md_i": [
+            50,
+            125,
+            175
+        ],
+        "md_interval": 60
+    },
+  "method": "MD_Incl_Azim"
+}

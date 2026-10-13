@@ -1,0 +1,62 @@
+{
+  "CreateDate": "2018-02-14T12:45:48.394785+00:00",
+  "TestData": [
+    {
+      "FromCrsPersistableReference": "{\"wkt\":\"GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4326]]\",\"ver\":\"PE_10_3_1\",\"name\":\"GCS_WGS_1984\",\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4326\"},\"type\":\"LBC\"}",
+      "ToCrsPersistableReference": "{\"lateBoundCRS\":{\"wkt\":\"PROJCS[\\\"NAD_1927_StatePlane_Louisiana_South_FIPS_1702\\\",GEOGCS[\\\"GCS_North_American_1927\\\",DATUM[\\\"D_North_American_1927\\\",SPHEROID[\\\"Clarke_1866\\\",6378206.4,294.9786982]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Lambert_Conformal_Conic\\\"],PARAMETER[\\\"False_Easting\\\",2000000.0],PARAMETER[\\\"False_Northing\\\",0.0],PARAMETER[\\\"Central_Meridian\\\",-91.3333333333333],PARAMETER[\\\"Standard_Parallel_1\\\",29.3],PARAMETER[\\\"Standard_Parallel_2\\\",30.7],PARAMETER[\\\"Latitude_Of_Origin\\\",28.6666666666667],UNIT[\\\"Foot_US\\\",0.304800609601219],AUTHORITY[\\\"EPSG\\\",26782]]\",\"ver\":\"PE_10_3_1\",\"name\":\"NAD_1927_StatePlane_Louisiana_South_FIPS_1702\",\"authCode\":{\"auth\":\"EPSG\",\"code\":\"26782\"},\"type\":\"LBC\"},\"singleCT\":{\"wkt\":\"GEOGTRAN[\\\"NAD_1927_To_WGS_1984_79_CONUS\\\",GEOGCS[\\\"GCS_North_American_1927\\\",DATUM[\\\"D_North_American_1927\\\",SPHEROID[\\\"Clarke_1866\\\",6378206.4,294.9786982]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"NADCON\\\"],PARAMETER[\\\"Dataset_conus\\\",0.0],AUTHORITY[\\\"EPSG\\\",15851]]\",\"ver\":\"PE_10_3_1\",\"name\":\"NAD_1927_To_WGS_1984_79_CONUS\",\"authCode\":{\"auth\":\"EPSG\",\"code\":\"15851\"},\"type\":\"ST\"},\"ver\":\"PE_10_3_1\",\"name\":\"NAD27 * OGP-Usa Conus / Louisiana South [26782,15851]\",\"authCode\":{\"auth\":\"SLB\",\"code\":\"26782079\"},\"type\":\"EBC\"}",
+      "FromInfo": "WGS 84 [4326] [dega]",
+      "ToInfo": "NAD27 * OGP-Usa Conus / Louisiana South [26782,15851] [ftUS]",
+      "Info": "Early-bound CRS/Early-bound CRS Test Data; success",
+      "FromToPoints": [
+        {
+          "FromPoint": {
+            "X": -91.8017578125,
+            "Y": 28.99372720461893,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 1850268.994179137,
+            "Y": 119161.6314841675,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": -91.73583984374999,
+            "Y": 28.5941685062326,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 1870832.2143090463,
+            "Y": -26225.79447564785,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": -91.73583984374999,
+            "Y": 28.5941685062326,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 1870832.2143090463,
+            "Y": -26225.79447564785,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": -91.2469482421875,
+            "Y": 29.099376992628493,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 2027624.6928186729,
+            "Y": 157286.30238325865,
+            "Z": 0.0
+          }
+        }
+      ]
+    }
+  ]
+}

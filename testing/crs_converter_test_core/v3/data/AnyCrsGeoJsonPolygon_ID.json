@@ -1,0 +1,87 @@
+{
+    "toCRS": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:BoundCRS::{{DATA_PARTITION_ID}}::toCrsGeoJson{{TEST_ID}}:",  "featureCollection": {
+    "features": [
+      {
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                -1703492.3292384713,
+                6314991.169888681
+              ],
+              [
+                -1688217.3347582414,
+                6230013.10944953
+              ],
+              [
+                -1627267.941097271,
+                6221416.387148413
+              ],
+              [
+                -1606738.416994765,
+                6252251.025305215
+              ],
+              [
+                -1624219.788662575,
+                6326469.911607686
+              ],
+              [
+                -1703492.3292384713,
+                6314991.169888681
+              ]
+            ],
+            [
+              [
+                -1635947.8913808065,
+                6283971.271982928
+              ],
+              [
+                -1655575.556345241,
+                6294809.585247884
+              ],
+              [
+                -1672508.8374950704,
+                6274138.58489383
+              ],
+              [
+                -1641986.9908910233,
+                6267522.134967548
+              ],
+              [
+                -1635947.8913808065,
+                6283971.271982928
+              ]
+            ]
+          ],
+          "type": "AnyCrsPolygon",
+          "bbox": [
+            -1703492.3292384713,
+            6221416.387148413,
+            -1606738.416994765,
+            6326469.911607686
+          ]
+        },
+        "properties": {
+          "name": "A polygon with a hole"
+        },
+        "type": "AnyCrsFeature",
+        "bbox": [
+          -1703492.3292384713,
+          6221416.387148413,
+          -1606738.416994765,
+          6326469.911607686
+        ]
+      }
+    ],
+    "properties": null,
+    "CoordinateReferenceSystemID": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:BoundCRS::{{DATA_PARTITION_ID}}::fromCrsGeoJson{{TEST_ID}}:",
+    "persistableReferenceUnitZ": null,
+    "type": "AnyCrsFeatureCollection",
+    "bbox": [
+      -1703492.3292384713,
+      6221416.387148413,
+      -1606738.416994765,
+      6326469.911607686
+    ]
+  }
+}

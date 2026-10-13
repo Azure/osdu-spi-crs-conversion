@@ -1,0 +1,26 @@
+{
+ "trajectoryCRS": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:BoundGeographic2D:EPSG::4230_EPSG::1612:",
+  "azimuthReference": "GN",
+  "unitXY": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:msTest{{TEST_ID}}:",
+  "unitZ": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:msTest{{TEST_ID}}:",
+  "referencePoint": {
+    "x": 4.0,
+    "y": 45.0,
+    "z": 100
+  },
+  "inputKind": "MD_Incl_Azim",
+  "interpolate": false,
+  "inputStations": [
+    {
+      "md": 0,
+      "azimuth": 0,
+      "inclination": 90
+    },
+    {
+      "md": 1000,
+      "azimuth": 0,
+      "inclination": 90
+    }
+  ],
+  "method": "LMP"
+}

@@ -1,0 +1,179 @@
+{
+  "CreateDate": "2017-08-08T09:39:27.3589238+00:00",
+  "TestData": [
+    {
+      "FromCrsPersistableReference": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:BoundCRS::{{DATA_PARTITION_ID}}::fromCrsConversionOnly{{TEST_ID}}:",
+      "ToCrsPersistableReference": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:BoundCRS::{{DATA_PARTITION_ID}}::toCrsConversionOnly{{TEST_ID}}:",
+      "FromInfo": "DGN_1995_UTM_Zone_48N [m]",
+      "ToInfo": "GCS_DGN_1995 [dega]",
+      "Info": "Late-bound CRS Conversions",
+      "FromToPoints": [
+        {
+          "FromPoint": {
+            "X": 166021.4430837048,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 102.0,
+            "Y": 0.0,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 833978.5569162938,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 108.0,
+            "Y": 0.0,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 168456.68464518717,
+            "Y": 768165.58302924014,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 102.0,
+            "Y": 6.94,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 831543.31535481149,
+            "Y": 768165.58302924014,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 108.0,
+            "Y": 6.94,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 500000.0,
+            "Y": 383543.96537060448,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 105.0,
+            "Y": 3.47,
+            "Z": 0.0
+          }
+        }
+      ]
+    },
+    {
+       "FromCrsPersistableReference": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:BoundCRS::{{DATA_PARTITION_ID}}::fromCrsConversionOnly{{TEST_ID}}:",
+      "ToCrsPersistableReference": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:BoundCRS::{{DATA_PARTITION_ID}}::toCrsConversionOnly{{TEST_ID}}:",
+      "FromInfo": "DGN_1995_UTM_Zone_48N [m]",
+      "ToInfo": "GCS_DGN_1995 [dega]",
+      "Info": "Late-bound CRS Conversions",
+      "FromToPoints": [
+        {
+          "FromPoint": {
+            "X": 166021.4430837048,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 102.0,
+            "Y": 0.0,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 166021.4430837048,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 102.0,
+            "Y": 0.0,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 166021.4430837048,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 102.0,
+            "Y": 0.0,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 166021.4430837048,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 102.0,
+            "Y": 0.0,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 166021.4430837048,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 102.0,
+            "Y": 0.0,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 166021.4430837048,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 102.0,
+            "Y": 0.0,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 166021.4430837048,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 102.0,
+            "Y": 0.0,
+            "Z": 0.0
+          }
+        },
+        {
+          "FromPoint": {
+            "X": 166021.4430837048,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "ToPoint": {
+            "X": 102.0,
+            "Y": 0.0,
+            "Z": 0.0
+          }
+        }
+      ]
+    }
+  ]
+}

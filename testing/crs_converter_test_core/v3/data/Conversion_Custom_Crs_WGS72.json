@@ -1,0 +1,26 @@
+{
+    "CreateDate": "2017-08-08T09:39:27.3589238+00:00",
+    "TestData": [
+        {
+            "FromCrsPersistableReference": "{\"authCode\": {\"auth\": \"Equinor\", \"code\": \"2100266\"}, \"lateBoundCRS\": {\"authCode\": {\"auth\": \"EPSG\", \"code\": \"32215\"}, \"name\": \"ST_WGS72_UTM15N_P32215\", \"type\": \"LBC\", \"ver\": \"PE_10_9_1\", \"wkt\": \"PROJCS[\\\"WGS_1972_UTM_Zone_15N\\\",GEOGCS[\\\"GCS_WGS_1972\\\",DATUM[\\\"D_WGS_1972\\\",SPHEROID[\\\"WGS_1972\\\",6378135.0,298.26]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Transverse_Mercator\\\"],PARAMETER[\\\"False_Easting\\\",500000.0],PARAMETER[\\\"False_Northing\\\",0.0],PARAMETER[\\\"Central_Meridian\\\",-93.0],PARAMETER[\\\"Scale_Factor\\\",0.9996],PARAMETER[\\\"Latitude_Of_Origin\\\",0.0],UNIT[\\\"Meter\\\",1.0],AUTHORITY[\\\"EPSG\\\",32215]]\"}, \"name\": \"ST_WGS72_UTM15N_P32215_T1238\", \"singleCT\": {\"authCode\": {\"auth\": \"TEST\", \"code\": \"1238\"}, \"name\": \"ST_WGS72_WGS84_T1238\", \"type\": \"ST\", \"ver\": \"PE_10_9_1\", \"wkt\": \"GEOGTRAN[\\\"WGS_1972_To_WGS_1984_2\\\",GEOGCS[\\\"GCS_WGS_1972\\\",DATUM[\\\"D_WGS_1972\\\",SPHEROID[\\\"WGS_1972\\\",6378135.0,298.26]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"Position_Vector\\\"],PARAMETER[\\\"X_Axis_Translation\\\",0],PARAMETER[\\\"Y_Axis_Translation\\\",0],PARAMETER[\\\"Z_Axis_Translation\\\",4.5],PARAMETER[\\\"X_Axis_Rotation\\\",0],PARAMETER[\\\"Y_Axis_Rotation\\\",0],PARAMETER[\\\"Z_Axis_Rotation\\\",0.554],PARAMETER[\\\"Scale_Difference\\\",0.219],OPERATIONACCURACY[2],AUTHORITY[\\\"EPSG\\\",1238]]\"}, \"type\": \"EBC\", \"ver\": \"PE_10_9_1\"}",
+            "ToCrsPersistableReference": "{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4326\"},\"name\":\"ST_WGS84_G4326\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4326]]\"}",
+            "FromInfo": "GCS_WGS_1972",
+            "ToInfo": "GCS_WGS_1984",
+            "Info": "Late-bound CRS Conversions",
+            "FromToPoints": [
+                {
+                    "FromPoint": {
+                        "X": 166004.4,
+                        "Y": -4.504,
+                        "Z": 0.0
+                    },
+                    "ToPoint": {
+                        "X": -96.00000000162733,
+                        "Y": 3.756491626615975E-9,
+                        "Z": 0.0
+                    }
+                }
+            ]
+        }
+    ]
+}

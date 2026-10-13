@@ -1,0 +1,75 @@
+[
+  {
+    "id": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m_{{TEST_ID}}",
+    "kind": "{{DATA_PARTITION_ID}}:wks:reference-data--UnitOfMeasure:1.0.0",
+    "acl": {
+      "owners": [
+        "data.default.owners@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+      ],
+      "viewers": [
+        "data.default.viewers@{{DATA_PARTITION_ID}}.{{DOMAIN}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{LEGAL_TAG}}"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "Name": "metre",
+      "NameAlias": [
+        {
+          "AliasName": "9001",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.EPSG:"
+        },
+        {
+          "AliasName": "m",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.OpenSpirit:"
+        },
+        {
+          "AliasName": "sm",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.OpenSpirit:"
+        },
+        {
+          "AliasName": "m",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.POSC:"
+        },
+        {
+          "AliasName": "m",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.RP66_V1:"
+        },
+        {
+          "AliasName": "m",
+          "AliasNameTypeID": "osdu:reference-data--AliasNameType:IndustryCode:",
+          "DefinitionOrganisationID": "osdu:reference-data--StandardsOrganisation:Energistics.RP66_V2:"
+        }
+      ],
+      "ID": "m",
+      "InactiveIndicator": false,
+      "Description": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding \n\t\t\t\tto the transition between the levels 2p10 and 5d5 of the krypton-86 atom. \n\t\t\t\tIn the US, this is called a meter.\n\t\t\t",
+      "Code": "m",
+      "AttributionAuthority": "Energistics",
+      "AttributionPublication": "Energistics Unit of Measure Dictionary V1.0",
+      "AttributionRevision": "1.0",
+      "CoefficientA": 0,
+      "CoefficientB": 1,
+      "CoefficientC": 1,
+      "CoefficientD": 0,
+      "IsBaseUnit": true,
+      "PersistableReference": "{\"abcd\":{\"a\":0.0,\"b\":1.0,\"c\":1.0,\"d\":0.0},\"symbol\":\"m\",\"baseMeasurement\":{\"ancestry\":\"L\",\"type\":\"UM\"},\"type\":\"UAD\"}",
+      "UnitDimensionCode": "L",
+      "UnitDimensionName": "length",
+      "UnitQuantityID": "osdu:reference-data--UnitQuantity:L:",
+      "Source": "Workbook Published/UnitOfMeasure.1.0.0.xlsx; commit SHA 4b3c8e86.",
+      "CommitDate": "2021-10-30T16:40:06+02:00"
+    }
+  }
+]

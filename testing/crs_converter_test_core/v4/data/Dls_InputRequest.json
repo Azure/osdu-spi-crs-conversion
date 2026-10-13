@@ -1,0 +1,392 @@
+{
+    "unitZ": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m:",
+    "azimuthReference": "GN",
+    "inputKind": "MD_Incl_Azim",
+        "MD_i": {
+        "md_i": [
+            0,
+            17500,
+            22167
+        ]
+    },
+    "method": "AzimuthalEquidistant",
+    "trajectoryCRS": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:Projected:EPSG::32615:",
+    "interpolate": false,
+    "inputStations": [
+        {
+            "inclination": 0.0,
+            "md": 0.0,
+            "azimuth": 0.0
+        },
+        {
+            "inclination": 0.0,
+            "md": 8638.0,
+            "azimuth": 162.07
+        },
+        {
+            "inclination": 0.71,
+            "md": 8868.0,
+            "azimuth": 162.07
+        },
+        {
+            "inclination": 1.28,
+            "md": 9350.0,
+            "azimuth": 172.73
+        },
+        {
+            "inclination": 1.28,
+            "md": 9484.0,
+            "azimuth": 168.11
+        },
+        {
+            "inclination": 1.63,
+            "md": 9619.0,
+            "azimuth": 177.52
+        },
+        {
+            "inclination": 1.61,
+            "md": 9752.0,
+            "azimuth": 163.99
+        },
+        {
+            "inclination": 1.4,
+            "md": 9947.0,
+            "azimuth": 171.43
+        },
+        {
+            "inclination": 0.59,
+            "md": 10079.0,
+            "azimuth": 154.43
+        },
+        {
+            "inclination": 0.18,
+            "md": 10481.0,
+            "azimuth": 355.15
+        },
+        {
+            "inclination": 0.16,
+            "md": 10885.0,
+            "azimuth": 176.96
+        },
+        {
+            "inclination": 0.19,
+            "md": 11286.0,
+            "azimuth": 113.37
+        },
+        {
+            "inclination": 0.19,
+            "md": 11686.0,
+            "azimuth": 234.19
+        },
+        {
+            "inclination": 0.06,
+            "md": 11919.0,
+            "azimuth": 146.54
+        },
+        {
+            "inclination": 0.07,
+            "md": 12094.0,
+            "azimuth": 117.44
+        },
+        {
+            "inclination": 0.06,
+            "md": 12494.0,
+            "azimuth": 358.68
+        },
+        {
+            "inclination": 0.04,
+            "md": 12628.0,
+            "azimuth": 177.3
+        },
+        {
+            "inclination": 0.1,
+            "md": 13028.0,
+            "azimuth": 326.85
+        },
+        {
+            "inclination": 0.06,
+            "md": 13430.0,
+            "azimuth": 306.78
+        },
+        {
+            "inclination": 0.03,
+            "md": 13831.0,
+            "azimuth": 249.09
+        },
+        {
+            "inclination": 0.0,
+            "md": 13906.0,
+            "azimuth": 3.0
+        },
+        {
+            "inclination": 1.11,
+            "md": 14040.0,
+            "azimuth": 314.5
+        },
+        {
+            "inclination": 1.11,
+            "md": 14301.0,
+            "azimuth": 258.99
+        },
+        {
+            "inclination": 2.95,
+            "md": 14434.0,
+            "azimuth": 255.33
+        },
+        {
+            "inclination": 3.6,
+            "md": 14487.0,
+            "azimuth": 245.19
+        },
+        {
+            "inclination": 5.0,
+            "md": 14556.0,
+            "azimuth": 237.51
+        },
+        {
+            "inclination": 5.42,
+            "md": 14689.0,
+            "azimuth": 232.74
+        },
+        {
+            "inclination": 7.53,
+            "md": 14823.0,
+            "azimuth": 243.81
+        },
+        {
+            "inclination": 10.48,
+            "md": 14957.0,
+            "azimuth": 259.35
+        },
+        {
+            "inclination": 12.85,
+            "md": 15092.0,
+            "azimuth": 267.2
+        },
+        {
+            "inclination": 15.5,
+            "md": 15226.0,
+            "azimuth": 263.55
+        },
+        {
+            "inclination": 17.7,
+            "md": 15359.0,
+            "azimuth": 263.02
+        },
+        {
+            "inclination": 19.88,
+            "md": 15494.0,
+            "azimuth": 262.69
+        },
+        {
+            "inclination": 21.79,
+            "md": 15627.0,
+            "azimuth": 261.4
+        },
+        {
+            "inclination": 22.72,
+            "md": 15761.0,
+            "azimuth": 261.89
+        },
+        {
+            "inclination": 24.34,
+            "md": 15895.0,
+            "azimuth": 263.71
+        },
+        {
+            "inclination": 25.97,
+            "md": 16029.0,
+            "azimuth": 264.15
+        },
+        {
+            "inclination": 25.95,
+            "md": 16164.0,
+            "azimuth": 263.87
+        },
+        {
+            "inclination": 25.97,
+            "md": 16299.0,
+            "azimuth": 263.52
+        },
+        {
+            "inclination": 25.92,
+            "md": 16428.0,
+            "azimuth": 262.95
+        },
+        {
+            "inclination": 25.86,
+            "md": 16564.0,
+            "azimuth": 262.95
+        },
+        {
+            "inclination": 25.72,
+            "md": 16832.0,
+            "azimuth": 264.31
+        },
+        {
+            "inclination": 25.93,
+            "md": 17235.0,
+            "azimuth": 264.5
+        },
+        {
+            "inclination": 26.41,
+            "md": 17635.0,
+            "azimuth": 261.54
+        },
+        {
+            "inclination": 26.38,
+            "md": 18037.0,
+            "azimuth": 262.74
+        },
+        {
+            "inclination": 26.46,
+            "md": 18437.0,
+            "azimuth": 263.69
+        },
+        {
+            "inclination": 26.39,
+            "md": 18539.0,
+            "azimuth": 264.41
+        },
+        {
+            "inclination": 26.6,
+            "md": 18642.0,
+            "azimuth": 265.26
+        },
+        {
+            "inclination": 26.32,
+            "md": 18911.0,
+            "azimuth": 266.24
+        },
+        {
+            "inclination": 26.33,
+            "md": 19043.0,
+            "azimuth": 265.96
+        },
+        {
+            "inclination": 26.28,
+            "md": 19179.0,
+            "azimuth": 265.71
+        },
+        {
+            "inclination": 26.23,
+            "md": 19277.0,
+            "azimuth": 264.81
+        },
+        {
+            "inclination": 26.4,
+            "md": 19481.0,
+            "azimuth": 264.72
+        },
+        {
+            "inclination": 26.14,
+            "md": 19603.0,
+            "azimuth": 263.69
+        },
+        {
+            "inclination": 26.1,
+            "md": 19739.0,
+            "azimuth": 262.22
+        },
+        {
+            "inclination": 26.06,
+            "md": 19873.0,
+            "azimuth": 261.94
+        },
+        {
+            "inclination": 26.0,
+            "md": 20006.0,
+            "azimuth": 261.14
+        },
+        {
+            "inclination": 25.99,
+            "md": 20141.0,
+            "azimuth": 261.65
+        },
+        {
+            "inclination": 25.98,
+            "md": 20275.0,
+            "azimuth": 262.62
+        },
+        {
+            "inclination": 25.95,
+            "md": 20408.0,
+            "azimuth": 263.49
+        },
+        {
+            "inclination": 26.06,
+            "md": 20538.0,
+            "azimuth": 261.85
+        },
+        {
+            "inclination": 25.9,
+            "md": 20655.0,
+            "azimuth": 261.38
+        },
+        {
+            "inclination": 26.13,
+            "md": 20787.0,
+            "azimuth": 261.19
+        },
+        {
+            "inclination": 26.15,
+            "md": 20918.0,
+            "azimuth": 261.09
+        },
+        {
+            "inclination": 26.17,
+            "md": 21054.0,
+            "azimuth": 261.59
+        },
+        {
+            "inclination": 26.15,
+            "md": 21188.0,
+            "azimuth": 262.0
+        },
+        {
+            "inclination": 26.28,
+            "md": 21321.0,
+            "azimuth": 261.79
+        },
+        {
+            "inclination": 26.24,
+            "md": 21455.0,
+            "azimuth": 261.23
+        },
+        {
+            "inclination": 26.23,
+            "md": 21588.0,
+            "azimuth": 260.86
+        },
+        {
+            "inclination": 26.12,
+            "md": 21722.0,
+            "azimuth": 261.13
+        },
+        {
+            "inclination": 25.74,
+            "md": 21857.0,
+            "azimuth": 261.05
+        },
+        {
+            "inclination": 24.45,
+            "md": 21989.0,
+            "azimuth": 260.77
+        },
+        {
+            "inclination": 23.35,
+            "md": 22054.0,
+            "azimuth": 262.25
+        },
+        {
+            "inclination": 23.35,
+            "md": 22167.0,
+            "azimuth": 262.25
+        }
+    ],
+    "referencePoint": {
+        "x": 2521677.51,
+        "y": 5697667.11,
+        "z": 26
+    }
+}

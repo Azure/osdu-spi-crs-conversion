@@ -1,0 +1,31 @@
+{
+    "interpolate": false,
+    "referencePoint": {
+        "x": 400000,
+        "y": 3000000,
+        "z": 100
+    },
+    "unitZ": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m:",
+    "unitMD": "{{DATA_PARTITION_ID}}:reference-data--UnitOfMeasure:m:",
+    "inputStations": [
+        {
+            "md": 0,
+            "inclination": 0.0
+        },
+        {
+            "md": 1000,
+            "inclination": 1.5
+        },
+        {
+            "md": 2000,
+            "inclination": 0.5
+        },
+        {
+            "md": 3000,
+            "inclination": 1.0
+        }
+    ],
+    "trajectoryCRS": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:Projected:EPSG::32615:",
+    "inputKind": "MD_Incl",
+    "method": "AzimuthalEquidistant"
+}
