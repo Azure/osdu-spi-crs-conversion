@@ -55,6 +55,7 @@ SPI Stack defines the service's environment in two places: the shared `osdu-conf
 | `KEYVAULT_URI` | Central Key Vault |
 | `AAD_CLIENT_ID` | Application ID that caller tokens are issued for |
 | `SERVER_PORT` | HTTP port (`8080`) |
+| `APPINSIGHTS_KEY` | Application Insights instrumentation key |
 
 **Specific to CRS Conversion**, from `services-reference/crs-conversion.yaml`:
 
