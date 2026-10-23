@@ -91,14 +91,12 @@ public class CrsConverterApiV3 {
 		}
 	
 		// set temp as str as we don't want to decode. for example UnitOfMeasure:ft%5BUS%5D in record id
-		temp = str;	
-		// check the cache for recordID with its persistableReference string
+		// normalize before the cache lookup so get/put and the storage call all use the same key
+		temp = RecordIdNormalizer.normalizeRecordID(str);
         String pr = recordCache.get(temp);
         if (pr != null){
 			return pr; 
 		}
-
-		temp = RecordIdNormalizer.normalizeRecordID(temp);
 
 		Record record =  StorageClient.getRecord(temp);
 		if (record == null)
