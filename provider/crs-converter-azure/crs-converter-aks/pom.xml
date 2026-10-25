@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.opengroup.osdu.crs-converter-service</groupId>
         <artifactId>crs-converter-service</artifactId>
-        <version>0.31.0-SNAPSHOT</version>
+        <version>${revision}</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
@@ -21,7 +21,7 @@
     </prerequisites>
 
     <artifactId>crs-converter-aks</artifactId>
-    <version>0.31.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <name>crs-converter-aks</name>
     <description>CRS converter service Azure Kubernetes Deployment</description>
 

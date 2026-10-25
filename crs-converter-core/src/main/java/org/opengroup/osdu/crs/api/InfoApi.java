@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 
 @RestController
-@RequestMapping(value={"/v2", "/v3"})
+@RequestMapping(value={"/v2", "/v3", "/v4"})
 public class InfoApi {
 
   @Autowired
