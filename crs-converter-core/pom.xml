@@ -31,15 +31,16 @@
       <groupId>org.opengroup.osdu</groupId>
       <artifactId>os-core-common</artifactId>
     </dependency>
+    <!-- Embedded Tomcat, as before: Spring Boot 4 moved the Tomcat auto-configuration into spring-boot-tomcat,
+         so tomcat-embed-core on the classpath alone no longer starts a web server -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-jetty</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>jetty-server</artifactId>
-          <groupId>org.eclipse.jetty</groupId>
-        </exclusion>
-      </exclusions>
+      <artifactId>spring-boot-starter-webmvc</artifactId>
+    </dependency>
+    <!-- Keeps Jackson 2 HTTP message conversion available so the release API contract is unchanged on Boot 4 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-jackson2</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -49,6 +50,11 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-config</artifactId>
+    </dependency>
+    <!-- Spring Boot 4 moved the security auto-configuration (security filter chain registration) into spring-boot-security -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
     <!-- lombok dependencies -->
     <dependency>

@@ -12,6 +12,7 @@ import org.opengroup.osdu.core.common.model.http.AppException;
 import org.opengroup.osdu.crs.api.exception.BadRequestException;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -47,7 +48,7 @@ public class RestExceptionHandlerTest {
 
         ResponseEntity<AppError> response = restExceptionHandler.handleBadRequest(exception);
 
-        assertEquals(400, response.getStatusCodeValue());
+        assertEquals(400, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = response.getBody();
         assertEquals(400, body.getCode());
@@ -62,7 +63,7 @@ public class RestExceptionHandlerTest {
 
         ResponseEntity<AppError> response = restExceptionHandler.handleValidationException(exception);
 
-        assertEquals(400, response.getStatusCodeValue());
+        assertEquals(400, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = response.getBody();
         assertEquals(400, body.getCode());
@@ -76,7 +77,7 @@ public class RestExceptionHandlerTest {
 
         ResponseEntity<AppError> response = restExceptionHandler.handleHttpMessageConversionException(exception);
 
-        assertEquals(400, response.getStatusCodeValue());
+        assertEquals(400, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = response.getBody();
         assertEquals(400, body.getCode());
@@ -90,7 +91,7 @@ public class RestExceptionHandlerTest {
 
         ResponseEntity<AppError> response = restExceptionHandler.handleGenericException(exception);
 
-        assertEquals(409, response.getStatusCodeValue());
+        assertEquals(409, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = response.getBody();
         assertEquals(409, body.getCode());
@@ -105,7 +106,7 @@ public class RestExceptionHandlerTest {
 
         ResponseEntity<AppError> response = restExceptionHandler.handleGenericException(stException);
 
-        assertEquals(400, response.getStatusCodeValue());
+        assertEquals(400, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = response.getBody();
         assertEquals(400, body.getCode());
@@ -120,7 +121,7 @@ public class RestExceptionHandlerTest {
 
         ResponseEntity<AppError> response = restExceptionHandler.handleGenericException(exception);
 
-        assertEquals(500, response.getStatusCodeValue());
+        assertEquals(500, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = response.getBody();
         assertEquals(500, body.getCode());
@@ -135,7 +136,7 @@ public class RestExceptionHandlerTest {
 
         ResponseEntity<Object> response = restExceptionHandler.handleNoHandlerFoundException(exception, new HttpHeaders(), HttpStatusCode.valueOf(404), mock(WebRequest.class));
 
-        assertEquals(404, response.getStatusCodeValue());
+        assertEquals(404, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = (AppError) response.getBody();
         assertEquals(404, body.getCode());
@@ -154,7 +155,7 @@ public class RestExceptionHandlerTest {
         ResponseEntity<Object> response = restExceptionHandler
                 .handleMethodArgumentNotValid(exception, new HttpHeaders(), HttpStatusCode.valueOf(404), mock(WebRequest.class));
 
-        assertEquals(400, response.getStatusCodeValue());
+        assertEquals(400, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = (AppError) response.getBody();
         assertEquals(400, body.getCode());
@@ -164,12 +165,12 @@ public class RestExceptionHandlerTest {
 
     @Test
     public void shouldReturnBadRequestOnHttpMessageNotReadableException() {
-        HttpMessageNotReadableException exception = new HttpMessageNotReadableException("error");
+        HttpMessageNotReadableException exception = new HttpMessageNotReadableException("error", mock(HttpInputMessage.class));
 
         ResponseEntity<Object> response = restExceptionHandler
                 .handleHttpMessageNotReadable(exception, new HttpHeaders(), HttpStatusCode.valueOf(404), mock(WebRequest.class));
 
-        assertEquals(400, response.getStatusCodeValue());
+        assertEquals(400, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = (AppError) response.getBody();
         assertEquals(400, body.getCode());
@@ -183,7 +184,7 @@ public class RestExceptionHandlerTest {
 
         ResponseEntity<AppError> response = restExceptionHandler.handleHttpStatusCodeException(exception);
 
-        assertEquals(405, response.getStatusCodeValue());
+        assertEquals(405, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = response.getBody();
         assertEquals(405, body.getCode());
@@ -198,7 +199,7 @@ public class RestExceptionHandlerTest {
 
         ResponseEntity<AppError> response = restExceptionHandler.handleHttpStatusCodeException(exception);
 
-        assertEquals(500, response.getStatusCodeValue());
+        assertEquals(500, response.getStatusCode().value());
         assertNotNull(response.getBody());
         AppError body = response.getBody();
         assertEquals(500, body.getCode());

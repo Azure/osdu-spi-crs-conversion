@@ -20,15 +20,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.Collections;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 public class AuthenticationService {
@@ -53,8 +50,8 @@ public class AuthenticationService {
     }
 
     public boolean isAuthorized(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-        MultiValueMap<String, String> requestHeaders = getHttpHeaders(httpServletRequest);
-        DpsHeaders dpsHeaders = DpsHeaders.createFromEntrySet(requestHeaders.entrySet());
+        HttpHeaders requestHeaders = getHttpHeaders(httpServletRequest);
+        DpsHeaders dpsHeaders = DpsHeaders.createFromEntrySet(requestHeaders.headerSet());
         dpsHeaders.addCorrelationIdIfMissing();
         IEntitlementsService service = entitlementsFactory.create(dpsHeaders);
         try {
@@ -77,15 +74,11 @@ public class AuthenticationService {
     }
 
     private HttpHeaders getHttpHeaders(@NonNull HttpServletRequest httpRequest) {
-        return Collections
-                .list(httpRequest.getHeaderNames())
-                .stream()
-                .collect(Collectors.toMap(
-                        Function.identity(),
-                        h -> Collections.list(httpRequest.getHeaders(h)),
-                        (oldValue, newValue) -> newValue,
-                        HttpHeaders::new
-                ));
+        // Spring 7 HttpHeaders is no longer a Map, so it can't be the Collectors.toMap target
+        HttpHeaders headers = new HttpHeaders();
+        Collections.list(httpRequest.getHeaderNames())
+                .forEach(h -> headers.put(h, Collections.list(httpRequest.getHeaders(h))));
+        return headers;
     }
 
     private void putAuthenticationIntoContext(Groups groups) {
