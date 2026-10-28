@@ -30,15 +30,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import java.io.IOException;
 import java.util.Collections;
-import java.util.function.Function;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -64,8 +61,8 @@ public class AuthenticationRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(@NonNull HttpServletRequest httpServletRequest,
                                     @NonNull HttpServletResponse httpServletResponse,
                                     @NonNull FilterChain filterChain) throws ServletException, IOException {
-        MultiValueMap<String, String> requestHeaders = httpHeaders(httpServletRequest);
-        DpsHeaders dpsHeaders = DpsHeaders.createFromEntrySet(requestHeaders.entrySet());
+        HttpHeaders requestHeaders = httpHeaders(httpServletRequest);
+        DpsHeaders dpsHeaders = DpsHeaders.createFromEntrySet(requestHeaders.headerSet());
         dpsHeaders.addCorrelationIdIfMissing();
         IEntitlementsFactory factory = getEntitlementsFactory();
         IEntitlementsService service = factory.create(dpsHeaders);
@@ -90,15 +87,11 @@ public class AuthenticationRequestFilter extends OncePerRequestFilter {
     }
 
     private HttpHeaders httpHeaders(@NonNull HttpServletRequest httpRequest) {
-        return Collections
-                .list(httpRequest.getHeaderNames())
-                .stream()
-                .collect(Collectors.toMap(
-                        Function.identity(),
-                        h -> Collections.list(httpRequest.getHeaders(h)),
-                        (oldValue, newValue) -> newValue,
-                        HttpHeaders::new
-                ));
+        // Spring 7 HttpHeaders is no longer a Map, so it can't be the Collectors.toMap target
+        HttpHeaders headers = new HttpHeaders();
+        Collections.list(httpRequest.getHeaderNames())
+                .forEach(h -> headers.put(h, Collections.list(httpRequest.getHeaders(h))));
+        return headers;
     }
 
     protected IEntitlementsFactory getEntitlementsFactory() {
