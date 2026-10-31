@@ -1,7 +1,6 @@
 package org.opengroup.osdu.crs.converter;
 
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.opengroup.osdu.crs.model.*;
 import org.opengroup.osdu.crs.util.ConstantsTests;
@@ -13,7 +12,6 @@ import static org.junit.Assert.*;
 import static org.opengroup.osdu.crs.model.ReferenceConverter.parseSpatialReference;
 import static org.opengroup.osdu.crs.model.ReferenceConverter.parseUnitReference;
 
-@Ignore
 public class AzimuthCorrectorTests {
 
     private static final String CMP_CRS_NOT_SUPPORTED_YET = "%7B%22H_CRS%22%3A%22%257B%2522WKT%2522%253A%2522PROJCS%255B%255C%2522WGS_1984_UTM_Zone_35N%255C%2522%252CGEOGCS%255B%255C%2522GCS_WGS_1984%255C%2522%252CDATUM%255B%255C%2522D_WGS_1984%255C%2522%252CSPHEROID%255B%255C%2522WGS_1984%255C%2522%252C6378137.0%252C298.257223563%255D%255D%252CPRIMEM%255B%255C%2522Greenwich%255C%2522%252C0.0%255D%252CUNIT%255B%255C%2522Degree%255C%2522%252C0.0174532925199433%255D%255D%252CPROJECTION%255B%255C%2522Transverse_Mercator%255C%2522%255D%252CPARAMETER%255B%255C%2522False_Easting%255C%2522%252C500000.0%255D%252CPARAMETER%255B%255C%2522False_Northing%255C%2522%252C0.0%255D%252CPARAMETER%255B%255C%2522Central_Meridian%255C%2522%252C27.0%255D%252CPARAMETER%255B%255C%2522Scale_Factor%255C%2522%252C0.9996%255D%252CPARAMETER%255B%255C%2522Latitude_Of_Origin%255C%2522%252C0.0%255D%252CUNIT%255B%255C%2522Meter%255C%2522%252C1.0%255D%252CAUTHORITY%255B%255C%2522EPSG%255C%2522%252C32635%255D%255D%2522%252C%2522Type%2522%253A%2522LBCRS%2522%252C%2522EngineVersion%2522%253A%2522PE_10_3_1%2522%252C%2522AuthorityCode%2522%253A%257B%2522Authority%2522%253A%2522EPSG%2522%252C%2522Code%2522%253A%252232635%2522%257D%252C%2522Name%2522%253A%2522WGS_1984_UTM_Zone_35N%2522%257D%22%2C%22V_CRS%22%3A%22%257B%2522WKT%2522%253A%2522VERTCS%255B%255C%2522EGM96_Geoid%255C%2522%252CVDATUM%255B%255C%2522EGM96_Geoid%255C%2522%255D%252CPARAMETER%255B%255C%2522Vertical_Shift%255C%2522%252C0.0%255D%252CPARAMETER%255B%255C%2522Direction%255C%2522%252C1.0%255D%252CUNIT%255B%255C%2522Meter%255C%2522%252C1.0%255D%252CAUTHORITY%255B%255C%2522EPSG%255C%2522%252C5773%255D%255D%2522%252C%2522Type%2522%253A%2522LBCRS%2522%252C%2522EngineVersion%2522%253A%2522PE_10_3_1%2522%252C%2522AuthorityCode%2522%253A%257B%2522Authority%2522%253A%2522EPSG%2522%252C%2522Code%2522%253A%25225773%2522%257D%252C%2522Name%2522%253A%2522EGM96_Geoid%2522%257D%22%2C%22Type%22%3A%22CCRS%22%2C%22EngineVersion%22%3A%22PE_10_3_1%22%2C%22Name%22%3A%22WGS+84+%2F+UTM+zone+35N+%2B+EGM96+height%22%2C%22AuthorityCode%22%3A%7B%22Authority%22%3A%22SLB%22%2C%22Code%22%3A%22326355773%22%7D%7D";
@@ -36,10 +34,8 @@ public class AzimuthCorrectorTests {
         // invalid CRSs
         crs = ConstantsTests.LB_WGS84[ConstantsTests.V1];
         pcs = corrector.createProjectionCorrectionSet(crs, p, horizontalUnit);
-        //not sure why this should be valid, teh crs is wgs 84 but the reference point is not in lat long,
-        //so a azimuth equidistant projection cannot be created with that reference point
-        //assertTrue(pcs.isValid()); // allowed here
-        assertEquals(0, corrector.errors.size());
+        assertFalse(pcs.isValid());
+        assertEquals(1, corrector.errors.size());
         crs = ConstantsTests.SPCS_27_1702[ConstantsTests.V1].substring(0, ConstantsTests.SPCS_27_1702[ConstantsTests.V1].length() - 20);
         pcs = corrector.createProjectionCorrectionSet(crs, p, horizontalUnit);
         assertFalse(pcs.isValid());

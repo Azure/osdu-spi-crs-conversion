@@ -1,7 +1,6 @@
 package org.opengroup.osdu.crs.converter;
 
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.opengroup.osdu.crs.interfaces.ITrajectoryConverter;
 import org.opengroup.osdu.crs.model.*;
@@ -14,7 +13,6 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.opengroup.osdu.crs.converter.TrajectoryConverterTests.azimuthIsEqualEnough;
 
-@Ignore
 public class TrajectoryConverterLmpTests {
     public TrajectoryConverterLmpTests() {
     }
