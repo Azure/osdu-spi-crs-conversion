@@ -156,7 +156,7 @@ _{{osduonaws_base_url}}/api/crs/converter/v4/convertTrajectory_
 ```json
 {
     "azimuthReference": "GN",
-    "interpolate": false,
+    "interpolate": true,
     "referencePoint": {
         "y": 6500000,
         "x": 400000,
@@ -945,7 +945,7 @@ We can Pass the interpolate points in the request as a List of MD or interpolati
 ```
 {
     "azimuthReference": "GN",
-    "interpolate": false,
+    "interpolate": true,
     "referencePoint": {
         "y": 6500000,
         "x": 400000,
@@ -1182,7 +1182,7 @@ We can Pass the interpolate points in the request as a List of MD or interpolati
 ```
 {
     "azimuthReference": "TN",
-    "interpolate": false,
+    "interpolate": true,
     "referencePoint": {
         "y": 6500000,
         "x": 400000,

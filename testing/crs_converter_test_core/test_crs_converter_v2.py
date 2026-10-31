@@ -536,7 +536,7 @@ class TestUnAuthorizedCrsConverterIntegration(unittest.TestCase):
             self.fail(api_response)
         except ApiException as e:   
             VENDOR = os.getenv("VENDOR")
-            if VENDOR == "azure" or VENDOR == "ibm":
+            if VENDOR == "azure":
                 reason = e.reason
             else:
                 reason = json.loads(e.body)['reason']

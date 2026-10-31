@@ -137,7 +137,6 @@ Each cloud provider handles grid files differently:
 | **Azure** | Azure File Share (mounted PVC) | Upload to file share | No |
 | **AWS** | Baked into Docker image | Rebuild image | Yes |
 | **GCP** | Baked into Docker image | Rebuild image | Yes |
-| **IBM** | Persistent Volume Claim | Upload to PVC | No |
 
 ---
 
@@ -161,13 +160,6 @@ The AWS provider has been removed from this repository.
 
 **Architecture**: Similar to AWS - grid files baked into Docker image.
 **Adding Custom Grids**: Same as AWS (rebuild image).
-
----
-
-### IBM
-
-- **Architecture**: Uses PersistentVolumeClaim with init container.
-- **Adding Custom Grids**: Upload to the PVC-backed storage.
 
 ---
 
@@ -294,7 +286,7 @@ SIS_DATA=/path/to/apachesis_setup/SIS_DATA
 |-------|----------|
 | Grid not found | Verify filename matches WKT `Dataset_` parameter |
 | HSQLDB not initializing | Delete `SpatialMetadata/` directory and restart |
-| New grid not recognized | For Azure/IBM: check file upload; For AWS/GCP: rebuild image |
+| New grid not recognized | For Azure: check file upload; For AWS/GCP: rebuild image |
 
 ---
 

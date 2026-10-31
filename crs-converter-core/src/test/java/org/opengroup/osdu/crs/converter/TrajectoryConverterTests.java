@@ -1,7 +1,6 @@
 package org.opengroup.osdu.crs.converter;
 
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.opengroup.osdu.core.common.model.http.DpsHeaders;
 import org.opengroup.osdu.crs.interfaces.ITrajectoryConverter;
@@ -16,7 +15,6 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-@Ignore
 public class TrajectoryConverterTests {
 
     @BeforeClass

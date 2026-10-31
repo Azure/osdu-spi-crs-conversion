@@ -8,7 +8,7 @@
         "z": 0
   },
   "inputKind": "MD_Incl_Azim",
-  "interpolate": false,
+  "interpolate": true,
   "inputStations": [
         {
             "md": 0,
