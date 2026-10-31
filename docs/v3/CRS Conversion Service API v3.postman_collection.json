@@ -22,7 +22,7 @@
 									"",
 									"var data = JSON.parse(responseBody)",
 									"pm.environment.set(\"access_token\", data.access_token);",
-									"if (cp == \"AWS\" || cp == \"IBM\") {",
+									"if (cp == \"AWS\") {",
 									"   pm.environment.set(\"id_token\", data.id_token);",
 									"}",
 									"// Uncomment if server returns a new refresh_token,",

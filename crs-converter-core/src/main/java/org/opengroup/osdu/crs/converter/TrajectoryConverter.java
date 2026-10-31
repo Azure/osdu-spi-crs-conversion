@@ -174,7 +174,7 @@ public class TrajectoryConverter implements ITrajectoryConverter {
                     // convert from local azimuthal equidistant CRS to requested CRS
                     convertPoints(response, correctionSet.getPeAzimuthalEquidistantCRS(), state);
                     // add method to compute interpolation based on MD_i input
-                    if(request.getMD_i()!=null && !request.getMD_i().getMd_i().isEmpty() && flag_check_scaleFactor) {
+                    if(request.isInterpolate() && request.getMD_i()!=null && request.getMD_i().getMd_i()!=null && !request.getMD_i().getMd_i().isEmpty() && flag_check_scaleFactor) {
                         // Calculate conversion factors from unitMD to point coordinate units
                         // dxTN/dyTN displacements are computed in unitMD, but point.x/y are in unitXY (horizontal)
                         // and point.z is in unitZ (vertical)

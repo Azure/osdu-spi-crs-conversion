@@ -11,7 +11,7 @@
     },
     "method": "AzimuthalEquidistant",
     "trajectoryCRS": "{{DATA_PARTITION_ID}}:reference-data--CoordinateReferenceSystem:Projected:EPSG::32615_{{TEST_ID}}:",
-    "interpolate": false,
+    "interpolate": true,
     "inputStations": [
         {
             "inclination": 0.0,
