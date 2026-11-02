@@ -235,10 +235,22 @@ public class CrsConverterApiV4 {
         if (!Strings.isNullOrEmpty(request.getUnitMD())) {
             request.setUnitMD(getPersistableReferenceFromID(request.getUnitMD(), false));
         }
+        if (request.getInputStations() != null && request.getInputStations().contains(null)) {
+            throw new ValidationException("inputStations must not contain null stations.");
+        }
         MinimumDepthInterval minimumDepthInterval = request.getMD_i();
-        if (minimumDepthInterval != null) {
+        // MD_i is ignored when interpolate=false; dX_dY_dZ stations have no md until inverse minimum curvature runs.
+        if (minimumDepthInterval != null && request.isInterpolate() && !Constants.DX_DY_DZ.equals(request.getInputKind())) {
             if (minimumDepthInterval.getMd_interval() != null && minimumDepthInterval.getMd_interval() > 0 && minimumDepthInterval.getMd_i() != null && !minimumDepthInterval.getMd_i().isEmpty()) {
                 throw new ValidationException("Both md_i array and md_interval values are provided in the input.");
+            } else if (minimumDepthInterval.getMd_i() != null && minimumDepthInterval.getMd_i().contains(null)) {
+                throw new ValidationException("md_i array must not contain null values.");
+            } else if (((minimumDepthInterval.getMd_interval() != null && minimumDepthInterval.getMd_interval() > 0)
+                    || (minimumDepthInterval.getMd_i() != null && !minimumDepthInterval.getMd_i().isEmpty()))
+                    && (request.getInputStations() == null || request.getInputStations().isEmpty()
+                    || request.getInputStations().get(0).getMd() == null
+                    || request.getInputStations().get(request.getInputStations().size() - 1).getMd() == null)) {
+                throw new ValidationException("The first and last inputStations must include an md value when md_i or md_interval is provided.");
             } else if (minimumDepthInterval.getMd_interval() != null && minimumDepthInterval.getMd_interval() > 0) {
                 List<Double> mdiList = computeMinimumDepthPointsUsingInterval(request.getInputStations().get(0).getMd(),
                         request.getInputStations().get(request.getInputStations().size() - 1).getMd(), minimumDepthInterval.getMd_interval());
