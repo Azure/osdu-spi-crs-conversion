@@ -12,13 +12,20 @@ import org.opengroup.osdu.crs.interfaces.IPointConverter;
 import org.opengroup.osdu.crs.interfaces.ITrajectoryConverter;
 import org.opengroup.osdu.crs.osducoreserviceclient.storage.IStorageClient;
 import org.opengroup.osdu.crs.util.RecordIdNormalizer;
+import jakarta.validation.ValidationException;
+import org.opengroup.osdu.crs.GeoJson.GeoJsonFeatureCollection;
+import org.opengroup.osdu.crs.model.ConvertGeoJsonRequestV4;
+import org.opengroup.osdu.crs.model.ConvertGeoJsonResponse;
+import org.opengroup.osdu.crs.model.ConvertPointsRequestV4;
+import org.opengroup.osdu.crs.model.ConvertPointsResponseV4;
+import org.opengroup.osdu.crs.model.Point;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyCollection;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -95,6 +102,88 @@ public class CrsConverterApiV4CacheTests {
         assertEquals(PERSISTABLE_REFERENCE, result);
         verify(storageClient, never()).getRecord(anyString());
         verify(storageClient, never()).getRecords(anyCollection());
+    }
+
+    @Test
+    void convertPointV4ForwardsTransformationAndPopulatesConvertedPoints() {
+        ConvertPointsRequestV4 request = new ConvertPointsRequestV4();
+        request.setFromCRS(PERSISTABLE_REFERENCE);
+        request.setToCRS(PERSISTABLE_REFERENCE);
+        request.setTransformation("{\"type\":\"ST\"}");
+        request.setPoints(Collections.singletonList(new Point(1.0, 2.0, 3.0)));
+        double[] xy = {1.0, 2.0};
+        double[] z = {3.0};
+        when(pointConverter.mergeXYCoordinates(request.getPoints())).thenReturn(xy);
+        when(pointConverter.mergeZCoordinates(request.getPoints())).thenReturn(z);
+        when(pointConverter.convertValuesToPoints(xy, z)).thenReturn(request.getPoints());
+        ConvertPointsResponseV4 expected = new ConvertPointsResponseV4();
+        when(crsConverter.convertPointV4(PERSISTABLE_REFERENCE, PERSISTABLE_REFERENCE,
+                request.getTransformation(), xy, z)).thenReturn(expected);
+
+        assertSame(expected, crsConverterApiV4.convertPointV4(request));
+        assertEquals(request.getPoints(), expected.getPoints());
+        verify(crsConverter).convertPointV4(PERSISTABLE_REFERENCE, PERSISTABLE_REFERENCE,
+                request.getTransformation(), xy, z);
+        verifyNoMoreInteractions(storageClient);
+    }
+
+    @Test
+    void convertGeoJsonV4ResolvesSourceIdsBeforeConversion() {
+        GeoJsonFeatureCollection features = new GeoJsonFeatureCollection();
+        features.setCoordinateReferenceSystemID(CRS_ID);
+        features.setVerticalUnitID(UOM_ID);
+        features.setPersistableReferenceCrs("superseded-crs");
+        features.setPersistableReferenceUnitZ("superseded-unit");
+        Record crsRecord = recordWithPersistableReference();
+        Record unitRecord = recordWithPersistableReference();
+        when(storageClient.getRecord(RecordIdNormalizer.normalizeRecordID(CRS_ID))).thenReturn(crsRecord);
+        when(storageClient.getRecord(RecordIdNormalizer.normalizeRecordID(UOM_ID))).thenReturn(unitRecord);
+        ConvertGeoJsonRequestV4 request = new ConvertGeoJsonRequestV4();
+        request.setFeatureCollection(features);
+        request.setToCRS(PERSISTABLE_REFERENCE);
+        request.setToUnitZ(PERSISTABLE_REFERENCE);
+        request.setTransformation(PERSISTABLE_REFERENCE);
+        ConvertGeoJsonResponse expected = new ConvertGeoJsonResponse();
+        when(crsConverter.convertGeoJsonV4(features, PERSISTABLE_REFERENCE, PERSISTABLE_REFERENCE,
+                PERSISTABLE_REFERENCE)).thenReturn(expected);
+
+        assertSame(expected, crsConverterApiV4.convertGeoJsonV4(request));
+        assertNull(features.getCoordinateReferenceSystemID());
+        assertNull(features.getVerticalUnitID());
+        assertEquals(PERSISTABLE_REFERENCE, features.getPersistableReferenceCrs());
+        assertEquals(PERSISTABLE_REFERENCE, features.getPersistableReferenceUnitZ());
+        verify(crsConverter).convertGeoJsonV4(features, PERSISTABLE_REFERENCE, PERSISTABLE_REFERENCE,
+                PERSISTABLE_REFERENCE);
+    }
+
+    @Test
+    void lookupReportsMissingRecordAndFailedUnitFallback() {
+        when(storageClient.getRecord(RecordIdNormalizer.normalizeRecordID(CRS_ID))).thenReturn(null);
+        ValidationException missing = assertThrows(ValidationException.class,
+                () -> crsConverterApiV4.getPersistableReferenceFromID(CRS_ID, true));
+        assertTrue(missing.getMessage().contains("record not found:"));
+
+        when(storageClient.getRecord(RecordIdNormalizer.normalizeRecordID(UOM_ID)))
+                .thenThrow(new RuntimeException("lookup failed"));
+        MultiRecordInfo empty = new MultiRecordInfo();
+        empty.setRecords(Collections.emptyList());
+        when(storageClient.getRecords(anyCollection())).thenReturn(empty);
+        assertThrows(ValidationException.class,
+                () -> crsConverterApiV4.getPersistableReferenceFromID(UOM_ID, true));
+    }
+
+    @Test
+    void projectedCrsTypeAndHorizontalUnitAreReadFromStorage() {
+        Record record = mock(Record.class);
+        when(record.getData()).thenReturn(Map.of(
+                "Kind", "Projected", "CoordinateSystem", Map.of("HorizontalAxisUnitID", UOM_ID)));
+        when(storageClient.getRecord(RecordIdNormalizer.normalizeRecordID(CRS_ID))).thenReturn(record);
+
+        assertTrue(crsConverterApiV4.checkCRSType(CRS_ID));
+        assertEquals(UOM_ID, crsConverterApiV4.getUnitFromTrajectoryCRS(CRS_ID));
+        assertNull(crsConverterApiV4.getUnitFromTrajectoryCRS(PERSISTABLE_REFERENCE));
+        assertFalse(crsConverterApiV4.checkCRSType(PERSISTABLE_REFERENCE));
+        assertFalse(crsConverterApiV4.checkCRSType("%invalid"));
     }
 
     private Record recordWithPersistableReference() {

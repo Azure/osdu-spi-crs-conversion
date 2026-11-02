@@ -9,6 +9,15 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.runners.Parameterized;
 import org.opengroup.osdu.crs.model.ConvertPointsResponse;
 import org.opengroup.osdu.crs.model.Point;
+import org.junit.jupiter.api.Test;
+import org.opengroup.osdu.crs.GeoJson.GeoJsonBase;
+import org.opengroup.osdu.crs.GeoJson.GeoJsonFeatureCollection;
+import org.opengroup.osdu.crs.model.ConvertGeoJsonResponse;
+import org.opengroup.osdu.crs.model.ConvertPointsResponseV4;
+import org.opengroup.osdu.crs.model.IEarlyBoundCrs;
+import org.opengroup.osdu.crs.model.ReferenceConverter;
+import org.opengroup.osdu.crs.util.ConstantsTests;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class CRSConverterAdditionalTests {
@@ -58,6 +67,66 @@ public class CRSConverterAdditionalTests {
         });
     }
 
+        @Test
+        public void v4ExplicitDatumTransformationWorksInBothDirections() {
+            IEarlyBoundCrs source = (IEarlyBoundCrs) ReferenceConverter.parseSpatialReference(
+                    ConstantsTests.EB_AGD66_AMG56_1108[ConstantsTests.V2]);
+            assertTrue(source.isValid());
+            String geographic = source.getLateBoundCrs().createPersistableReference();
+            String transformation = source.getTrf().createPersistableReference();
+            double[] xy = {313152.777, 6346936.496};
+            double[] z = {250};
+            CRSConverter converter = new CRSConverter();
+            ConvertPointsResponseV4 result = converter.convertPointV4(geographic,
+                    ConstantsTests.LB_WGS84[ConstantsTests.V2], transformation, xy, z);
+            assertEquals(1, result.getSuccessCount());
+            assertEquals(151.001, xy[0], 0.001);
+            assertEquals(-32.999, xy[1], 0.001);
+            assertEquals(250, z[0], 0);
+            assertEquals(1, converter.convertPointV4(ConstantsTests.LB_WGS84[ConstantsTests.V2],
+                    geographic, transformation, xy, z).getSuccessCount());
+            assertArrayEquals(new double[]{313152.777, 6346936.496}, xy, 0.01);
+            assertEquals(250, z[0], 0);
+        }
+
+        @Test
+        public void v4RejectsMalformedRequestsBeforeChangingCoordinates() {
+            CRSConverter converter = new CRSConverter();
+            String wgs = ConstantsTests.LB_WGS84[ConstantsTests.V2];
+            double[] xy = {-117, 42};
+            double[] z = {12};
+            assertThrows(IllegalArgumentException.class, () -> converter.convertPointV4(null, wgs, null, xy, z));
+            assertThrows(IllegalArgumentException.class, () -> converter.convertPointV4(wgs, "", null, xy, z));
+            assertThrows(IllegalArgumentException.class, () -> converter.convertPointV4(wgs, wgs, null, null, z));
+            assertThrows(IllegalArgumentException.class, () -> converter.convertPointV4(wgs, wgs, null, xy, new double[0]));
+            assertThrows(IllegalArgumentException.class, () -> converter.convertPointV4(wgs, wgs, null, xy, new double[2]));
+            assertThrows(IllegalArgumentException.class, () -> converter.convertPointV4("invalid", wgs, null, xy, z));
+            assertThrows(IllegalArgumentException.class, () -> converter.convertPointV4(wgs, wgs, wgs, xy, z));
+            assertThrows(IllegalArgumentException.class, () -> converter.convertPointV4(wgs, wgs, "invalid", xy, z));
+            assertArrayEquals(new double[]{-117, 42}, xy, 0);
+            assertArrayEquals(new double[]{12}, z, 0);
+        }
+
+        @Test
+        public void v4GeoJsonRoundTripConvertsHorizontalAndVerticalUnits() {
+            GeoJsonFeatureCollection collection = (GeoJsonFeatureCollection) GeoJsonFeatureCollection.createInstance(
+                    "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\","
+                    + "\"geometry\":{\"type\":\"Point\",\"coordinates\":[-117,42,30.48]},\"properties\":{}}]}");
+            CRSConverter converter = new CRSConverter();
+            ConvertGeoJsonResponse projected = converter.convertGeoJsonV4(collection,
+                    ConstantsTests.LB_WGS84_UTM11N[ConstantsTests.V2], ConstantsTests.UNIT_FT_v2, null);
+            assertEquals(1, projected.getSuccessCount());
+            assertEquals(GeoJsonBase.GeoJsonVariant.ANY_CRS_GEO_JSON, collection.getGeoJsonVariant());
+            assertEquals(500000, collection.extractCoordinates().getXys()[0], 0.001);
+            assertEquals(100, collection.extractCoordinates().getZ_s()[0], 1e-8);
+            ConvertGeoJsonResponse restored = converter.convertGeoJsonV4(collection,
+                    ConstantsTests.LB_WGS84[ConstantsTests.V2], null, null);
+            assertEquals(1, restored.getSuccessCount());
+            assertEquals(GeoJsonBase.GeoJsonVariant.GEO_JSON, collection.getGeoJsonVariant());
+            assertArrayEquals(new double[]{-117, 42}, collection.extractCoordinates().getXys(), 1e-8);
+            assertEquals(30.48, collection.extractCoordinates().getZ_s()[0], 1e-8);
+            assertNull(collection.getPersistableReferenceCrs());
+        }
     @ParameterizedTest
     @MethodSource("data")
     public void convertPoints(String fromCRS, String toCRS, List<Point> requestPoints, List<Point> expectedPoints) {

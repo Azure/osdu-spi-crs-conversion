@@ -15,7 +15,7 @@ import org.opengroup.osdu.core.common.model.entitlements.EntitlementsException;
 import org.opengroup.osdu.core.common.model.entitlements.Groups;
 import org.opengroup.osdu.core.common.model.http.AppException;
 import org.opengroup.osdu.core.common.model.http.DpsHeaders;
-import org.powermock.reflect.Whitebox;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -36,7 +36,7 @@ public class AuthenticationServiceTest {
 
     @Before
     public void init() {
-        Whitebox.setInternalState(authenticationService, "entitlementsUrl", "entitlementsUrl");
+        ReflectionTestUtils.setField(authenticationService, "entitlementsUrl", "entitlementsUrl");
     }
 
     @Test
@@ -66,7 +66,7 @@ public class AuthenticationServiceTest {
         Mockito.when(headerNames.hasMoreElements()).thenReturn(false);
         Mockito.when(httpServletRequest.getHeaderNames()).thenReturn(headerNames);
         EntitlementsFactory entitlementsFactory = Mockito.mock(EntitlementsFactory.class);
-        Whitebox.setInternalState(authenticationService, "entitlementsFactory", entitlementsFactory);
+        ReflectionTestUtils.setField(authenticationService, "entitlementsFactory", entitlementsFactory);
         IEntitlementsService entitlementsService = Mockito.mock(IEntitlementsService.class);
         Mockito.when(entitlementsFactory.create(Mockito.any(DpsHeaders.class))).thenReturn(entitlementsService);
         Mockito.when(entitlementsService.getGroups()).thenThrow(new NullPointerException());
@@ -87,7 +87,7 @@ public class AuthenticationServiceTest {
         Mockito.when(headerNames.hasMoreElements()).thenReturn(false);
         Mockito.when(httpServletRequest.getHeaderNames()).thenReturn(headerNames);
         EntitlementsFactory entitlementsFactory = Mockito.mock(EntitlementsFactory.class);
-        Whitebox.setInternalState(authenticationService, "entitlementsFactory", entitlementsFactory);
+        ReflectionTestUtils.setField(authenticationService, "entitlementsFactory", entitlementsFactory);
         IEntitlementsService entitlementsService = Mockito.mock(IEntitlementsService.class);
         Mockito.when(entitlementsFactory.create(Mockito.any(DpsHeaders.class))).thenReturn(entitlementsService);
         Groups groups = new Groups();
