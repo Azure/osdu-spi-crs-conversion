@@ -101,7 +101,7 @@ Pinning `crs-conversion` to an image such as `ghcr.io/azure/osdu-spi-crs-convers
 
 **SIS reference data.** The service image carries no Apache SIS data. On SPI Stack, an init container downloads `apachesis_setup/SIS_DATA` from the upstream project's `master` branch at pod start and mounts it at `/app/sis-data`. Changes to `apachesis_setup/` in this repository do not reach a deployment.
 
-**Authorization.** The provider sets `azure.istio.auth.enabled=true` in `application.properties`, which makes `AzureIstioSecurityConfig` permit every request and bypasses per-request Entitlements checks. SPI Stack's `RequestAuthentication` validates supplied JWTs but does not require a token, so the service must not be deployed until an Istio `AuthorizationPolicy` or application-level authentication rejects tokenless requests. `AZURE_ISTIOAUTH_ENABLED` binds to a different property and does not change this.
+**Authorization.** Every request outside the Swagger and actuator paths is checked against Entitlements by core's `AuthenticationRequestFilter`, so a request without a valid token gets 401. SPI Stack's `RequestAuthentication` validates supplied JWTs but does not require one; the service relies on this check, not the mesh, to reject tokenless requests.
 
 ## License
 
