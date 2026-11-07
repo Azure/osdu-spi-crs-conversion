@@ -36,6 +36,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 
+import jakarta.servlet.DispatcherType;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -55,6 +56,8 @@ public class SecurityConfig  implements AccessDeniedHandler, AuthenticationEntry
             "/",
             "/index.html",
             "/_ah/*",
+            "/v2/_ah/*",
+            "/v3/_ah/*",
             "/api-docs.yaml",
             "/api-docs/swagger-config",
             "/api-docs/**",
@@ -77,7 +80,10 @@ public class SecurityConfig  implements AccessDeniedHandler, AuthenticationEntry
             .csrf(AbstractHttpConfigurer::disable)
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(
-                        authorize -> authorize.requestMatchers(AUTH_WHITELIST).permitAll().anyRequest().authenticated()
+                        authorize -> authorize
+                                .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
+                                .requestMatchers(AUTH_WHITELIST).permitAll()
+                                .anyRequest().authenticated()
                 )
         .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
