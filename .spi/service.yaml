@@ -2,6 +2,9 @@ schemaVersion: 3
 service:
   name: crs-conversion
   archetype: java-maven-azure
+componentGovernance:
+  upstream: https://community.opengroup.org/osdu/platform/system/reference/crs-conversion-service
+  ignoreDirectories: [crs-converter_acceptance_test, testing]
 tests:
   acceptance:
     type: pytest
