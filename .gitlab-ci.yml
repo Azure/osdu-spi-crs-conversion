@@ -1,15 +1,6 @@
 variables:
   SIS_DATA: $CI_PROJECT_DIR/apachesis_setup/SIS_DATA
 
-  AZURE_SERVICE: crs_converter
-  AZURE_BUILD_SUBDIR: provider/crs-converter-azure/crs-converter-aks
-  AZURE_TEST_SUBDIR: testing/crs_converter_test_azure
-  AZURE_TEST_TYPE: python
-  ESRI_DATA_PATH: /crs
-  SHARE_NAME: crs-conversion
-  AZURE_SWAGGER_PATH: api/crs/converter/swagger-ui/index.html#/
-  AZURE_SKIP_INTEGRATION_TEST: "true"
-
   # Fetch Java springdoc at /api-docs/v4 (not /api-docs.yaml/v4 from swagger-config rewrite).
   # SPEC_PATH overrides the template default Local path docs/api/community/v1/.
   CIMPL_OPENAPI_CONFIG_ROUTE: /api/crs/converter/api-docs/swagger-config
@@ -36,16 +27,10 @@ include:
     file: "scanners/sbom-maven.yml"
 
   - project: "osdu/platform/ci-cd-pipelines"
-    file: "cloud-providers/azure.yml"
-
-  - project: "osdu/platform/ci-cd-pipelines"
     file: "cloud-providers/cimpl-global.yml"
 
   - project: "osdu/platform/ci-cd-pipelines"
     file: "publishing/pages.yml"
-
-  - project: "osdu/platform/ci-cd-pipelines"
-    file: "cloud-providers/azure-one-pipeline.yml"
 
   - project: "osdu/platform/ci-cd-pipelines"
     file: "reporting/reporting.yml"
@@ -54,10 +39,6 @@ include:
     file: "reporting/schemathesis.yml"
 
   - local: "devops/core-plus/pipeline/override-stages.yml"
-
-azure_containerize:
-  variables:
-    AZURE_CONTAINERIZE_REPOSITORY: "https://gitlab-ci-token:${CI_JOB_TOKEN}@community.opengroup.org/osdu/platform/deployment-and-operations/base-containers-azure/service-base-image"
 
 fossa-analyze:
   image: $CI_REGISTRY/divido/fossa-with-cache:v0.11

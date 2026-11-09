@@ -115,12 +115,6 @@
                 <module>crs-converter-core-plus</module>
             </modules>
         </profile>
-        <profile>
-            <id>azure</id>
-            <modules>
-                <module>provider/crs-converter-azure/crs-converter-aks</module>
-            </modules>
-        </profile>
     </profiles>
 
     <dependencyManagement>
