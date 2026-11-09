@@ -23,7 +23,7 @@ See also the test's [README.md](testing/README.md)
 
 ## Running CRS Conversion Service locally
 #### Build and run CRS Conversion Service locally using bash
-- Set the required environments described in [Release/deployment](##Release/deployment) section
+- Set the required environment variables listed in [crs-converter-core-plus/README.md](crs-converter-core-plus/README.md#installation)
 - Navigate to the Converter Service's root folder ```crs-conversion-service``` 
 - Build core and run unit tests on command line:
     - In order to run unit tests, set the SIS_DATA variable before building
@@ -34,7 +34,7 @@ mvn clean install
 ```
 - Run application with command
 ```bash
-java -jar provider/crs-converter-azure/crs-converter-aks/target/crs-converter-aks-1.0.0.jar
+java -jar crs-converter-core-plus/target/crs-converter-core-plus-*-spring-boot.jar
 ```
 
 The core coverage job requires 80% JaCoCo instruction coverage. With `SIS_DATA`
@@ -45,11 +45,11 @@ and check [the coverage report](crs-converter-core/target/site/jacoco/index.html
 - Perform build as instructed in the Build and run Converter Service locally section
 - Start the application:
 ```sh
-java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5005,suspend=n -jar provider/crs-converter-azure/crs-converter-aks/target/crs-converter-aks-1.0.0.jar
+java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5005,suspend=n -jar crs-converter-core-plus/target/crs-converter-core-plus-*-spring-boot.jar
 ```
 
 - Set up remote debugging configuration in Intellij and start it
-- Environment variables: Set the required environments described in [Release/deployment](##Release/deployment) section
+- Environment variables: set the ones listed in [crs-converter-core-plus/README.md](crs-converter-core-plus/README.md#installation)
 
 - Execute **Debug** for configured Application
 
@@ -72,27 +72,13 @@ Headers for Postman:
 #### Server Url(full path vs relative path) configuration
 - `api.server.fullUrl.enabled=true` It will generate full server url in the OpenAPI swagger
 - `api.server.fullUrl.enabled=false` It will generate only the contextPath only
-- default value is false (Currently only in Azure it is enabled)
+- default value is false
 [Reference]:(https://springdoc.org/faq.html#_how_is_server_url_generated)
 
 ### Build and run the Docker container locally
 1. Run the `maven run` command to have the .jar file generated.
-1. Have the Azure subscription set up 
-1. Open a Powershell
-1. Install the Azure CLI locally
-1. Authenticate yourself to Azure Container Registry (acr) with the following command:
-```az acr login --name delfi```
 1. Execute the following command to build the container image:
-```docker build -t crs-converter .```
+```docker build -f crs-converter-core-plus/build/Dockerfile -t crs-converter .```
 1. Execute the following command to build the container image:
 ```docker run -t --rm -p 8080:8080 crs-converter```
 1. Use Postman or curl to try out the endpoints
-
-## Release/deployment
-VSTS release definition is located at provider\crs-converter-azure\crs-converter-aks\devops, which 
-requires the following environment variables:
-
-| Variable | Contents | Example |
-|----------|----------|----------|
-| ENTITLEMENT_URL | Required | |
-| SIS_DATA | Required | ${SRC_ROOT_DIR}/apachesis_setup/SIS_DATA |
