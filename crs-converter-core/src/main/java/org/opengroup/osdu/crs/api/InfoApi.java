@@ -18,10 +18,12 @@
 package org.opengroup.osdu.crs.api;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import org.opengroup.osdu.core.common.info.VersionInfoBuilder;
 import org.opengroup.osdu.core.common.model.info.VersionInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +36,14 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping(value={"/v2", "/v3", "/v4"})
+@SecurityRequirements
 public class InfoApi {
 
   @Autowired
   private VersionInfoBuilder versionInfoBuilder;
 
   @Operation(summary = "${infoApi.info.summary}", description = "${infoApi.info.description}", tags = { "info-api" })
+  @SecurityRequirements
   @ApiResponses(value = {
           @ApiResponse(responseCode = "200", description = "Version info.", content = { @Content(schema = @Schema(implementation = VersionInfo.class)) })
   })

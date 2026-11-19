@@ -1,0 +1,38 @@
+hooks = "crs_formats"
+seed = 42424242424424242
+workers = 1
+continue-on-failure = true
+# v4 trajectory forbids azimuth on MD_Incl and azimuth, inclination, and measured
+# depth on dX_dY_dZ, and it bounds geographic reference points. Those constraints
+# stay. The fuzzer is expected to discard bodies that violate them.
+suppress-health-check = ["filter_too_much"]
+
+[generation]
+mode = "all"
+max-examples = 20
+# Spring MVC ignores undeclared query parameters. Avoid generating those
+# mutations while retaining negative-data checks for invalid request bodies.
+allow-extra-parameters = false
+
+[phases.stateful]
+enabled = false
+
+[phases.examples]
+enabled = true
+
+[phases.coverage]
+enabled = true
+
+[phases.fuzzing]
+enabled = true
+
+[checks.ignored_auth]
+# Entitlements rejects a missing or invalid token with 403. This check accepts
+# only 401, so that rejection is reported as if authentication was ignored.
+enabled = false
+
+[reports.junit]
+path = "./output/junit/junit.xml"
+
+[reports.allure]
+path = "./output/allure/results"

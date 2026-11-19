@@ -30,5 +30,7 @@ public class RecordIdNormalizerTest {
         String testWithVersionDefined = "osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867:123456";
         expectedId = "osdu:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::29193_EPSG::1867/123456";
         assertEquals(expectedId, RecordIdNormalizer.normalizeRecordID(testWithVersionDefined));
+        assertEquals("", RecordIdNormalizer.normalizeRecordID(""));
+        assertEquals("not-a-record", RecordIdNormalizer.normalizeRecordID("not-a-record"));
     }
 }

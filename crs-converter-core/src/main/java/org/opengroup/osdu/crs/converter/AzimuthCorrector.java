@@ -122,8 +122,8 @@ public class AzimuthCorrector implements IAzimuthCorrector {
                     azimuths[i] = this.computeSingleCorrection(pt, azimuths[i], azimuthReference);
                 }
                 done = azimuths.length;
-            } catch (Exception pe) { // unexpected
-                errors.add(pe.getMessage());
+            } catch (Exception pe) {
+                errors.add(pe.getMessage() == null ? pe.getClass().getSimpleName() : pe.getMessage());
             }
         }
         return done;
@@ -149,8 +149,8 @@ public class AzimuthCorrector implements IAzimuthCorrector {
                     ICrs localAziEqu = localCRS(sourceCRS, azimuthalEquidistant);
                     result = new ProjectionCorrectionSet(convergenceAngle, scaleFactor, azimuthalEquidistant, localAziEqu);
                 }
-            } catch (Exception e) { // unexpected
-                errors.add(e.getMessage());
+            } catch (Exception e) {
+                errors.add(e.getMessage() == null ? e.getClass().getSimpleName() : e.getMessage());
             }
         }
         return result;

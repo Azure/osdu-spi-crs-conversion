@@ -27,6 +27,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -189,6 +190,53 @@ public class CrsConverterApiV3Tests {
 
         assertSame(expected, response);
         assertEquals(PERSISTABLE_REFERENCE, request.getUnitXY());
+    }
+
+    @Test
+    public void convertTrajectoryResolvesFlatHorizontalAxisUnitId() {
+        Map<String, Object> data = new HashMap<>();
+        data.put("Kind", "projected");
+        data.put("CoordinateSystem.HorizontalAxisUnitID", HORIZONTAL_AXIS_UNIT_ID);
+        data.put("PersistableReference", PERSISTABLE_REFERENCE);
+        Record record = mock(Record.class);
+        when(record.getData()).thenReturn(data);
+        when(storageClient.getRecord(anyString())).thenReturn(record);
+        ConvertTrajectoryResponse expected = new ConvertTrajectoryResponse();
+        when(crsTrajectoryConverter.convertTrajectory(any(), any())).thenReturn(expected);
+
+        ConvertTrajectoryRequest request = trajectoryRequest();
+        ConvertTrajectoryResponse response =
+                crsConverterApiV3.convertTrajectory(new LinkedMultiValueMap<>(), request);
+
+        assertSame(expected, response);
+        assertEquals(PERSISTABLE_REFERENCE, request.getUnitXY());
+        assertEquals(PERSISTABLE_REFERENCE, request.getTrajectoryCRS());
+    }
+
+    @Test
+    public void convertTrajectoryDerivesTheAxisUnitWhenTheUnitRecordHasNone() {
+        String projected = "{\"wkt\":\"PROJCS[\\\"UTM\\\",GEOGCS[\\\"GCS\\\",UNIT[\\\"Degree\\\",0.01745]],UNIT[\\\"Meter\\\",1.0]]\",\"type\":\"LBC\"}";
+        when(storageClient.getRecord(anyString())).thenAnswer(invocation -> {
+            String id = invocation.getArgument(0);
+            Map<String, Object> data = new HashMap<>();
+            if (id.contains("UnitOfMeasure")) {
+                data.put("Code", "LabOil");
+            } else {
+                data.put("CoordinateSystem.HorizontalAxisUnitID", HORIZONTAL_AXIS_UNIT_ID);
+                data.put("PersistableReference", projected);
+            }
+            Record record = mock(Record.class);
+            when(record.getData()).thenReturn(data);
+            return record;
+        });
+        when(crsTrajectoryConverter.convertTrajectory(any(), any())).thenReturn(new ConvertTrajectoryResponse());
+
+        ConvertTrajectoryRequest request = trajectoryRequest();
+        crsConverterApiV3.convertTrajectory(new LinkedMultiValueMap<>(), request);
+
+        assertTrue(request.getUnitXY().contains("\"symbol\":\"Meter\""));
+        assertTrue(request.getUnitXY().contains("\"scale\":1.0"));
+        assertEquals(projected, request.getTrajectoryCRS());
     }
 
     private Record recordWithCoordinateSystem(Map<String, Object> coordinateSystem) {

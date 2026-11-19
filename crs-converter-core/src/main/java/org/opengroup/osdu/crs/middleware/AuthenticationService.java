@@ -1,6 +1,6 @@
 package org.opengroup.osdu.crs.middleware;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 
 import org.apache.http.HttpStatus;
@@ -20,15 +20,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.Collections;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 public class AuthenticationService {
@@ -46,15 +43,15 @@ public class AuthenticationService {
 
     @PostConstruct
     public void initEntitlementsFactory() {
-        ObjectMapper objectMapper = new HttpConfiguration().jsonObjectMapper();
+        JsonMapper objectMapper = new HttpConfiguration().jsonObjectMapper();
         HttpResponseBodyMapper httpResponseBodyMapper = new HttpResponseBodyMapper(objectMapper);
         EntitlementsAPIConfig config = EntitlementsAPIConfig.builder().rootUrl(entitlementsUrl).build();
         entitlementsFactory = new EntitlementsFactory(config, httpResponseBodyMapper);
     }
 
     public boolean isAuthorized(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-        MultiValueMap<String, String> requestHeaders = getHttpHeaders(httpServletRequest);
-        DpsHeaders dpsHeaders = DpsHeaders.createFromEntrySet(requestHeaders.entrySet());
+        HttpHeaders requestHeaders = getHttpHeaders(httpServletRequest);
+        DpsHeaders dpsHeaders = DpsHeaders.createFromEntrySet(requestHeaders.headerSet());
         dpsHeaders.addCorrelationIdIfMissing();
         IEntitlementsService service = entitlementsFactory.create(dpsHeaders);
         try {
@@ -64,7 +61,7 @@ public class AuthenticationService {
             httpServletResponse.addHeader(DpsHeaders.CORRELATION_ID, dpsHeaders.getCorrelationId());
         } catch (EntitlementsException e) {
             logger.error(String.format(String.format("User not authenticated. Response: %s", e.getHttpResponse()), e));
-            AppException unauthorized = new AppException(e.getHttpResponse().getResponseCode(), "Entitlement Error", e.getMessage(), e);
+            AppException unauthorized = new AppException(authenticationStatus(e), "Entitlement Error", e.getMessage(), e);
             handlerExceptionResolver.resolveException(httpServletRequest, httpServletResponse, null, unauthorized);
             return false;
         } catch (NullPointerException e) { // Common library throws null pointer exception when auth permission is denied.
@@ -76,16 +73,19 @@ public class AuthenticationService {
         return true;
     }
 
+    private static int authenticationStatus(EntitlementsException exception) {
+        if (exception.getHttpResponse() == null) {
+            return HttpStatus.SC_UNAUTHORIZED;
+        }
+        return exception.getHttpResponse().getResponseCode();
+    }
+
     private HttpHeaders getHttpHeaders(@NonNull HttpServletRequest httpRequest) {
-        return Collections
-                .list(httpRequest.getHeaderNames())
-                .stream()
-                .collect(Collectors.toMap(
-                        Function.identity(),
-                        h -> Collections.list(httpRequest.getHeaders(h)),
-                        (oldValue, newValue) -> newValue,
-                        HttpHeaders::new
-                ));
+        // Spring 7 HttpHeaders is no longer a Map, so it can't be the Collectors.toMap target
+        HttpHeaders headers = new HttpHeaders();
+        Collections.list(httpRequest.getHeaderNames())
+                .forEach(h -> headers.put(h, Collections.list(httpRequest.getHeaders(h))));
+        return headers;
     }
 
     private void putAuthenticationIntoContext(Groups groups) {
