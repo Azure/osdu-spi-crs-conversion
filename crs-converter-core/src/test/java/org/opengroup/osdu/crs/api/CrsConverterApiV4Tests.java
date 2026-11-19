@@ -17,7 +17,7 @@ import org.opengroup.osdu.crs.model.v4.ConvertTrajectoryResponseV4;
 import org.opengroup.osdu.crs.model.v4.MinimumDepthInterval;
 import org.opengroup.osdu.crs.model.v4.TrajectoryStationInV4;
 import org.opengroup.osdu.crs.util.Constants;
-import org.springframework.http.HttpHeaders;
+import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.util.MultiValueMap;
 
@@ -64,7 +64,7 @@ public class CrsConverterApiV4Tests {
                 new MinimumDepthInterval(Arrays.asList(50.0), 25.0));
 
         ValidationException exception = Assertions.assertThrows(ValidationException.class,
-                () -> api.convertTrajectory(new HttpHeaders(), request));
+                () -> api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
         assertEquals("Both md_i array and md_interval values are provided in the input.", exception.getMessage());
         Mockito.verifyNoInteractions(crsTrajectoryConverter);
@@ -78,7 +78,7 @@ public class CrsConverterApiV4Tests {
                     new MinimumDepthInterval(Arrays.asList(md), null));
 
             ValidationException exception = Assertions.assertThrows(ValidationException.class,
-                    () -> api.convertTrajectory(new HttpHeaders(), request));
+                    () -> api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
             assertEquals("md_i array values provided are not in range of MD stations.", exception.getMessage());
         }
@@ -91,7 +91,7 @@ public class CrsConverterApiV4Tests {
         ConvertTrajectoryRequestV4 request = createMdiRequest(null, 100.0, new MinimumDepthInterval(Arrays.asList(50.0), null));
 
         ValidationException exception = Assertions.assertThrows(ValidationException.class,
-                () -> api.convertTrajectory(new HttpHeaders(), request));
+                () -> api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
         assertEquals(MISSING_MD_MESSAGE, exception.getMessage());
         Mockito.verify(crsTrajectoryConverter, Mockito.never()).convertTrajectoryV4(any(), any(), anyBoolean(), anyBoolean(), anyBoolean());
@@ -103,7 +103,7 @@ public class CrsConverterApiV4Tests {
         ConvertTrajectoryRequestV4 request = createMdiRequest(0.0, null, new MinimumDepthInterval(null, 25.0));
 
         ValidationException exception = Assertions.assertThrows(ValidationException.class,
-                () -> api.convertTrajectory(new HttpHeaders(), request));
+                () -> api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
         assertEquals(MISSING_MD_MESSAGE, exception.getMessage());
         Mockito.verify(crsTrajectoryConverter, Mockito.never()).convertTrajectoryV4(any(), any(), anyBoolean(), anyBoolean(), anyBoolean());
@@ -116,7 +116,7 @@ public class CrsConverterApiV4Tests {
         request.setInputStations(new ArrayList<>());
 
         ValidationException exception = Assertions.assertThrows(ValidationException.class,
-                () -> api.convertTrajectory(new HttpHeaders(), request));
+                () -> api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
         assertEquals(MISSING_MD_MESSAGE, exception.getMessage());
         Mockito.verify(crsTrajectoryConverter, Mockito.never()).convertTrajectoryV4(any(), any(), anyBoolean(), anyBoolean(), anyBoolean());
@@ -132,7 +132,7 @@ public class CrsConverterApiV4Tests {
             request.setInputStations(null);
 
             ValidationException exception = Assertions.assertThrows(ValidationException.class,
-                    () -> api.convertTrajectory(new HttpHeaders(), request));
+                    () -> api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
             assertEquals(MISSING_MD_MESSAGE, exception.getMessage());
         }
@@ -146,7 +146,7 @@ public class CrsConverterApiV4Tests {
                 new MinimumDepthInterval(Arrays.asList(50.0), 0.0));
 
         ValidationException exception = Assertions.assertThrows(ValidationException.class,
-                () -> api.convertTrajectory(new HttpHeaders(), request));
+                () -> api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
         assertEquals(MISSING_MD_MESSAGE, exception.getMessage());
         Mockito.verifyNoInteractions(crsTrajectoryConverter);
@@ -168,7 +168,7 @@ public class CrsConverterApiV4Tests {
             Mockito.when(crsTrajectoryConverter.convertTrajectoryV4(any(), Mockito.same(request),
                     Mockito.eq(false), Mockito.eq(true), Mockito.eq(false))).thenReturn(response);
 
-            Assertions.assertSame(response, api.convertTrajectory(new HttpHeaders(), request));
+            Assertions.assertSame(response, api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
             if (interval != null) {
                 Assertions.assertTrue(interval.getMd_i() == null || interval.getMd_i().isEmpty());
@@ -187,7 +187,7 @@ public class CrsConverterApiV4Tests {
             Mockito.when(crsTrajectoryConverter.convertTrajectoryV4(any(), Mockito.same(request),
                     Mockito.eq(false), Mockito.eq(true), Mockito.eq(false))).thenReturn(response);
 
-            Assertions.assertSame(response, api.convertTrajectory(new HttpHeaders(), request));
+            Assertions.assertSame(response, api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
             assertEquals(Arrays.asList(0.0, 50.0, 100.0), minimumDepthInterval.getMd_i());
         }
@@ -202,7 +202,7 @@ public class CrsConverterApiV4Tests {
         Mockito.when(crsTrajectoryConverter.convertTrajectoryV4(any(), Mockito.same(request),
                 Mockito.eq(false), Mockito.eq(true), Mockito.eq(false))).thenReturn(response);
 
-        Assertions.assertSame(response, api.convertTrajectory(new HttpHeaders(), request));
+        Assertions.assertSame(response, api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
         assertEquals(Arrays.asList(0.0, 25.0, 50.0, 75.0, 100.0), minimumDepthInterval.getMd_i());
     }
@@ -214,7 +214,7 @@ public class CrsConverterApiV4Tests {
         Mockito.when(crsTrajectoryConverter.convertTrajectoryV4(any(), any(), anyBoolean(), anyBoolean(), anyBoolean()))
                 .thenReturn(new ConvertTrajectoryResponseV4());
 
-        api.convertTrajectory(new HttpHeaders(), createMdiRequest(0.0, 100.0, minimumDepthInterval));
+        api.convertTrajectory(new LinkedMultiValueMap<>(), createMdiRequest(0.0, 100.0, minimumDepthInterval));
 
         assertEquals(Arrays.asList(0.0, 25.0, 50.0, 75.0, 100.0), minimumDepthInterval.getMd_i());
         Mockito.verify(crsTrajectoryConverter).convertTrajectoryV4(any(), any(), anyBoolean(), anyBoolean(), anyBoolean());
@@ -227,7 +227,7 @@ public class CrsConverterApiV4Tests {
                 new MinimumDepthInterval(Arrays.asList(50.0, null), null));
 
         ValidationException exception = Assertions.assertThrows(ValidationException.class,
-                () -> api.convertTrajectory(new HttpHeaders(), request));
+                () -> api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
         assertEquals("md_i array must not contain null values.", exception.getMessage());
         Mockito.verifyNoInteractions(crsTrajectoryConverter);
@@ -240,7 +240,7 @@ public class CrsConverterApiV4Tests {
         request.setInputStations(Arrays.asList(null, createStation(100.0)));
 
         ValidationException exception = Assertions.assertThrows(ValidationException.class,
-                () -> api.convertTrajectory(new HttpHeaders(), request));
+                () -> api.convertTrajectory(new LinkedMultiValueMap<>(), request));
 
         assertEquals("inputStations must not contain null stations.", exception.getMessage());
         Mockito.verifyNoInteractions(crsTrajectoryConverter);
@@ -256,7 +256,7 @@ public class CrsConverterApiV4Tests {
         Mockito.when(crsTrajectoryConverter.convertTrajectoryV4(any(), Mockito.same(request),
                 anyBoolean(), anyBoolean(), anyBoolean())).thenReturn(response);
 
-        Assertions.assertSame(response, api.convertTrajectory(new HttpHeaders(), request));
+        Assertions.assertSame(response, api.convertTrajectory(new LinkedMultiValueMap<>(), request));
         Assertions.assertNull(interval.getMd_i());
     }
 
@@ -274,7 +274,7 @@ public class CrsConverterApiV4Tests {
         Mockito.when(crsTrajectoryConverter.convertTrajectoryV4(any(), Mockito.same(request),
                 anyBoolean(), anyBoolean(), anyBoolean())).thenReturn(response);
 
-        Assertions.assertSame(response, api.convertTrajectory(new HttpHeaders(), request));
+        Assertions.assertSame(response, api.convertTrajectory(new LinkedMultiValueMap<>(), request));
     }
 
     private CrsConverterApiV4 createTrajectoryApi() {

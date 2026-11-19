@@ -51,6 +51,9 @@ public class CrsConverterApiV2 {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = Constants.SWAGGER_CONVERT_SUCCESS_RESPONSE, content = { @Content(schema = @Schema(implementation = ConvertPointsResponse.class)) }),
 			@ApiResponse(responseCode = "400", description = Constants.SWAGGER_CONVERT_BAD_INPUT_BASE_PATH,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "401", description = "Unauthorized: missing or invalid Authorization header", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "403", description = "Forbidden: insufficient permissions or invalid partition", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported media type; Content-Type must be application/json", content = {@Content(schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "500", description = Constants.SWAGGER_CONVERT_UNKNOWN_ERROR,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "503", description = Constants.SWAGGER_CONVERT_OVERLOAD,  content = {@Content(schema = @Schema(implementation = AppError.class ))})
 	})
@@ -70,6 +73,8 @@ public class CrsConverterApiV2 {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = Constants.SWAGGER_CONVERT_SUCCESS_RESPONSE, content = { @Content(schema = @Schema(implementation = ConvertGeoJsonResponse.class)) }),
 			@ApiResponse(responseCode = "400", description = Constants.SWAGGER_CONVERT_BAD_INPUT_BASE_PATH,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "401", description = "Unauthorized: missing or invalid Authorization header", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "403", description = "Forbidden: insufficient permissions or invalid partition", content = {@Content(schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "500", description = Constants.SWAGGER_CONVERT_UNKNOWN_ERROR,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "503", description = Constants.SWAGGER_CONVERT_OVERLOAD,  content = {@Content(schema = @Schema(implementation = AppError.class ))})
 	})
@@ -87,6 +92,8 @@ public class CrsConverterApiV2 {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = Constants.SWAGGER_TRJ_CONVERT_SUCCESS_RESPONSE, content = { @Content(schema = @Schema(implementation = ConvertTrajectoryResponse.class)) }),
 			@ApiResponse(responseCode = "400", description = Constants.SWAGGER_CONVERT_BAD_INPUT_BASE_PATH,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "401", description = "Unauthorized: missing or invalid Authorization header", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "403", description = "Forbidden: insufficient permissions or invalid partition", content = {@Content(schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "500", description = Constants.SWAGGER_CONVERT_UNKNOWN_ERROR,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "503", description = Constants.SWAGGER_CONVERT_OVERLOAD,  content = {@Content(schema = @Schema(implementation = AppError.class ))})
 	})

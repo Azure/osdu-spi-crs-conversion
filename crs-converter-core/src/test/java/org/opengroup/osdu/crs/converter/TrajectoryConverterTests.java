@@ -592,6 +592,28 @@ public class TrajectoryConverterTests {
     }
 
     @Test
+    public void interpolationPastTheStationBudgetIsReported() {
+        List<TrajectoryStationIn> inStations = new ArrayList<>();
+        inStations.add(new TrajectoryStationIn(0.0, 0.0, 0.0, Double.NaN, Double.NaN, 0.0));
+        inStations.add(new TrajectoryStationIn(20_000_000.0, 10.0, 20.0, Double.NaN, Double.NaN, 0.0));
+        ConvertTrajectoryRequest request = new ConvertTrajectoryRequest();
+        request.setInputStations(inStations);
+        request.setTrajectoryCRS(ConstantsTests.EPSG_3395[ConstantsTests.V1]);
+        request.setUnitXY(ConstantsTests.UNIT_M);
+        request.setUnitZ(ConstantsTests.UNIT_M);
+        request.setMethod(METHOD_AZI_EQU);
+        request.setAzimuthReference(TN);
+        request.setReferencePoint(getReferencePoint3395());
+        request.setInterpolate(true);
+
+        ConvertTrajectoryResponse response = new TrajectoryConverter().convertTrajectory(getDpsHeaders(), request);
+
+        assertEquals(inStations.size(), response.getStations().size());
+        assertTrue(response.getOperationsApplied().contains(
+                "interpolation skipped for a segment that would exceed the 100000 station budget"));
+    }
+
+    @Test
     public void testTrajectoryConverterTN() {
         // First SPCS27_1702
         double[][] expected = getTestDataSPCS27_1702();

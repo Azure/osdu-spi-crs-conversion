@@ -11,10 +11,10 @@ import java.util.List;
 @Schema(description = Constants.SWAGGER_GEO_JSON_CONVERSION_RESPONSE)
 public class ConvertGeoJsonResponse {
 
-	@Schema(description = Constants.SWAGGER_GEO_JSON_SUCCESS_COUNT, type = "integer")
+	@Schema(description = Constants.SWAGGER_GEO_JSON_SUCCESS_COUNT, type = "integer", types = {"integer"})
 	private Integer successCount;
 
-	@Schema(description = Constants.SWAGGER_GEO_JSON_COORDINATE_COUNT, type = "integer")
+	@Schema(description = Constants.SWAGGER_GEO_JSON_COORDINATE_COUNT, type = "integer", types = {"integer"})
 	private Integer totalCount;
 
 	@Schema(description = Constants.SWAGGER_GEO_JSON_CONVERTED)

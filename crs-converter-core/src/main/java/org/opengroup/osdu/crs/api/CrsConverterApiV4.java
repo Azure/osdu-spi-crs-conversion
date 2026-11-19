@@ -23,6 +23,7 @@ import org.opengroup.osdu.crs.model.*;
 import org.opengroup.osdu.crs.model.v4.*;
 import org.opengroup.osdu.crs.osducoreserviceclient.storage.IStorageClient;
 import org.opengroup.osdu.crs.util.Constants;
+import org.opengroup.osdu.crs.util.ProjectedAxisUnit;
 import org.opengroup.osdu.crs.util.RecordCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -74,6 +75,9 @@ public class CrsConverterApiV4 {
 
     // parameter str could be a persistableReference string or recordID. mustID means parameter str must be a recordID
     public String getPersistableReferenceFromID(String str, boolean mustID) {
+        if (str == null || str.isBlank()) {
+            return null;
+        }
         String temp;
         try {
             temp = URLDecoder.decode(str, UTF_8);
@@ -83,6 +87,12 @@ public class CrsConverterApiV4 {
         // persistableReference string starts with "{..}" - also check for JSON with leading whitespace
         if ((temp.trim().startsWith("{") || temp.contains("{\"")) && mustID == false) {
             return str;
+        }
+        // A value with no record separator cannot be loaded from Storage. 404 is a documented
+        // outcome for a schema-valid id that does not resolve.
+        if (!str.contains(":")) {
+            throw new AppException(HttpStatus.NOT_FOUND.value(), RECORD_NOT_FOUND,
+                    "Please check the input type and format and try again.");
         }
         // set temp as str as we don't want to decode. for example UnitOfMeasure:ft%5BUS%5D in record id
         // normalize before the cache lookup so get/put and the storage call all use the same key
@@ -97,6 +107,11 @@ public class CrsConverterApiV4 {
             dataRecord = storageClient.getRecord(temp);
         }
         catch(RuntimeException exception){
+            if (exception instanceof AppException appException
+                    && appException.getError() != null
+                    && appException.getError().getCode() == HttpStatus.NOT_FOUND.value()) {
+                throw appException;
+            }
             if(temp.contains(UNIT_OF_MEASURE)){
                 String[] parts = temp.split(":");
                 Pattern pattern = Pattern.compile("[!@#\\$%^&*()_+\\-=\\[\\] {};':\"\\\\|,.<>\\/?~`]");
@@ -109,32 +124,33 @@ public class CrsConverterApiV4 {
                     if (multiDataRecord == null || multiDataRecord.getRecords().size() == 0)
                         throw new ValidationException(String.join(" ", RECORD_NOT_FOUND, temp));
                     else{
-                        Map<String, Object> data = multiDataRecord.getRecords().get(0).getData();
-                        pr = data.get("PersistableReference").toString();
-                        if (pr != null) {
-                            recordCache.put(temp, pr);
-                            return pr;
-                        } else {
-                            throw new ValidationException(String.join(" ", "record does not have PersistableReference:", temp));
-                        }
+                        pr = persistableReference(multiDataRecord.getRecords().get(0).getData(), temp);
+                        recordCache.put(temp, pr);
+                        return pr;
                     }
                 } else
                     throw new AppException(HttpStatus.BAD_REQUEST.value(), "Error getting record",
                             "Please check the input type and format and try again.");
             }else
-                throw new AppException(HttpStatus.BAD_REQUEST.value(), "Error getting record",
+                // A schema-valid reference that storage cannot load does not resolve.
+                // 404 is the documented outcome, including an id whose path storage rejects.
+                throw new AppException(HttpStatus.NOT_FOUND.value(), RECORD_NOT_FOUND,
                         "Please check the input type and format and try again.");
 
         }
             if (dataRecord == null)
                 throw new ValidationException(String.join(" ", RECORD_NOT_FOUND, temp));
-            pr = dataRecord.getData().get("PersistableReference").toString();
-            if (pr != null) {
-                recordCache.put(temp, pr);
-                return pr;
-            } else {
-                throw new ValidationException(String.join(" ", "record does not have PersistableReference:", temp));
-            }
+            pr = persistableReference(dataRecord.getData(), temp);
+            recordCache.put(temp, pr);
+            return pr;
+    }
+
+    private static String persistableReference(Map<String, Object> data, String recordId) {
+        Object value = data == null ? null : data.get("PersistableReference");
+        if (value == null) {
+            throw new ValidationException(String.join(" ", "record does not have PersistableReference:", recordId));
+        }
+        return value.toString();
     }
 
     public String getUnitFromTrajectoryCRS(String trajectoryCRS) {
@@ -153,9 +169,34 @@ public class CrsConverterApiV4 {
         Record dataRecord = storageClient.getRecord(temp);
         if (dataRecord == null)
             throw new ValidationException(String.join(" ", RECORD_NOT_FOUND, temp));
-        Map<String, Object> data = dataRecord.getData();
-        Map<String, Object> coordinateSystem = (Map<String, Object>) data.get("CoordinateSystem");
-        return (String) coordinateSystem.get("HorizontalAxisUnitID");
+        String horizontalAxisUnitID = CrsConverterApiV3.horizontalAxisUnitId(dataRecord.getData());
+        if (horizontalAxisUnitID == null) {
+            throw new ValidationException(String.join(" ", "record does not have CoordinateSystem.HorizontalAxisUnitID:", temp));
+        }
+        return horizontalAxisUnitID;
+    }
+
+    private String persistableUnitFromTrajectoryCrs(String trajectoryCRS) {
+        String unit = getUnitFromTrajectoryCRS(trajectoryCRS);
+        if (unit == null || unit.isBlank()) {
+            throw new ValidationException("unitXY is required when it cannot be derived from the trajectory CRS record.");
+        }
+        try {
+            String resolved = getPersistableReferenceFromID(unit, false);
+            if (resolved != null) {
+                return resolved;
+            }
+        } catch (ValidationException ex) {
+            if (ex.getMessage() == null || !ex.getMessage().contains("does not have PersistableReference")) {
+                throw ex;
+            }
+        }
+        String derived = ProjectedAxisUnit.fromPersistableReference(getPersistableReferenceFromID(trajectoryCRS, false));
+        if (derived == null) {
+            throw new ValidationException(String.join(" ", "record does not have PersistableReference:",
+                    RecordIdNormalizer.normalizeRecordID(unit)));
+        }
+        return derived;
     }
 
     public boolean checkCRSType(String trajectoryCRS) {
@@ -177,7 +218,8 @@ public class CrsConverterApiV4 {
         if (dataRecord == null)
             throw new ValidationException(String.join(" ", RECORD_NOT_FOUND, temp));
         Map<String, Object> data = dataRecord.getData();
-        if (data != null && (data.get("Kind").toString().equalsIgnoreCase(BOUND_PROJECTED) || data.get("Kind").toString().equalsIgnoreCase(PROJECTED))) {
+        Object kind = data == null ? null : data.get("Kind");
+        if (kind != null && (kind.toString().equalsIgnoreCase(BOUND_PROJECTED) || kind.toString().equalsIgnoreCase(PROJECTED))) {
             flag = true;
         }
         return flag;
@@ -189,6 +231,10 @@ public class CrsConverterApiV4 {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = Constants.SWAGGER_TRJ_CONVERT_SUCCESS_RESPONSE, content = { @Content(schema = @Schema(implementation = ConvertTrajectoryResponseV4.class)) }),
             @ApiResponse(responseCode = "400", description = Constants.SWAGGER_CONVERT_BAD_INPUT_BASE_PATH, content = { @Content(schema = @Schema(implementation = AppError.class)) }),
+            @ApiResponse(responseCode = "401", description = "Unauthorized: missing or invalid Authorization header", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+            @ApiResponse(responseCode = "403", description = "Forbidden: insufficient permissions or invalid partition", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+            @ApiResponse(responseCode = "404", description = "Not found: referenced record does not exist", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+            @ApiResponse(responseCode = "415", description = "Unsupported media type; Content-Type must be application/json", content = {@Content(schema = @Schema(implementation = AppError.class))}),
             @ApiResponse(responseCode = "500", description = Constants.SWAGGER_CONVERT_UNKNOWN_ERROR, content = { @Content(schema = @Schema(implementation = AppError.class)) }),
             @ApiResponse(responseCode = "503", description = Constants.SWAGGER_CONVERT_OVERLOAD, content = { @Content(schema = @Schema(implementation = AppError.class)) })})
     @Parameter(hidden = true)
@@ -221,10 +267,7 @@ public class CrsConverterApiV4 {
                 throw new ValidationException("unitXY is required when trajectoryCRS is defined by a persistable reference string.");
             } else {
                 // CRS record ID without unitXY - derive from record
-                String unit = getUnitFromTrajectoryCRS(request.getTrajectoryCRS());
-                if (unit != null) {
-                    request.setUnitXY(getPersistableReferenceFromID(unit, false));
-                }
+                request.setUnitXY(persistableUnitFromTrajectoryCrs(request.getTrajectoryCRS()));
             }
         } else if (!Strings.isNullOrEmpty(request.getUnitXY())) {
             request.setUnitXY(getPersistableReferenceFromID(request.getUnitXY(), false));
@@ -300,8 +343,7 @@ public class CrsConverterApiV4 {
 
             ConvertTrajectoryRequestV4 dummyRequest = request;
             if (trajectorycrs.contains(BOUND_PROJECTED) || trajectorycrs.contains(PROJECTED)) {
-                String unit = getUnitFromTrajectoryCRS(trajectorycrs);
-                dummyRequest.setUnitXY(getPersistableReferenceFromID(unit, false));
+                dummyRequest.setUnitXY(persistableUnitFromTrajectoryCrs(trajectorycrs));
             }
             dummyRequest.setInputKind(Constants.MD_INCL_AZIM);
             AtomicInteger index = new AtomicInteger(0);
@@ -352,6 +394,10 @@ public class CrsConverterApiV4 {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = Constants.SWAGGER_CONVERT_SUCCESS_RESPONSE, content = { @Content(schema = @Schema(implementation = ConvertPointsResponse.class)) }),
             @ApiResponse(responseCode = "400", description = Constants.SWAGGER_CONVERT_BAD_INPUT_BASE_PATH,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+            @ApiResponse(responseCode = "401", description = "Unauthorized: missing or invalid Authorization header", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+            @ApiResponse(responseCode = "403", description = "Forbidden: insufficient permissions or invalid partition", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+            @ApiResponse(responseCode = "404", description = "Not found: referenced record does not exist", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+            @ApiResponse(responseCode = "415", description = "Unsupported media type; Content-Type must be application/json", content = {@Content(schema = @Schema(implementation = AppError.class))}),
             @ApiResponse(responseCode = "500", description = Constants.SWAGGER_CONVERT_UNKNOWN_ERROR,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
             @ApiResponse(responseCode = "503", description = Constants.SWAGGER_CONVERT_OVERLOAD,  content = {@Content(schema = @Schema(implementation = AppError.class ))})
     })
@@ -375,6 +421,10 @@ public class CrsConverterApiV4 {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = Constants.SWAGGER_CONVERT_SUCCESS_RESPONSE, content = { @Content(schema = @Schema(implementation = ConvertGeoJsonResponse.class)) }),
             @ApiResponse(responseCode = "400", description = Constants.SWAGGER_CONVERT_BAD_INPUT_BASE_PATH,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+            @ApiResponse(responseCode = "401", description = "Unauthorized: missing or invalid Authorization header", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+            @ApiResponse(responseCode = "403", description = "Forbidden: insufficient permissions or invalid partition", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+            @ApiResponse(responseCode = "404", description = "Not found: referenced record does not exist", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+            @ApiResponse(responseCode = "415", description = "Unsupported media type; Content-Type must be application/json", content = {@Content(schema = @Schema(implementation = AppError.class))}),
             @ApiResponse(responseCode = "500", description = Constants.SWAGGER_CONVERT_UNKNOWN_ERROR,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
             @ApiResponse(responseCode = "503", description = Constants.SWAGGER_CONVERT_OVERLOAD,  content = {@Content(schema = @Schema(implementation = AppError.class ))})
     })

@@ -254,7 +254,7 @@ public class GeoJsonTests {
         assertNull(gj.getBbox());
         gj.setPersistableReferenceCrs(PR);
         gj.setPersistableReferenceUnitZ(ConstantsTests.UNIT_FT);
-        gj.setProperties("Whatever");  // empty objects don't compare well
+        gj.setProperties(java.util.Collections.singletonMap("name", "Whatever"));
         String s = gb.toJsonString();
         GeoJsonBase other = GeoJsonBase.createInstance(s);
         assertEquals(gj, other);

@@ -14,6 +14,7 @@
   <properties>
     <app.version>1</app.version>
     <app.id>crs-converter-core</app.id>
+    <apache-sis.version>1.3</apache-sis.version>
   </properties>
 
   <prerequisites>
@@ -30,15 +31,11 @@
       <groupId>org.opengroup.osdu</groupId>
       <artifactId>os-core-common</artifactId>
     </dependency>
+    <!-- Embedded Tomcat, as before: Spring Boot 4 moved the Tomcat auto-configuration into spring-boot-tomcat,
+         so tomcat-embed-core on the classpath alone no longer starts a web server -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-jetty</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>jetty-server</artifactId>
-          <groupId>org.eclipse.jetty</groupId>
-        </exclusion>
-      </exclusions>
+      <artifactId>spring-boot-starter-webmvc</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -48,6 +45,11 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-config</artifactId>
+    </dependency>
+    <!-- Spring Boot 4 moved the security auto-configuration (security filter chain registration) into spring-boot-security -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
     <!-- lombok dependencies -->
     <dependency>
@@ -61,6 +63,18 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- Spring Boot 4 moved MockMvc test auto-configuration into spring-boot-webmvc-test -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webmvc-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- Contract parity test: the previous Jackson 2 HTTP mapper as reference -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.junit.vintage</groupId>
       <artifactId>junit-vintage-engine</artifactId>
@@ -71,22 +85,22 @@
     <dependency>
       <groupId>org.apache.sis.core</groupId>
       <artifactId>sis-metadata</artifactId>
-      <version>1.3</version>
+      <version>${apache-sis.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.sis.core</groupId>
       <artifactId>sis-referencing</artifactId>
-      <version>1.3</version>
+      <version>${apache-sis.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.sis.core</groupId>
       <artifactId>sis-referencing-by-identifiers</artifactId>
-      <version>1.3</version>
+      <version>${apache-sis.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.sis.core</groupId>
       <artifactId>sis-utility</artifactId>
-      <version>1.3</version>
+      <version>${apache-sis.version}</version>
     </dependency>
     <dependency>
       <groupId>org.hsqldb</groupId>

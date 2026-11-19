@@ -1,5 +1,6 @@
 package org.opengroup.osdu.crs.model.v2;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +12,8 @@ import jakarta.validation.constraints.NotNull;
 @AllArgsConstructor
 public class ScaleOffset {
 
+	// Jackson 3 would otherwise bind via the all-args constructor and skip these defaults
+	@JsonCreator
 	public ScaleOffset()
     {
         this.scaleFactor = Double.NaN;

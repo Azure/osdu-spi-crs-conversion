@@ -59,6 +59,24 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+        "401":
+          description: "Unauthorized: missing or invalid Authorization header"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: "Forbidden: insufficient permissions or invalid partition"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported media type; Content-Type must be application/json
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "500":
           description: Unknown error.
           content:
@@ -104,6 +122,18 @@ paths:
                 $ref: "#/components/schemas/ConvertTrajectoryResponse"
         "400":
           description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: "Unauthorized: missing or invalid Authorization header"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: "Forbidden: insufficient permissions or invalid partition"
           content:
             application/json:
               schema:
@@ -156,6 +186,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+        "401":
+          description: "Unauthorized: missing or invalid Authorization header"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: "Forbidden: insufficient permissions or invalid partition"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "500":
           description: Unknown error.
           content:
@@ -178,13 +220,6 @@ paths:
       description: "For deployment available public `/info` endpoint, which provides\
         \ build and git related information."
       operationId: info
-      parameters:
-      - name: data-partition-id
-        in: header
-        description: Tenant Id
-        required: true
-        schema:
-          type: string
       responses:
         "200":
           description: Version info.
@@ -192,6 +227,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/VersionInfo"
+      security: []
   /v2/_ah/readiness_check:
     get:
       tags:
@@ -200,20 +236,10 @@ paths:
       description: "For deployment available public `/readiness_check` endpoint, which\
         \ provides `CRS Conversion Service is ready` message."
       operationId: readinessCheck
-      parameters:
-      - name: data-partition-id
-        in: header
-        description: Tenant Id
-        required: true
-        schema:
-          type: string
       responses:
         "200":
           description: CRS Conversion service is ready
-          content:
-            application/json:
-              schema:
-                type: string
+      security: []
   /v2/_ah/liveness_check:
     get:
       tags:
@@ -222,20 +248,10 @@ paths:
       description: "For deployment available public `/liveness_check` endpoint, which\
         \ provides `CRS Conversion Service is alive` message."
       operationId: livenessCheck
-      parameters:
-      - name: data-partition-id
-        in: header
-        description: Tenant Id
-        required: true
-        schema:
-          type: string
       responses:
         "200":
           description: CRS Conversion service is alive
-          content:
-            application/json:
-              schema:
-                type: string
+      security: []
 components:
   schemas:
     ConvertPointsRequest:
@@ -245,52 +261,81 @@ components:
       properties:
         fromCRS:
           type: string
+          format: osdu-crs-reference
           description: Source CRS as persistable reference string
-          example: "\"{\"lateBoundCRS\":{\"wkt\":\"GEOGCS[\\\"GCS_Provisional_S_American_1956\\\
-            \",DATUM[\\\"D_Provisional_S_American_1956\\\",SPHEROID[\\\"International_1924\\\
-            \",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\"\
-            ,0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4248]]\",\"ver\":\"PE_10_3_1\"\
-            ,\"name\":\"GCS_Provisional_S_American_1956\",\"authCode\":{\"auth\":\"\
-            EPSG\",\"code\":\"4248\"},\"type\":\"LBC\"},\"singleCT\":{\"wkt\":\"GEOGTRAN[\\\
-            \"PSAD_1956_To_WGS_1984_9\\\",GEOGCS[\\\"GCS_Provisional_S_American_1956\\\
-            \",DATUM[\\\"D_Provisional_S_American_1956\\\",SPHEROID[\\\"International_1924\\\
-            \",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\"\
-            ,0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\
-            \",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\
-            \",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"Geocentric_Translation\\\
-            \"],PARAMETER[\\\"X_Axis_Translation\\\",-295.0],PARAMETER[\\\"Y_Axis_Translation\\\
-            \",173.0],PARAMETER[\\\"Z_Axis_Translation\\\",-371.0],AUTHORITY[\\\"\
-            EPSG\\\",1209]]\",\"ver\":\"PE_10_3_1\",\"name\":\"PSAD_1956_To_WGS_1984_9\"\
-            ,\"authCode\":{\"auth\":\"EPSG\",\"code\":\"1209\"},\"type\":\"ST\"},\"\
-            ver\":\"PE_10_3_1\",\"name\":\"PSAD56 * DMA-Ven [4248,1209]\",\"authCode\"\
-            :{\"auth\":\"SLB\",\"code\":\"4248009\"},\"type\":\"EBC\"}\""
+          example:
+            lateBoundCRS:
+              wkt: "GEOGCS[\"GCS_Provisional_S_American_1956\",DATUM[\"D_Provisional_S_American_1956\"\
+                ,SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\"\
+                ,0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4248]]"
+              ver: PE_10_3_1
+              name: GCS_Provisional_S_American_1956
+              authCode:
+                auth: EPSG
+                code: "4248"
+              type: LBC
+            singleCT:
+              wkt: "GEOGTRAN[\"PSAD_1956_To_WGS_1984_9\",GEOGCS[\"GCS_Provisional_S_American_1956\"\
+                ,DATUM[\"D_Provisional_S_American_1956\",SPHEROID[\"International_1924\"\
+                ,6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"\
+                GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"\
+                Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"\
+                ],PARAMETER[\"X_Axis_Translation\",-295.0],PARAMETER[\"Y_Axis_Translation\"\
+                ,173.0],PARAMETER[\"Z_Axis_Translation\",-371.0],AUTHORITY[\"EPSG\"\
+                ,1209]]"
+              ver: PE_10_3_1
+              name: PSAD_1956_To_WGS_1984_9
+              authCode:
+                auth: EPSG
+                code: "1209"
+              type: ST
+            ver: PE_10_3_1
+            name: "PSAD56 * DMA-Ven [4248,1209]"
+            authCode:
+              auth: SLB
+              code: "4248009"
+            type: EBC
           minLength: 1
         toCRS:
           type: string
+          format: osdu-crs-reference
           description: Target CRS as persistable reference string
-          example: "\"{\"lateBoundCRS\":{\"wkt\":\"PROJCS[\\\"Trinidad_1903_Trinidad_Grid\\\
-            \",GEOGCS[\\\"GCS_Trinidad_1903\\\",DATUM[\\\"D_Trinidad_1903\\\",SPHEROID[\\\
-            \"Clarke_1858\\\",6378293.64520876,294.260676369]],PRIMEM[\\\"Greenwich\\\
-            \",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Cassini\\\
-            \"],PARAMETER[\\\"False_Easting\\\",430000.0],PARAMETER[\\\"False_Northing\\\
-            \",325000.0],PARAMETER[\\\"Central_Meridian\\\",-61.3333333333333],PARAMETER[\\\
-            \"Scale_Factor\\\",1.0],PARAMETER[\\\"Latitude_Of_Origin\\\",10.4416666666667],UNIT[\\\
-            \"Link_Clarke\\\",0.201166195164],AUTHORITY[\\\"EPSG\\\",30200]]\",\"\
-            ver\":\"PE_10_3_1\",\"name\":\"Trinidad_1903_Trinidad_Grid\",\"authCode\"\
-            :{\"auth\":\"EPSG\",\"code\":\"30200\"},\"type\":\"LBC\"},\"singleCT\"\
-            :{\"wkt\":\"GEOGTRAN[\\\"Trinidad_1903_To_WGS_1984_2\\\",GEOGCS[\\\"GCS_Trinidad_1903\\\
-            \",DATUM[\\\"D_Trinidad_1903\\\",SPHEROID[\\\"Clarke_1858\\\",6378293.64520876,294.260676369]],PRIMEM[\\\
-            \"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\
-            \"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\"\
-            ,6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\
-            \",0.0174532925199433]],METHOD[\\\"Geocentric_Translation\\\"],PARAMETER[\\\
-            \"X_Axis_Translation\\\",-61.0],PARAMETER[\\\"Y_Axis_Translation\\\",285.2],PARAMETER[\\\
-            \"Z_Axis_Translation\\\",471.6],AUTHORITY[\\\"EPSG\\\",10085]]\",\"ver\"\
-            :\"PE_10_3_1\",\"name\":\"Trinidad_1903_To_WGS_1984_2\",\"authCode\":{\"\
-            auth\":\"EPSG\",\"code\":\"10085\"},\"type\":\"ST\"},\"ver\":\"PE_10_3_1\"\
-            ,\"name\":\"Trinidad 1903 * EOG-Tto Trin / Trinidad Grid [30200,10085]\"\
-            ,\"authCode\":{\"auth\":\"SLB\",\"code\":\"30200002\"},\"type\":\"EBC\"\
-            }\""
+          example:
+            lateBoundCRS:
+              wkt: "PROJCS[\"Trinidad_1903_Trinidad_Grid\",GEOGCS[\"GCS_Trinidad_1903\"\
+                ,DATUM[\"D_Trinidad_1903\",SPHEROID[\"Clarke_1858\",6378293.64520876,294.260676369]],PRIMEM[\"\
+                Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"\
+                Cassini_Soldner\"],PARAMETER[\"False_Easting\",430000.0],PARAMETER[\"\
+                False_Northing\",325000.0],PARAMETER[\"Central_Meridian\",-61.3333333333333],PARAMETER[\"\
+                Scale_Factor\",1.0],PARAMETER[\"Latitude_Of_Origin\",10.4416666666667],UNIT[\"\
+                Link_Clarke\",0.201166195164],AUTHORITY[\"EPSG\",30200]]"
+              ver: PE_10_3_1
+              name: Trinidad_1903_Trinidad_Grid
+              authCode:
+                auth: EPSG
+                code: "30200"
+              type: LBC
+            singleCT:
+              wkt: "GEOGTRAN[\"Trinidad_1903_To_WGS_1984_2\",GEOGCS[\"GCS_Trinidad_1903\"\
+                ,DATUM[\"D_Trinidad_1903\",SPHEROID[\"Clarke_1858\",6378293.64520876,294.260676369]],PRIMEM[\"\
+                Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\"\
+                ,DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"\
+                Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"\
+                ],PARAMETER[\"X_Axis_Translation\",-61.0],PARAMETER[\"Y_Axis_Translation\"\
+                ,285.2],PARAMETER[\"Z_Axis_Translation\",471.6],AUTHORITY[\"EPSG\"\
+                ,10085]]"
+              ver: PE_10_3_1
+              name: Trinidad_1903_To_WGS_1984_2
+              authCode:
+                auth: EPSG
+                code: "10085"
+              type: ST
+            ver: PE_10_3_1
+            name: "Trinidad 1903 * EOG-Tto Trin / Trinidad Grid [30200,10085]"
+            authCode:
+              auth: SLB
+              code: "30200002"
+            type: EBC
           minLength: 1
         points:
           type: array
@@ -313,23 +358,70 @@ components:
         \ For projected CRS: x=easting, y=northing."
       properties:
         x:
-          type: string
+          type: number
           format: double
           description: "X coordinate value. For geographic CRS: longitude in degrees\
             \ (-180 to +180). For projected CRS: easting in CRS units (typically meters)."
-          example: "-61.043406288714543"
+          example: -61.04340628871454
         "y":
-          type: string
+          type: number
           format: double
           description: "Y coordinate value. For geographic CRS: latitude in degrees\
             \ (-90 to +90). For projected CRS: northing in CRS units (typically meters)."
-          example: "10.673103179456877"
+          example: 10.673103179456877
         z:
-          type: string
+          type: number
           format: double
           description: Z coordinate value representing elevation or depth. Unit specified
             by unitZ. Positive typically indicates height above reference surface.
-          example: "0.0"
+          example: 0.0
+      required:
+      - x
+      - "y"
+      - z
+    PointResponse:
+      type: object
+      description: Computed 3D coordinates. Unavailable values use the string NaN.
+      properties:
+        x:
+          type:
+          - number
+          - string
+          format: double
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
+        "y":
+          type:
+          - number
+          - string
+          format: double
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
+        z:
+          type:
+          - number
+          - string
+          format: double
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
       required:
       - x
       - "y"
@@ -339,7 +431,7 @@ components:
       description: Response of a CRS conversion/transformation operation
       properties:
         successCount:
-          type: string
+          type: integer
           description: Number of points successfully converted. If the number is less
             than the request array length conversion/transformation failures occurred.
         points:
@@ -348,7 +440,7 @@ components:
             \ as in the request. Points, which failed to convert, are returned as\
             \ NaN."
           items:
-            $ref: "#/components/schemas/Point"
+            $ref: "#/components/schemas/PointResponse"
         operationsApplied:
           type: array
           description: The list of operations performed on the points as a list of
@@ -374,81 +466,120 @@ components:
           example: Invalid record format.
     ConvertTrajectoryRequest:
       type: object
+      allOf:
+      - if:
+          properties:
+            trajectoryCRS:
+              type: string
+              pattern: "\"wkt\"\\s*:\\s*\"(?:GEOGCS|GEOGCRS|GEODCRS|GeographicCRS|GeodeticCRS)\\\
+                ["
+        then:
+          properties:
+            referencePoint:
+              properties:
+                x:
+                  type: number
+                  maximum: 180
+                  minimum: -180
+                "y":
+                  type: number
+                  maximum: 90
+                  minimum: -90
+      - if:
+          properties:
+            trajectoryCRS:
+              type: string
+              pattern: "(^\\s*\\{)|(\\{\")"
+        then:
+          required:
+          - unitXY
       description: "Input trajectory data structure; contains the context (crs, units,\
         \ azimuth reference, method)"
       properties:
         trajectoryCRS:
           type: string
+          format: osdu-crs-reference
           description: "Coordinate reference system for the reference point; typically\
             \ the CRS is a projected CRS; if a geographic CRS is provided, the unitXY\
             \ must be defined and the azimuthReference must be TRUE_NORTH."
-          example: "\"{\"wkt\":\"PROJCS[\\\"WGS_1984_UTM_Zone_31N\\\",GEOGCS[\\\"\
-            GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\
-            \"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\
-            \"Transverse_Mercator\\\"],PARAMETER[\\\"False_Easting\\\",500000.0],PARAMETER[\\\
-            \"False_Northing\\\",0.0],PARAMETER[\\\"Central_Meridian\\\",3.0],PARAMETER[\\\
-            \"Scale_Factor\\\",0.9996],PARAMETER[\\\"Latitude_Of_Origin\\\",0.0],UNIT[\\\
-            \"Meter\\\",1.0],AUTHORITY[\\\"EPSG\\\",32631]]\",\"ver\":\"PE_10_3_1\"\
-            ,\"name\":\"WGS_1984_UTM_Zone_31N\",\"authCode\":{\"auth\":\"EPSG\",\"\
-            code\":\"32631\"},\"type\":\"LBC\"}\""
+          example:
+            wkt: "PROJCS[\"WGS_1984_UTM_Zone_31N\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"\
+              D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"\
+              Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"\
+              Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"\
+              False_Northing\",0.0],PARAMETER[\"Central_Meridian\",3.0],PARAMETER[\"\
+              Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"\
+              Meter\",1.0],AUTHORITY[\"EPSG\",32631]]"
+            ver: PE_10_3_1
+            name: WGS_1984_UTM_Zone_31N
+            authCode:
+              auth: EPSG
+              code: "32631"
+            type: LBC
           minLength: 1
         azimuthReference:
           type: string
           description: "Reference direction for azimuth angles. TRUE_NORTH (TN): measured\
             \ from geographic true north. GRID_NORTH (GN): measured from map projection\
             \ grid north. The difference is the grid convergence angle."
+          enum:
+          - TRUE_NORTH
+          - TN
+          - GRID_NORTH
+          - GN
           example: TRUE_NORTH
           minLength: 1
         unitXY:
           type: string
-          description: "Unit of measure for horizontal displacements (dx, dy). Required\
-            \ for dX_dY_dZ input kinds. Can be OSDU record ID (e.g., 'osdu:reference-data--UnitOfMeasure:m:')\
-            \ or persistable reference JSON. Auto-derived from projected CRS if not\
-            \ specified."
-          example: "\"{\"scaleOffset\":{\"scale\":1.0,\"offset\":0.0},\"symbol\":\"\
-            m\",\"baseMeasurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"type\"\
-            :\"USO\"}\""
+          format: osdu-unit-reference
+          description: "Unit of measure for horizontal displacements (dx, dy). Optional\
+            \ for a Projected or BoundProjected CRS record id, which supplies the\
+            \ horizontal unit. Required for every other trajectoryCRS."
+          example:
+            scaleOffset:
+              scale: 1.0
+              offset: 0.0
+            symbol: m
+            baseMeasurement:
+              ancestry: Length
+              type: UM
+            type: USO
         unitZ:
           type: string
+          format: osdu-unit-reference
           description: "Unit of measure for vertical values (dz) and measured depth.\
             \ Required field. Can be OSDU record ID (e.g., 'osdu:reference-data--UnitOfMeasure:m:')\
             \ or persistable reference JSON."
-          example: "\"{\"scaleOffset\":{\"scale\":1.0,\"offset\":0.0},\"symbol\":\"\
-            m\",\"baseMeasurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"type\"\
-            :\"USO\"}\""
+          example:
+            scaleOffset:
+              scale: 1.0
+              offset: 0.0
+            symbol: m
+            baseMeasurement:
+              ancestry: Length
+              type: UM
+            type: USO
           minLength: 1
         referencePoint:
           $ref: "#/components/schemas/Point"
           description: The 3D reference point in the 'trajectoryCRS' where MD==0.
         inputStations:
-          type: string
+          type: array
           description: The array of input trajectory stations
-          example:
-          - md: 0
-            inclination: 0
-            azimuth: 0
-          - md: 1000
-            inclination: 0
-            azimuth: 0
-          - md: 2000
-            inclination: 90
-            azimuth: 0
-          - md: 3000
-            inclination: 90
-            azimuth: 0
-          - md: 5000
-            inclination: 90
-            azimuth: 90
-          - md: 6000
-            inclination: 90
-            azimuth: 90
-          minLength: 1
+          items:
+            $ref: "#/components/schemas/TrajectoryStationIn"
+          minItems: 1
         method:
           type: string
           description: "Computation method: 'AzimuthalEquidistant' (default) - standard\
             \ method using azimuthal equidistant projection centered at well location.\
             \ 'LMP' - Lee's Modified Proposal (SPE96813) for improved accuracy at\
             \ extreme latitudes."
+          enum:
+          - AzimuthalEquidistant
+          - LMP
+          - LeesModifiedProposal
+          - GNL
           example: AzimuthalEquidistant
           minLength: 1
         inputKind:
@@ -457,19 +588,74 @@ components:
             \ with inclination and azimuth angles. MD_dX_dY_dZ - measured depth with\
             \ local deviations. dX_dY_dZ - deviations only (MD computed via inverse\
             \ minimum curvature). MD_Incl - inclination-only surveys (no azimuth)."
+          enum:
+          - MD_Incl_Azim
+          - MD_Inclination_Azimuth
           example: MD_Inclination_Azimuth
         interpolate:
-          type: string
+          type: boolean
           description: "When true (default), interpolates additional stations at MD\
             \ values specified in MD_i. When false, only original input stations are\
             \ processed and MD_i is ignored."
-          example: "True"
+          example: true
       required:
       - azimuthReference
       - inputStations
       - method
+      - referencePoint
       - trajectoryCRS
       - unitZ
+    TrajectoryStationIn:
+      type: object
+      description: "Input trajectory survey station. Required fields depend on inputKind:\
+        \ MD_Incl_Azim requires md, inclination, azimuth. dX_dY_dZ variants require\
+        \ dx, dy, dz."
+      properties:
+        md:
+          type: number
+          format: double
+          description: "Measured Depth - distance along the wellbore from the reference\
+            \ point (e.g., kelly bushing). Unit specified by unitMD or unitZ. Required\
+            \ for most inputKind values."
+          example: 2563.56
+        inclination:
+          type: number
+          format: double
+          description: "Wellbore inclination angle in degrees. 0° = vertical (down),\
+            \ 90° = horizontal, 180° = vertical (up). Range: 0-180. Required for MD_Incl_Azim\
+            \ and MD_Incl inputKind."
+          example: 15.0
+        azimuth:
+          type: number
+          format: double
+          description: "Wellbore azimuth (direction) angle in degrees. 0°/360° = North,\
+            \ 90° = East, 180° = South, 270° = West. Range: 0-360. Reference (True\
+            \ North or Grid North) specified by azimuthReference."
+          example: 355.0
+        dx:
+          type: number
+          format: double
+          description: East-West displacement from well reference point. Positive
+            = East. Used for dX_dY_dZ and MD_dX_dY_dZ inputKind. Unit specified by
+            unitXY.
+          example: 55.9
+        dy:
+          type: number
+          format: double
+          description: North-South displacement from well reference point. Positive
+            = North. Y-axis alignment (True North or Grid North) depends on azimuthReference.
+            Unit specified by unitXY.
+          example: -145.3
+        dz:
+          type: number
+          format: double
+          description: True Vertical Depth (TVD) from well reference point. Positive
+            = deeper/downward. Unit specified by unitZ.
+          example: 1965.6
+      required:
+      - azimuth
+      - inclination
+      - md
     ConvertTrajectoryResponse:
       type: object
       description: "Trajectory response containing computed stations with positions,\
@@ -495,8 +681,8 @@ components:
               wkt: "PROJCS[\"Trinidad_1903_Trinidad_Grid\",GEOGCS[\"GCS_Trinidad_1903\"\
                 ,DATUM[\"D_Trinidad_1903\",SPHEROID[\"Clarke_1858\",6378293.64520876,294.260676369]],PRIMEM[\"\
                 Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"\
-                Cassini\"],PARAMETER[\"False_Easting\",430000.0],PARAMETER[\"False_Northing\"\
-                ,325000.0],PARAMETER[\"Central_Meridian\",-61.3333333333333],PARAMETER[\"\
+                Cassini_Soldner\"],PARAMETER[\"False_Easting\",430000.0],PARAMETER[\"\
+                False_Northing\",325000.0],PARAMETER[\"Central_Meridian\",-61.3333333333333],PARAMETER[\"\
                 Scale_Factor\",1.0],PARAMETER[\"Latitude_Of_Origin\",10.4416666666667],UNIT[\"\
                 Link_Clarke\",0.201166195164],AUTHORITY[\"EPSG\",30200]]"
             name: "Trinidad 1903 * EOG-Tto Trin / Trinidad Grid [30200,10085]"
@@ -577,8 +763,8 @@ components:
               wkt: "PROJCS[\"Trinidad_1903_Trinidad_Grid\",GEOGCS[\"GCS_Trinidad_1903\"\
                 ,DATUM[\"D_Trinidad_1903\",SPHEROID[\"Clarke_1858\",6378293.64520876,294.260676369]],PRIMEM[\"\
                 Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"\
-                Cassini\"],PARAMETER[\"False_Easting\",430000.0],PARAMETER[\"False_Northing\"\
-                ,325000.0],PARAMETER[\"Central_Meridian\",-61.3333333333333],PARAMETER[\"\
+                Cassini_Soldner\"],PARAMETER[\"False_Easting\",430000.0],PARAMETER[\"\
+                False_Northing\",325000.0],PARAMETER[\"Central_Meridian\",-61.3333333333333],PARAMETER[\"\
                 Scale_Factor\",1.0],PARAMETER[\"Latitude_Of_Origin\",10.4416666666667],UNIT[\"\
                 Link_Clarke\",0.201166195164],AUTHORITY[\"EPSG\",30200]]"
             name: "Trinidad 1903 * EOG-Tto Trin / Trinidad Grid [30200,10085]"
@@ -633,71 +819,172 @@ components:
         \ absolute coordinates, WGS84 position, and metadata."
       properties:
         md:
-          type: string
+          type:
+          - number
+          - string
           format: double
           description: "Measured Depth - distance along the wellbore from the reference\
             \ point (e.g., kelly bushing). Unit specified by unitMD or unitZ. Required\
             \ for most inputKind values."
-          example: "2563.56"
+          example: 2563.56
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
         inclination:
-          type: string
+          type:
+          - number
+          - string
           format: double
           description: "Wellbore inclination angle in degrees. 0° = vertical (down),\
             \ 90° = horizontal, 180° = vertical (up). Range: 0-180. Required for MD_Incl_Azim\
             \ and MD_Incl inputKind."
-          example: "15.0"
+          example: 15.0
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
         azimuthTN:
-          type: string
+          type:
+          - number
+          - string
           format: double
           description: "Wellbore azimuth relative to True North in degrees. Range:\
             \ 0-360. 0°/360° = True North, 90° = East."
-          example: "355.96"
+          example: 355.96
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
         azimuthGN:
-          type: string
+          type:
+          - number
+          - string
           format: double
           description: "Wellbore azimuth relative to Grid North in degrees. Range:\
             \ 0-360. Differs from TN azimuth by the grid convergence angle."
-          example: "355.0"
+          example: 355.0
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
         dxTN:
-          type: string
+          type:
+          - number
+          - string
           format: double
           description: "True East-West displacement from reference point. Positive\
             \ = East. Aligned with True North reference frame. Unit: unitXY."
-          example: "55.9"
+          example: 55.9
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
         dyTN:
-          type: string
+          type:
+          - number
+          - string
           format: double
           description: "True North-South displacement from reference point. Positive\
             \ = North. Aligned with True North reference frame. Unit: unitXY."
-          example: "-145.3"
+          example: -145.3
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
         point:
-          type: string
-          format: double
+          $ref: "#/components/schemas/PointResponse"
           description: "Absolute 3D coordinates in trajectoryCRS. x/y in CRS units,\
             \ z in unitZ (elevation above reference, negative for depth below)."
         wgs84Longitude:
-          type: string
+          type:
+          - number
+          - string
           format: double
           description: "WGS 84 longitude in decimal degrees. Range: -180 to +180.\
             \ Computed from the station's absolute position."
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
         wgs84Latitude:
-          type: string
+          type:
+          - number
+          - string
           format: double
           description: "WGS 84 latitude in decimal degrees. Range: -90 to +90. Computed\
             \ from the station's absolute position."
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
         dls:
-          type: string
+          type:
+          - number
+          - string
           format: double
           description: Dog Leg Severity - rate of change of wellbore direction. Unit
             specified by unitDls (typically deg/100ft or deg/30m).
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
         original:
-          type: string
-          format: double
+          type: boolean
           description: True if this station is from original input. False if generated
             by interpolation at an MD_i value.
         dz:
-          type: number
+          type:
+          - number
+          - string
           format: double
+          description: True Vertical Depth (TVD) from well reference point. Positive
+            = deeper/downward. Unit specified by unitZ.
+          example: "1965.6"
+          oneOf:
+          - type: number
+            format: double
+          - type: string
+            enum:
+            - NaN
+            - Infinity
+            - -Infinity
     ConvertGeoJsonRequest:
       type: object
       description: Request to convert a GeoJSON FeatureCollection or AnyCrsFeatureCollection
@@ -706,19 +993,32 @@ components:
       properties:
         toCRS:
           type: string
+          format: osdu-crs-reference
           description: Target CRS as persistable reference string
-          example: "\"{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4326\"},\"name\"\
-            :\"GCS_WGS_1984\",\"type\":\"LBC\",\"ver\":\"PE_10_3_1\",\"wkt\":\"GEOGCS[\\\
-            \"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\"\
-            ,6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\
-            \",0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4326]]\"}\""
+          example:
+            authCode:
+              auth: EPSG
+              code: "4326"
+            name: GCS_WGS_1984
+            type: LBC
+            ver: PE_10_3_1
+            wkt: "GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\"\
+              ,6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\"\
+              ,0.0174532925199433],AUTHORITY[\"EPSG\",4326]]"
           minLength: 1
         toUnitZ:
           type: string
+          format: osdu-unit-reference
           description: "Optional: the target Z-unit for the z-axis scaling."
-          example: "\"{\"baseMeasurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"\
-            },\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\"\
-            :\"USO\"}\""
+          example:
+            baseMeasurement:
+              ancestry: Length
+              type: UM
+            scaleOffset:
+              offset: 0.0
+              scale: 1.0
+            symbol: m
+            type: USO
         featureCollection:
           $ref: "#/components/schemas/GeoJsonFeatureCollection"
           description: The GeoJSON FeatureCollection or AnyCrsFeatureCollection structure
@@ -733,36 +1033,34 @@ components:
       discriminator:
         propertyName: type
       properties:
+        type:
+          type: string
+          minLength: 1
+        bbox:
+          type:
+          - array
+          - "null"
+          items:
+            type: number
+            format: double
         geoJsonVariantInternal:
           type: string
           enum:
           - GEO_JSON
           - ANY_CRS_GEO_JSON
           writeOnly: true
-        type:
-          type: string
-          minLength: 1
-        bbox:
-          type: array
-          items:
-            type: number
-            format: double
       required:
       - type
     GeoJsonFeature:
       type: object
       properties:
-        geoJsonVariantInternal:
-          type: string
-          enum:
-          - GEO_JSON
-          - ANY_CRS_GEO_JSON
-          writeOnly: true
         type:
           type: string
           minLength: 1
         bbox:
-          type: array
+          type:
+          - array
+          - "null"
           items:
             type: number
             format: double
@@ -777,14 +1075,58 @@ components:
           - $ref: "#/components/schemas/GeoJsonMultiPolygon"
           - $ref: "#/components/schemas/GeoJsonPoint"
           - $ref: "#/components/schemas/GeoJsonPolygon"
-        properties:
-          type: object
+        properties: {}
+        geoJsonVariantInternal:
+          type: string
+          enum:
+          - GEO_JSON
+          - ANY_CRS_GEO_JSON
+          writeOnly: true
       required:
       - geometry
       - type
     GeoJsonFeatureCollection:
       type: object
       properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+          - AnyCrsFeatureCollection
+          example: FeatureCollection
+          minLength: 1
+        bbox:
+          type:
+          - array
+          - "null"
+          items:
+            type: number
+            format: double
+        features:
+          type: array
+          items:
+            $ref: "#/components/schemas/GeoJsonFeature"
+        properties:
+          type:
+          - object
+          - "null"
+          additionalProperties: {}
+        persistableReferenceCrs:
+          type:
+          - string
+          - "null"
+        CoordinateReferenceSystemID:
+          type:
+          - string
+          - "null"
+        VerticalUnitID:
+          type:
+          - string
+          - "null"
+        persistableReferenceUnitZ:
+          type:
+          - string
+          - "null"
         coordinateReferenceSystemID:
           type: string
         verticalUnitID:
@@ -795,28 +1137,6 @@ components:
           - GEO_JSON
           - ANY_CRS_GEO_JSON
           writeOnly: true
-        type:
-          type: string
-          minLength: 1
-        bbox:
-          type: array
-          items:
-            type: number
-            format: double
-        features:
-          type: array
-          items:
-            $ref: "#/components/schemas/GeoJsonFeature"
-        properties:
-          type: object
-        persistableReferenceCrs:
-          type: string
-        CoordinateReferenceSystemID:
-          type: string
-        VerticalUnitID:
-          type: string
-        persistableReferenceUnitZ:
-          type: string
       required:
       - features
       - type
@@ -936,13 +1256,13 @@ components:
         GeoJSON FeatureCollection or AnyCrsFeatureCollection.
       properties:
         successCount:
-          type: string
+          type: integer
           description: The number of coordinates in the GeoJSON FeatureCollection
             or AnyCrsFeatureCollection successfully converted/transformed. If this
             number is less than totalCount then conversion/transformation errors have
             occurred.
         totalCount:
-          type: string
+          type: integer
           description: The total number of coordinates in the GeoJSON FeatureCollection
             or AnyCrsFeatureCollection.
         featureCollection:

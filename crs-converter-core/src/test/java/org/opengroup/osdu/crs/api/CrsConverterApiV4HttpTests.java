@@ -70,6 +70,7 @@ class CrsConverterApiV4HttpTests {
                 + "\"unitXY\":\"{\\\"type\\\":\\\"USO\\\"}\","
                 + "\"unitZ\":\"{\\\"type\\\":\\\"USO\\\"}\","
                 + "\"method\":\"AzimuthalEquidistant\",\"inputKind\":\"Md_Incl_Azim\","
+                + "\"referencePoint\":{\"x\":0,\"y\":0,\"z\":0},"
                 + "\"interpolate\":true,\"inputStations\":" + stations + ",\"MD_i\":{" + depths + "}}";
     }
 }

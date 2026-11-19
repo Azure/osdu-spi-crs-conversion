@@ -4,11 +4,11 @@ import java.net.URLDecoder;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.databind.node.ArrayNode;
+import tools.jackson.databind.node.ObjectNode;
 
 import org.opengroup.osdu.crs.util.Constants;
 import lombok.Data;
@@ -45,8 +45,9 @@ public abstract class CRS {
     public static CRS createInstance(String crsText)
             throws IllegalArgumentException {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
+            JsonMapper mapper = JsonMapper.builderWithJackson2Defaults()
+                    .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
+                    .build();
 
             //decode the crsText from application/x-www-form-urlencoded format and read into a tree model
             String decoded = URLDecoder.decode(crsText, "UTF-8");

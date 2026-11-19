@@ -38,6 +38,7 @@ from v3.swagger_client.rest import ApiException
 from pprint import pprint
 from utility import TestEnvironment
 import jwt_client
+from dependency_check import DEFAULT_EXPECTATIONS_PATH, check_dependency, load_expectations
 
 
 FROM_CRS = "{\"authCode\":{\"auth\":\"SLB\",\"code\":\"4248009\"},\"type\":\"EBC\",\"ver\":\"PE_10_3_1\",\"name\":\"PSAD56 * DMA-Ven [4248,1209]\",\"lateBoundCRS\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4248\"},\"type\":\"LBC\",\"ver\":\"PE_10_3_1\",\"name\":\"GCS_Provisional_S_American_1956\",\"wkt\":\"GEOGCS[\\\"GCS_Provisional_S_American_1956\\\",DATUM[\\\"D_Provisional_S_American_1956\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4248]]\"},\"singleCT\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"1209\"},\"type\":\"ST\",\"ver\":\"PE_10_3_1\",\"name\":\"PSAD_1956_To_WGS_1984_9\",\"wkt\":\"GEOGTRAN[\\\"PSAD_1956_To_WGS_1984_9\\\",GEOGCS[\\\"GCS_Provisional_S_American_1956\\\",DATUM[\\\"D_Provisional_S_American_1956\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"Geocentric_Translation\\\"],PARAMETER[\\\"X_Axis_Translation\\\",-295.0],PARAMETER[\\\"Y_Axis_Translation\\\",173.0],PARAMETER[\\\"Z_Axis_Translation\\\",-371.0],AUTHORITY[\\\"EPSG\\\",1209]]\"}}"
@@ -822,6 +823,34 @@ class TestInfo(unittest.TestCase):
         except ApiException as e:
             self.fail(str(e))
 
+    @allure.title("Apache SIS version in /info matches expected_dependencies.json")
+    @allure.description(
+        "Reads connectedOuterServices from GET /info and checks that the 'Apache SIS-Version' entry "
+        "equals the version recorded in crs-converter_acceptance_test/expected_dependencies.json.")
+    def test_apache_sis_version(self):
+        """test apache_sis_version"""
+        name = "Apache SIS-Version"
+        with allure.step("GET /info"):
+            try:
+                api_response = self.api_instance.info_using_get(data_partition_id=self.env.data_partition_id)
+            except ApiException as e:
+                self.fail(str(e))
+            allure.attach(json.dumps(api_response.to_dict(), indent=2), name="info response",
+                          attachment_type=allure.attachment_type.JSON)
+            pairs = [(s.name, s.version) for s in (api_response.connected_outer_services or [])]
+
+        with allure.step("Load expectation"):
+            allure.attach.file(str(DEFAULT_EXPECTATIONS_PATH), name="expected_dependencies.json",
+                               attachment_type=allure.attachment_type.JSON)
+            expected = load_expectations().get(name)
+
+        versions = [str(version) for entry_name, version in pairs if entry_name == name]
+        reported = ", ".join(versions) if versions else "missing"
+        allure.dynamic.parameter("expected", expected)
+        allure.dynamic.parameter("reported", reported)
+        with allure.step(f"Compare {name}: expected {expected}, reported {reported}"):
+            check_dependency(pairs, name, expected)
+
 @allure.feature('CRS Converter Records')
 @allure.epic('CRS Converter v3 Integration Tests')
 class TestRecords(unittest.TestCase):
@@ -998,6 +1027,7 @@ def suite():
     suite.addTest(TestTrajectoryConverterIntegration('test_32631_LMP_trajectory'))
     suite.addTest(TestUnAuthorizedCrsConverterIntegration('test_transformation_with_unAuthorized_token'))
     suite.addTest(TestInfo('test_info_using_get'))
+    suite.addTest(TestInfo('test_apache_sis_version'))
     suite.addTest(TestCrsConverterIntegration('test_conversion_only_ID'))
     suite.addTest(TestCrsConverterIntegration('test_convert_check_WGS84_to_case'))
     suite.addTest(TestCrsConverterIntegration('test_any_crs_to_geo_json_ID'))
