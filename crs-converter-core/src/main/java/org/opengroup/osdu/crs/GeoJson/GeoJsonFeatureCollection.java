@@ -1,13 +1,19 @@
 package org.opengroup.osdu.crs.GeoJson;
 
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
+import tools.jackson.databind.annotation.JsonDeserialize;
+import org.opengroup.osdu.crs.util.StrictStringDeserializer;
 
 
 import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Map;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -19,26 +25,59 @@ public class GeoJsonFeatureCollection extends GeoJsonBase {
     private GeoJsonFeature[] features;
 
     @JsonProperty("properties")
-    private Object properties;
+    @Schema(types = {"object", "null"}, nullable = true)
+    private Map<String, Object> properties;
 
     @JsonProperty("persistableReferenceCrs")
+    @Schema(nullable = true, types = {"string", "null"})
+    @JsonDeserialize(using = StrictStringDeserializer.class)
     private String persistableReferenceCrs;
 
     @JsonProperty("CoordinateReferenceSystemID")
+    @Schema(nullable = true, types = {"string", "null"})
+    @JsonDeserialize(using = StrictStringDeserializer.class)
     private String CoordinateReferenceSystemID;
 
     @JsonProperty("VerticalUnitID")
+    @Schema(nullable = true, types = {"string", "null"})
+    @JsonDeserialize(using = StrictStringDeserializer.class)
     private String VerticalUnitID;
 
     @JsonProperty("persistableReferenceUnitZ")
+    @Schema(nullable = true, types = {"string", "null"})
+    @JsonDeserialize(using = StrictStringDeserializer.class)
     private String persistableReferenceUnitZ;
+
+    @JsonProperty("coordinateReferenceSystemID")
+    @JsonSetter(nulls = Nulls.FAIL)
+    @JsonDeserialize(using = StrictStringDeserializer.class)
+    public void setCoordinateReferenceSystemID(String coordinateReferenceSystemID) {
+        this.CoordinateReferenceSystemID = coordinateReferenceSystemID;
+    }
+
+    @JsonProperty("verticalUnitID")
+    @JsonSetter(nulls = Nulls.FAIL)
+    @JsonDeserialize(using = StrictStringDeserializer.class)
+    public void setVerticalUnitID(String verticalUnitID) {
+        this.VerticalUnitID = verticalUnitID;
+    }
 
     public GeoJsonFeatureCollection() {
         super("AnyCrsFeatureCollection"); // default to non-GeoJSON
     }
 
     @Override
+    @Schema(allowableValues = {"FeatureCollection", "AnyCrsFeatureCollection"}, example = "FeatureCollection")
+    public String getType() {
+        return super.getType();
+    }
+
+    @Override
     public void updateBbox() {
+        if (this.getFeatures() != null && this.getFeatures().length == 0) {
+            this.setBbox(null);
+            return;
+        }
         if (this.getBbox() == null) return;  // if there was no bounding box before, don't bother
         int dimension = this.getDimension();
         double[][] coordinates = new double[this.getFeatures().length * 2][dimension];
@@ -57,8 +96,8 @@ public class GeoJsonFeatureCollection extends GeoJsonBase {
         int d = 3;  // 3 dimensional point are default
         if (ok) {
             for (GeoJsonFeature g : this.getFeatures()) {
-                ok = ok && g.isValid();
-                d = Math.min(g.getDimension(), d);
+                ok = ok && g != null && g.isValid();
+                if (ok) d = Math.min(g.getDimension(), d);
             }
         }
         if (ok) {

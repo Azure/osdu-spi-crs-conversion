@@ -4,17 +4,16 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.json.JsonMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.validation.constraints.NotEmpty;
-import java.io.IOException;
 
 
 @Data
@@ -42,12 +41,13 @@ public class PersistableReference {
 	public static PersistableReference createInstance(String json) {
 		PersistableReference result;
 		try {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
-			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+			JsonMapper mapper = JsonMapper.builderWithJackson2Defaults()
+			        .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
+			        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+			        .build();
 			JsonNode node = mapper.readTree(json);
 			result = mapper.treeToValue(node, PersistableReference.class);
-		} catch (IOException e) {
+		} catch (JacksonException e) {
 			return null;
 		}
 		return result;
@@ -55,13 +55,14 @@ public class PersistableReference {
 
 	public String toJsonString() {
 		String result;
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
-		mapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
-		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		JsonMapper mapper = JsonMapper.builderWithJackson2Defaults()
+		        .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
+		        .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
+		        .changeDefaultPropertyInclusion(incl -> JsonInclude.Value.construct(JsonInclude.Include.NON_NULL, JsonInclude.Include.NON_NULL))
+		        .build();
 		try {
 			result = mapper.writeValueAsString(this);
-		} catch (JsonProcessingException e) {
+		} catch (JacksonException e) {
 			return null;
 		}
 		return result;

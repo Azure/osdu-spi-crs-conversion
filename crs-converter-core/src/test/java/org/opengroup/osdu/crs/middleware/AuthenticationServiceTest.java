@@ -1,13 +1,16 @@
 package org.opengroup.osdu.crs.middleware;
 
+import org.apache.http.HttpStatus;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.opengroup.osdu.core.common.http.HttpResponse;
 import org.opengroup.osdu.core.common.entitlements.EntitlementsFactory;
 import org.opengroup.osdu.core.common.entitlements.IEntitlementsService;
 import org.opengroup.osdu.core.common.logging.JaxRsDpsLog;
@@ -99,5 +102,38 @@ public class AuthenticationServiceTest {
         Assert.assertTrue(result);
         Mockito.verify(jaxRsDpsLog).debug("User authenticated | User: email");
         Mockito.verifyNoMoreInteractions(handlerExceptionResolver);
+    }
+
+    @Test
+    public void shouldKeepMeshAccessDeniedForbidden() throws EntitlementsException {
+        assertEntitlementStatus("RBAC: access denied", HttpStatus.SC_FORBIDDEN, HttpStatus.SC_FORBIDDEN);
+    }
+
+    @Test
+    public void shouldKeepEntitlementForbiddenStatus() throws EntitlementsException {
+        assertEntitlementStatus("{\"message\":\"not entitled\"}", HttpStatus.SC_FORBIDDEN, HttpStatus.SC_FORBIDDEN);
+    }
+
+    private void assertEntitlementStatus(String body, int upstreamStatus, int expectedStatus) throws EntitlementsException {
+        HttpServletRequest httpServletRequest = Mockito.mock(HttpServletRequest.class);
+        HttpServletResponse httpServletResponse = Mockito.mock(HttpServletResponse.class);
+        Enumeration<String> headerNames = Mockito.mock(Enumeration.class);
+        Mockito.when(headerNames.hasMoreElements()).thenReturn(false);
+        Mockito.when(httpServletRequest.getHeaderNames()).thenReturn(headerNames);
+        EntitlementsFactory entitlementsFactory = Mockito.mock(EntitlementsFactory.class);
+        ReflectionTestUtils.setField(authenticationService, "entitlementsFactory", entitlementsFactory);
+        IEntitlementsService entitlementsService = Mockito.mock(IEntitlementsService.class);
+        Mockito.when(entitlementsFactory.create(Mockito.any(DpsHeaders.class))).thenReturn(entitlementsService);
+        HttpResponse response = new HttpResponse();
+        response.setResponseCode(upstreamStatus);
+        response.setBody(body);
+        Mockito.when(entitlementsService.getGroups()).thenThrow(new EntitlementsException("denied", response));
+
+        Assert.assertFalse(authenticationService.isAuthorized(httpServletRequest, httpServletResponse));
+
+        ArgumentCaptor<AppException> captor = ArgumentCaptor.forClass(AppException.class);
+        Mockito.verify(handlerExceptionResolver).resolveException(Mockito.eq(httpServletRequest),
+                Mockito.eq(httpServletResponse), Mockito.eq(null), captor.capture());
+        Assert.assertEquals(expectedStatus, captor.getValue().getError().getCode());
     }
 }

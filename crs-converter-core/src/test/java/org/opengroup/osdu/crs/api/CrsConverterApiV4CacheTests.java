@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.opengroup.osdu.core.common.model.http.AppException;
 import org.opengroup.osdu.core.common.model.storage.MultiRecordInfo;
 import org.opengroup.osdu.core.common.model.storage.Record;
 import org.opengroup.osdu.crs.interfaces.ICRSConverter;
@@ -170,6 +171,12 @@ public class CrsConverterApiV4CacheTests {
         when(storageClient.getRecords(anyCollection())).thenReturn(empty);
         assertThrows(ValidationException.class,
                 () -> crsConverterApiV4.getPersistableReferenceFromID(UOM_ID, true));
+
+        when(storageClient.getRecord(RecordIdNormalizer.normalizeRecordID(CRS_ID)))
+                .thenThrow(new IllegalArgumentException("Illegal character in path"));
+        AppException unresolved = assertThrows(AppException.class,
+                () -> crsConverterApiV4.getPersistableReferenceFromID(CRS_ID, false));
+        assertEquals(404, unresolved.getError().getCode());
     }
 
     @Test

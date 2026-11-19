@@ -30,22 +30,17 @@ out/
 **/report.html
 
 crs-converter-core/target
-provider/crs-converter-azure/crs-converter-aks/target/
 provider/crs-converter-gcp/crs-converter-gae/target/
 provider/crs-converter-gcp/crs-converter-gke/target/
-provider/crs-converter-azure/crs-converter-aks/.factorypath
-provider/crs-converter-azure/crs-converter-aks/.settings/
 provider/crs-converter-gcp/crs-converter-gke/.factorypath
 provider/crs-converter-gcp/crs-converter-gke/.settings/
 
 crs-converter-core/.sts4-cache/
-provider/crs-converter-azure/crs-converter-aks/.sts4-cache/
 provider/crs-converter-gcp/crs-converter-gae/.sts4-cache/
 provider/crs-converter-gcp/crs-converter-gke/.sts4-cache/
 
 crs-converter-core/crs-converter-core.iml
 crs-converter-service.iml
-provider/crs-converter-azure/crs-converter-aks/crs-converter-aks.iml
 provider/crs-converter-gcp/crs-converter-gae/crs-converter-gae.iml
 provider/crs-converter-gcp/crs-converter-gke/crs-converter-gke.iml
 crs-converter-core/crs-converter-core.iml
@@ -53,7 +48,6 @@ crs-converter-core/crs-converter-core.iml
 crs-converter-core/.factorypath
 crs-converter-core/.settings/org.eclipse.jdt.core.prefs
 crs-converter-core/.settings/org.eclipse.core.resources.prefs
-provider/crs-converter-azure/crs-converter-aks/devops/azure-pipelines.yml
 provider/crs-converter-gcp/crs-converter-gae/.factorypath
 provider/crs-converter-gcp/crs-converter-gae/.settings/org.eclipse.core.resources.prefs
 provider/crs-converter-gcp/crs-converter-gae/.settings/org.eclipse.jdt.core.prefs

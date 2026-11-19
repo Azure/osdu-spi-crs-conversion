@@ -84,12 +84,6 @@ To run:
 python3 run_test.py
 ```
 
-### Azure Tests
-
-For the python tests to run in Azure, the CI-CD pipeline copies the SIS_DATA folder to the shared storage for the pods to read. If you are setting up the environment manually and not using Azure CI-CD Pipeline, make sure to copy the folder following [this](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/configuration-data.md#crs-conversion).
-
-**Note:** To simulate a runtime exactly as that of the vsts build agent, you can simply exec into the docker image we use for the build agent, and run the tests from inside it. To know how to do this, please follow [this](https://slb-swt.visualstudio.com/data-at-rest/_git/dps-vsts-build-agent?path=%2FREADME.md&version=GBmaster) documentation.
-
 ## Suite Test: ```test_suite.py```
 
 This test requires pre-computed test data with expected values. This test - depending on how many data are sent through - will take a significant amount of time.

@@ -28,11 +28,7 @@ public class StorageClient implements IStorageClient{
             Record upsertRecords = service.getRecord(record);
             return upsertRecords;
         } catch (StorageException e) {
-            /*Catch block is executed when record param is bad request. Eg: fromCRS = ';:' in v3/convert API.
-                Trying to keep the error generic*/
-            String error = e.getHttpResponse().getBody();
-            throw new AppException(HttpStatus.BAD_REQUEST.value(), "Error getting record",
-                    "Please check the input type and format and try again.");
+            throw storageLookupFailure(e);
         }
     }
 
@@ -43,12 +39,18 @@ public class StorageClient implements IStorageClient{
             MultiRecordInfo upsertRecords = service.getRecords(records);
             return upsertRecords;
         } catch (StorageException e) {
-            /*Catch block is executed when record param is bad request. Eg: fromCRS = ';:' in v3/convert API.
-                Trying to keep the error generic*/
-            String error = e.getHttpResponse().getBody();
-            throw new AppException(HttpStatus.BAD_REQUEST.value(), "Error getting record",
+            throw storageLookupFailure(e);
+        }
+    }
+
+    private static AppException storageLookupFailure(StorageException e) {
+        int code = e.getHttpResponse() == null ? HttpStatus.BAD_REQUEST.value() : e.getHttpResponse().getResponseCode();
+        if (code == HttpStatus.NOT_FOUND.value()) {
+            return new AppException(HttpStatus.NOT_FOUND.value(), "record not found",
                     "Please check the input type and format and try again.");
         }
+        return new AppException(HttpStatus.BAD_REQUEST.value(), "Error getting record",
+                "Please check the input type and format and try again.");
     }
 }
 

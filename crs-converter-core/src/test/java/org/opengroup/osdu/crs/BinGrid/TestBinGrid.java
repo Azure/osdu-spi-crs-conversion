@@ -3,14 +3,14 @@ package org.opengroup.osdu.crs.BinGrid;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.IOException;
 
 import org.junit.Test;
 import org.opengroup.osdu.crs.model.ConvertBinGridRequest;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
 
 public class TestBinGrid {
 
@@ -70,11 +70,12 @@ public class TestBinGrid {
 	public static ConvertBinGridRequest createInstance(String json) {
 		ConvertBinGridRequest result;
 		try {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+			JsonMapper mapper = JsonMapper.builderWithJackson2Defaults()
+			        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+			        .build();
 			JsonNode node = mapper.readTree(json);
 			result = mapper.treeToValue(node, ConvertBinGridRequest.class);
-		} catch (IOException e) {
+		} catch (JacksonException e) {
 			return null;
 		}
 		return result;

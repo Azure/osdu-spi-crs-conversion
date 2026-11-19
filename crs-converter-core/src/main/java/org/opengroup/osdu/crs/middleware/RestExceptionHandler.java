@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.lang.NonNull;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -68,6 +69,23 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 .build();
         jaxRsDpsLog.error(e.getMessage(), e);
         return ResponseEntity.badRequest().body(appError);
+    }
+
+    @NonNull
+    @Override
+    protected ResponseEntity<Object> handleHttpMediaTypeNotSupported(@NonNull HttpMediaTypeNotSupportedException ex,
+                                                                     @NonNull HttpHeaders headers,
+                                                                     @NonNull HttpStatusCode status,
+                                                                     @NonNull WebRequest request) {
+        AppError appError = AppError.builder()
+                .code(HttpStatus.UNSUPPORTED_MEDIA_TYPE.value())
+                .reason("Unsupported Media Type")
+                .message("Content-Type must be application/json")
+                .build();
+        jaxRsDpsLog.error(ex.getMessage(), ex);
+        return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(appError);
     }
 
     @NonNull

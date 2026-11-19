@@ -24,7 +24,13 @@ public final class RecordIdNormalizer {
     trailing `:` or `/` in the API Call
     */
     public static String normalizeRecordID(String recordId) {
+        if (recordId == null || recordId.isEmpty()) {
+            return recordId;
+        }
         int lastColumnIndex = recordId.lastIndexOf(":");
+        if (lastColumnIndex < 0) {
+            return recordId;
+        }
         boolean withTrailingColumn = lastColumnIndex == recordId.length() - 1;
         if(withTrailingColumn) {
             return recordId.substring(0, recordId.length() - 1);
