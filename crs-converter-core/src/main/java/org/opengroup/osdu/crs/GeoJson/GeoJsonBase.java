@@ -1,14 +1,15 @@
 package org.opengroup.osdu.crs.GeoJson;
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.*;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.*;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.validation.constraints.NotEmpty;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 @Data
@@ -44,6 +45,7 @@ public abstract class GeoJsonBase {
     private String type;
 
     @JsonProperty("bbox")
+    @JsonSetter(contentNulls = Nulls.FAIL)
     private double[] bbox;
 
     private int dimension;
@@ -62,13 +64,14 @@ public abstract class GeoJsonBase {
     public static GeoJsonBase createInstance(String json) {
         GeoJsonBase result;
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
-            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            JsonMapper mapper = JsonMapper.builderWithJackson2Defaults()
+                    .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
+                    .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                    .build();
             JsonNode node = mapper.readTree(json);
             result = mapper.treeToValue(node, GeoJsonBase.class);
             result.setValid(result.isValid());
-        } catch (IOException e) {
+        } catch (JacksonException e) {
             return null;
         }
         return result;
@@ -76,14 +79,15 @@ public abstract class GeoJsonBase {
 
     public String toJsonString() {
         String result;
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
-        mapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
-        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        JsonMapper mapper = JsonMapper.builderWithJackson2Defaults()
+                .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
+                .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
+                .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
+                .changeDefaultPropertyInclusion(incl -> JsonInclude.Value.construct(JsonInclude.Include.NON_NULL, JsonInclude.Include.NON_NULL))
+                .build();
         try {
             result = mapper.writeValueAsString(this);
-        } catch (JsonProcessingException e) {
+        } catch (JacksonException e) {
             return null;
         }
         return result;
@@ -100,7 +104,12 @@ public abstract class GeoJsonBase {
         return GeoJsonVariant.GEO_JSON;
     }
 
-    private void setGeoJsonVariantInternal(GeoJsonVariant gj_variant){
+    @JsonSetter(value = "geoJsonVariantInternal", nulls = Nulls.FAIL)
+    @JsonDeserialize(using = GeoJsonVariantDeserializer.class)
+    public void setGeoJsonVariantInternal(GeoJsonVariant gj_variant){
+        if (gj_variant == null) {
+            throw new IllegalArgumentException("geoJsonVariantInternal cannot be null");
+        }
         if (gj_variant == GeoJsonVariant.ANY_CRS_GEO_JSON) {
             if (!this.getType().startsWith(ANY_CRS_PREFIX)) {
                 this.setType(ANY_CRS_PREFIX+this.getType());

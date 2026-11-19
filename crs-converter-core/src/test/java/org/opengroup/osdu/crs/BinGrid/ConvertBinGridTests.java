@@ -3,7 +3,6 @@ package org.opengroup.osdu.crs.BinGrid;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.lenient;
 
-import java.io.IOException;
 
 import jakarta.validation.ValidationException;
 
@@ -18,9 +17,10 @@ import org.opengroup.osdu.crs.converter.CRSConverter;
 import org.opengroup.osdu.crs.model.ConvertBinGridRequest;
 import org.opengroup.osdu.crs.model.ConvertBinGridResponse;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ConvertBinGridTests {
@@ -136,11 +136,12 @@ public class ConvertBinGridTests {
 	public static ConvertBinGridRequest createInstance(String json) {
 		ConvertBinGridRequest result;
 		try {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+			JsonMapper mapper = JsonMapper.builderWithJackson2Defaults()
+			        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+			        .build();
 			JsonNode node = mapper.readTree(json);
 			result = mapper.treeToValue(node, ConvertBinGridRequest.class);
-		} catch (IOException e) {
+		} catch (JacksonException e) {
 			return null;
 		}
 		return result;
@@ -149,11 +150,12 @@ public class ConvertBinGridTests {
 	public static ConvertBinGridResponse createResponse(String json) {
 		ConvertBinGridResponse result;
 		try {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+			JsonMapper mapper = JsonMapper.builderWithJackson2Defaults()
+			        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+			        .build();
 			JsonNode node = mapper.readTree(json);
 			result = mapper.treeToValue(node, ConvertBinGridResponse.class);
-		} catch (IOException e) {
+		} catch (JacksonException e) {
 			return null;
 		}
 		return result;
@@ -162,11 +164,12 @@ public class ConvertBinGridTests {
 	public static String createPersistenceReferenceCRS(String json) {
 		String result;
 		try {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+			JsonMapper mapper = JsonMapper.builderWithJackson2Defaults()
+			        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+			        .build();
 			JsonNode node = mapper.readTree(json);
 			result = mapper.treeToValue(node, String.class);
-		} catch (IOException e) {
+		} catch (JacksonException e) {
 			return null;
 		}
 		return result;

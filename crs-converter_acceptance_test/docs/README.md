@@ -63,3 +63,13 @@ Execute following command to build code and run all the integration tests:
  $ chmod +x ./run-acceptance-tests.sh
  $ ./run-acceptance-tests.sh
  ```
+
+#### Dependency versions in /info
+
+* **What is checked:** `TestInfo::test_apache_sis_version` in `test_crs_converter_v3.py` calls `GET /info`, finds the `Apache SIS-Version` entry in `connectedOuterServices` by name and checks that its full version equals the one in `expected_dependencies.json`. The Allure report shows the `/info` response, the expectation file and both versions.
+* **Where the expectation lives:** `crs-converter_acceptance_test/expected_dependencies.json` (`Apache SIS-Version`: `1.3`). The build source is the `apache-sis.version` property in `crs-converter-core/pom.xml`.
+* **Upgrading Apache SIS:** change `apache-sis.version` in `crs-converter-core/pom.xml` and the `version` of `Apache SIS-Version` in `expected_dependencies.json` in the same merge request. The unit test `ApacheSisVersionExpectationTest` in `crs-converter-core` compares the expectation with the Apache SIS library on the build classpath and fails the build if they differ:
+
+```bash
+mvn -B -PDefault,core -pl crs-converter-core -am test -Dtest=ApacheSisVersionExpectationTest -Dsurefire.failIfNoSpecifiedTests=false
+```

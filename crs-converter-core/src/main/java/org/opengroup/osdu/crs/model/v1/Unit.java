@@ -2,9 +2,9 @@ package org.opengroup.osdu.crs.model.v1;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.json.JsonMapper;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -35,8 +35,9 @@ public class Unit extends UnitParameters {
 
 	public static Unit createInstance(String unitReference) {
 		try {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
+			JsonMapper mapper = JsonMapper.builderWithJackson2Defaults()
+			        .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
+			        .build();
 
 			String decoded = URLDecoder.decode(unitReference, "UTF-8");
 			JsonNode node = mapper.readTree(decoded);
