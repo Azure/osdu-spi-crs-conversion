@@ -14,7 +14,7 @@
   <properties>
     <app.version>1</app.version>
     <app.id>crs-converter-core</app.id>
-    <apache-sis.version>1.3</apache-sis.version>
+    <apache-sis.version>1.6</apache-sis.version>
   </properties>
 
   <prerequisites>
