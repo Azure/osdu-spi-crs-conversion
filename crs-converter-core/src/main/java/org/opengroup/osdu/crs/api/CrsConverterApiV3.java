@@ -13,11 +13,13 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.apache.commons.lang3.StringUtils;
 import org.opengroup.osdu.core.common.logging.JaxRsDpsLog;
 import org.opengroup.osdu.core.common.model.http.AppError;
+import org.opengroup.osdu.core.common.model.http.AppException;
 import org.opengroup.osdu.core.common.model.http.DpsHeaders;
 import org.opengroup.osdu.core.common.model.storage.Record;
 import org.opengroup.osdu.crs.BinGrid.AbstractBinGrid;
 import org.opengroup.osdu.crs.BinGrid.AbstractFeature;
 import org.opengroup.osdu.crs.BinGrid.AbstractFeatureCollection;
+import org.opengroup.osdu.crs.BinGrid.AbstractSpatialLocation;
 import org.opengroup.osdu.crs.GeoJson.GeoJsonFeature;
 import org.opengroup.osdu.crs.GeoJson.GeoJsonFeatureCollection;
 import org.opengroup.osdu.crs.interfaces.ICRSConverter;
@@ -26,9 +28,11 @@ import org.opengroup.osdu.crs.interfaces.ITrajectoryConverter;
 import org.opengroup.osdu.crs.model.*;
 import org.opengroup.osdu.crs.osducoreserviceclient.storage.IStorageClient;
 import org.opengroup.osdu.crs.util.Constants;
+import org.opengroup.osdu.crs.util.ProjectedAxisUnit;
 import org.opengroup.osdu.crs.util.RecordCache;
 import org.opengroup.osdu.crs.util.RecordIdNormalizer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.util.MultiValueMap;
@@ -44,8 +48,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
-import org.opengroup.osdu.crs.util.RecordIdNormalizer;
 
 @CrossOrigin
 @RestController
@@ -79,6 +81,9 @@ public class CrsConverterApiV3 {
 	}
 	// parameter str could be a persistableReference string or recordID. mustID means parameter str must be a recordID
 	private String getPersistableReferenceFromID(String str, boolean mustID){
+		if (str == null || str.isBlank()) {
+			return null;
+		}
 		String temp;
 		try {
 			temp = URLDecoder.decode(str, "UTF-8"); 
@@ -88,6 +93,10 @@ public class CrsConverterApiV3 {
 		// persistableReference string starts with {....}
 	    if (temp.startsWith("{") && mustID == false){
 			return str;
+		}
+		if (!str.contains(":")) {
+			throw new AppException(HttpStatus.NOT_FOUND.value(), "record not found",
+					"Please check the input type and format and try again.");
 		}
 	
 		// set temp as str as we don't want to decode. for example UnitOfMeasure:ft%5BUS%5D in record id
@@ -124,16 +133,63 @@ public class CrsConverterApiV3 {
 		Record record =  StorageClient.getRecord(temp);
 		if (record == null)
 			throw new ValidationException(String.join(" ", "record not found:", temp));
-		Map<String,Object> data = record.getData();
-		Map<String,Object> coordinateSystem = (Map<String, Object>) data.get("CoordinateSystem");
-		if (coordinateSystem == null) {
+		Map<String, Object> data = record.getData();
+		if (data == null || (nestedCoordinateSystem(data) == null
+				&& !(data.get("CoordinateSystem.HorizontalAxisUnitID") instanceof String))) {
 			throw new ValidationException(String.join(" ", "record does not have CoordinateSystem:", temp));
 		}
-		String horizontalAxisUnitID = (String) coordinateSystem.get("HorizontalAxisUnitID");
-		if (horizontalAxisUnitID == null || horizontalAxisUnitID.isBlank()) {
+		String horizontalAxisUnitID = horizontalAxisUnitId(data);
+		if (horizontalAxisUnitID == null) {
 			throw new ValidationException(String.join(" ", "record does not have CoordinateSystem.HorizontalAxisUnitID:", temp));
 		}
 		return horizontalAxisUnitID;
+	}
+
+	private String projectedUnitReference(String trajectoryCrs) {
+		String unitId = getUnitFromTrajectoryCRS(trajectoryCrs);
+		try {
+			String resolved = getPersistableReferenceFromID(unitId, false);
+			if (resolved != null) {
+				return resolved;
+			}
+		} catch (ValidationException ex) {
+			if (ex.getMessage() == null || !ex.getMessage().contains("does not have PersistableReference")) {
+				throw ex;
+			}
+		}
+		String derived = ProjectedAxisUnit.fromPersistableReference(getPersistableReferenceFromID(trajectoryCrs, false));
+		if (derived == null) {
+			throw new ValidationException(String.join(" ", "record does not have PersistableReference:",
+					RecordIdNormalizer.normalizeRecordID(unitId)));
+		}
+		return derived;
+	}
+
+	/**
+	 * Storage records expose the unit either as a nested {@code CoordinateSystem} object
+	 * or as the flat property {@code CoordinateSystem.HorizontalAxisUnitID}.
+	 */
+	static String horizontalAxisUnitId(Map<String, Object> data) {
+		if (data == null) {
+			return null;
+		}
+		Map<?, ?> coordinateSystem = nestedCoordinateSystem(data);
+		if (coordinateSystem != null) {
+			Object nestedUnit = coordinateSystem.get("HorizontalAxisUnitID");
+			if (nestedUnit instanceof String unit && !unit.isBlank()) {
+				return unit;
+			}
+		}
+		Object flatUnit = data.get("CoordinateSystem.HorizontalAxisUnitID");
+		if (flatUnit instanceof String unit && !unit.isBlank()) {
+			return unit;
+		}
+		return null;
+	}
+
+	private static Map<?, ?> nestedCoordinateSystem(Map<String, Object> data) {
+		Object coordinateSystem = data.get("CoordinateSystem");
+		return coordinateSystem instanceof Map<?, ?> nested ? nested : null;
 	}
 
 	@PostMapping(value = "/convert", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -143,6 +199,10 @@ public class CrsConverterApiV3 {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = Constants.SWAGGER_CONVERT_SUCCESS_RESPONSE, content = { @Content(schema = @Schema(implementation = ConvertPointsResponse.class)) }),
 			@ApiResponse(responseCode = "400", description = Constants.SWAGGER_CONVERT_BAD_INPUT_BASE_PATH,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "401", description = "Unauthorized: missing or invalid Authorization header", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "403", description = "Forbidden: insufficient permissions or invalid partition", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "404", description = "Not found: referenced record does not exist", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported media type; Content-Type must be application/json", content = {@Content(schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "500", description = Constants.SWAGGER_CONVERT_UNKNOWN_ERROR,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "503", description = Constants.SWAGGER_CONVERT_OVERLOAD,  content = {@Content(schema = @Schema(implementation = AppError.class ))})
 	})
@@ -163,6 +223,10 @@ public class CrsConverterApiV3 {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = Constants.SWAGGER_CONVERT_SUCCESS_RESPONSE, content = { @Content(schema = @Schema(implementation = ConvertGeoJsonResponse.class)) }),
 			@ApiResponse(responseCode = "400", description = Constants.SWAGGER_CONVERT_BAD_INPUT_BASE_PATH,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "401", description = "Unauthorized: missing or invalid Authorization header", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "403", description = "Forbidden: insufficient permissions or invalid partition", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "404", description = "Not found: referenced record does not exist", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported media type; Content-Type must be application/json", content = {@Content(schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "500", description = Constants.SWAGGER_CONVERT_UNKNOWN_ERROR,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "503", description = Constants.SWAGGER_CONVERT_OVERLOAD,  content = {@Content(schema = @Schema(implementation = AppError.class ))})
 	})
@@ -199,6 +263,10 @@ public class CrsConverterApiV3 {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = Constants.SWAGGER_TRJ_CONVERT_SUCCESS_RESPONSE, content = { @Content(schema = @Schema(implementation = ConvertTrajectoryResponse.class)) }),
 			@ApiResponse(responseCode = "400", description = Constants.SWAGGER_CONVERT_BAD_INPUT_BASE_PATH,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "401", description = "Unauthorized: missing or invalid Authorization header", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "403", description = "Forbidden: insufficient permissions or invalid partition", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "404", description = "Not found: referenced record does not exist", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported media type; Content-Type must be application/json", content = {@Content(schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "500", description = Constants.SWAGGER_CONVERT_UNKNOWN_ERROR,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "503", description = Constants.SWAGGER_CONVERT_OVERLOAD,  content = {@Content(schema = @Schema(implementation = AppError.class ))})
 	})
@@ -212,8 +280,7 @@ public class CrsConverterApiV3 {
 			if(!Strings.isNullOrEmpty(request.getUnitXY())) {
 				throw new ValidationException("unitXY should not be provided for BoundProjected and Projected CRS.");
 			}
-			String unit = getUnitFromTrajectoryCRS(request.getTrajectoryCRS());
-			request.setUnitXY(getPersistableReferenceFromID(unit, false));
+			request.setUnitXY(projectedUnitReference(request.getTrajectoryCRS()));
 		}else
 			request.setUnitXY(getPersistableReferenceFromID(request.getUnitXY(), false));
 		request.setTrajectoryCRS(getPersistableReferenceFromID(request.getTrajectoryCRS(), false));
@@ -227,6 +294,10 @@ public class CrsConverterApiV3 {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = Constants.SWAGGER_BIN_GRID_CONVERSION_RESPONSE, content = { @Content(schema = @Schema(implementation = ConvertBinGridResponse.class)) }),
 			@ApiResponse(responseCode = "400", description = Constants.SWAGGER_CONVERT_BAD_INPUT_BASE_PATH,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "401", description = "Unauthorized: missing or invalid Authorization header", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "403", description = "Forbidden: insufficient permissions or invalid partition", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "404", description = "Not found: referenced record does not exist", content = {@Content(schema = @Schema(implementation = AppError.class))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported media type; Content-Type must be application/json", content = {@Content(schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "500", description = Constants.SWAGGER_CONVERT_UNKNOWN_ERROR,  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "503", description = Constants.SWAGGER_CONVERT_OVERLOAD,  content = {@Content(schema = @Schema(implementation = AppError.class ))})
 	})
@@ -238,6 +309,21 @@ public class CrsConverterApiV3 {
 		ConvertBinGridResponse convertBinGridResponse = new ConvertBinGridResponse();
 		try {
 			AbstractBinGrid inBinGrid = request.getInBinGrid();
+			if (inBinGrid == null || inBinGrid.getABCDBinGridSpatialLocation() == null
+					|| inBinGrid.getABCDBinGridSpatialLocation().getAsIngestedcoordinates() == null
+					|| inBinGrid.getABCDBinGridSpatialLocation().getAsIngestedcoordinates().getFeatures() == null) {
+				throw new ValidationException("Invalid bin grid request.");
+			}
+			for (AbstractFeature feature : inBinGrid.getABCDBinGridSpatialLocation()
+					.getAsIngestedcoordinates().getFeatures()) {
+				if (feature == null || feature.getGeometry() == null || feature.getGeometry().getCoordinates() == null
+						|| feature.getGeometry().getCoordinates().contains(null)
+						|| StringUtils.isEmpty(feature.getGeometry().getType())
+						|| feature.getProperties() == null || feature.getProperties().getPointPropertiesList() == null
+						|| feature.getProperties().getPointPropertiesList().contains(null)) {
+					throw new ValidationException("Invalid bin grid request.");
+				}
+			}
 			int size = inBinGrid.getABCDBinGridSpatialLocation().getAsIngestedcoordinates().getFeatures().size();
 			if (size != 4) {
 				logger.info("Invalid size for spatial coordinates in the input request.");
@@ -306,20 +392,12 @@ public class CrsConverterApiV3 {
 			AbstractBinGrid inBinGrid) {
 
 		logger.info("Start of convertedWgs84Coordinates.");
-		DecimalFormat upto8Decimal = new DecimalFormat("0.00000000");
+		AbstractSpatialLocation location = convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation();
+		location.setWgs84Coordinates(null);
 		try {
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation()
-					.setWgs84Coordinates(new AbstractFeatureCollection());
-			Gson gson = new Gson();
-			Type listType = new TypeToken<ArrayList<AbstractFeature>>() {
-			}.getType();
-			List<AbstractFeature> deepCopy = gson.fromJson(gson.toJson(convertBinGrid.getOutBinGrid()
-					.getABCDBinGridSpatialLocation().getAsIngestedcoordinates().getFeatures()), listType);
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().setFeatures(deepCopy);
-
+			DecimalFormat upto8Decimal = new DecimalFormat("0.00000000");
 			GeoJsonFeatureCollection geoJsonFeatureCollection = this.crsConverter.prepareGeoJsonRequest(
-					convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getAsIngestedcoordinates()
-							.getFeatures(),
+					location.getAsIngestedcoordinates().getFeatures(),
 					inBinGrid.getABCDBinGridSpatialLocation().getAsIngestedcoordinates()
 							.getCoordinateReferenceSystemID());
 			ConvertGeoJsonRequest convertGeoJsonRequest = new ConvertGeoJsonRequest();
@@ -327,48 +405,40 @@ public class CrsConverterApiV3 {
 			convertGeoJsonRequest.setToCRS(Constants.WGS84);
 			ConvertGeoJsonResponse convertGeoJsonResponse = convertGeoJson(convertGeoJsonRequest);
 			GeoJsonFeature[] geoJsonFeature = convertGeoJsonResponse.getFeatureCollection().getFeatures();
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates()
-			.setType(convertGeoJsonResponse.getFeatureCollection().getType());
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(0)
-					.getGeometry()
-					.setCoordinates(Arrays.asList(
-							Double.valueOf(upto8Decimal.format(geoJsonFeature[0].extractCoordinates().getXys()[0])),
-							Double.valueOf(upto8Decimal.format(geoJsonFeature[0].extractCoordinates().getXys()[1]))));
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(0)
-					.setType(FEATURE_TYPE);
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(0)
-					.getGeometry().setType(GEOMETRY_TYPE);
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(1)
-					.getGeometry()
-					.setCoordinates(Arrays.asList(
-							Double.valueOf(upto8Decimal.format(geoJsonFeature[1].extractCoordinates().getXys()[0])),
-							Double.valueOf(upto8Decimal.format(geoJsonFeature[1].extractCoordinates().getXys()[1]))));
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(1)
-					.setType(FEATURE_TYPE);
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(1)
-					.getGeometry().setType(GEOMETRY_TYPE);
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(2)
-					.getGeometry()
-					.setCoordinates(Arrays.asList(
-							Double.valueOf(upto8Decimal.format(geoJsonFeature[2].extractCoordinates().getXys()[0])),
-							Double.valueOf(upto8Decimal.format(geoJsonFeature[2].extractCoordinates().getXys()[1]))));
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(2)
-					.setType(FEATURE_TYPE);
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(2)
-					.getGeometry().setType(GEOMETRY_TYPE);
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(3)
-					.getGeometry()
-					.setCoordinates(Arrays.asList(
-							Double.valueOf(upto8Decimal.format(geoJsonFeature[3].extractCoordinates().getXys()[0])),
-							Double.valueOf(upto8Decimal.format(geoJsonFeature[3].extractCoordinates().getXys()[1]))));
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(3)
-					.setType(FEATURE_TYPE);
-			convertBinGrid.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates().getFeatures().get(3)
-					.getGeometry().setType(GEOMETRY_TYPE);
-
-		} catch (IllegalArgumentException illegalArgumentException) {
-			logger.info("Got error response from the convertPoint call");
-			throw new ValidationException(illegalArgumentException.getMessage());
+			if (geoJsonFeature == null || geoJsonFeature.length < 4) {
+				logger.info("WGS84 bin-grid coordinates were omitted: conversion did not return four corners.");
+				return convertBinGrid;
+			}
+			List<List<Double>> corners = new ArrayList<>();
+			for (int i = 0; i < 4; i++) {
+				double x = geoJsonFeature[i].extractCoordinates().getXys()[0];
+				double y = geoJsonFeature[i].extractCoordinates().getXys()[1];
+				if (!Double.isFinite(x) || !Double.isFinite(y)) {
+					logger.info("WGS84 bin-grid coordinates were omitted: conversion produced a non-finite corner.");
+					return convertBinGrid;
+				}
+				corners.add(Arrays.asList(Double.valueOf(upto8Decimal.format(x)), Double.valueOf(upto8Decimal.format(y))));
+			}
+			Gson gson = new Gson();
+			Type listType = new TypeToken<ArrayList<AbstractFeature>>() {
+			}.getType();
+			List<AbstractFeature> deepCopy = gson.fromJson(
+					gson.toJson(location.getAsIngestedcoordinates().getFeatures()), listType);
+			for (int i = 0; i < 4; i++) {
+				deepCopy.get(i).setType(FEATURE_TYPE);
+				deepCopy.get(i).getGeometry().setType(GEOMETRY_TYPE);
+				deepCopy.get(i).getGeometry().setCoordinates(corners.get(i));
+			}
+			AbstractFeatureCollection wgs84 = new AbstractFeatureCollection();
+			wgs84.setType(convertGeoJsonResponse.getFeatureCollection().getType());
+			wgs84.setFeatures(deepCopy);
+			location.setWgs84Coordinates(wgs84);
+		} catch (ValidationException validationException) {
+			location.setWgs84Coordinates(null);
+			throw validationException;
+		} catch (RuntimeException conversionFailure) {
+			location.setWgs84Coordinates(null);
+			logger.info("WGS84 bin-grid coordinates were omitted: " + conversionFailure.getMessage());
 		}
 		return convertBinGrid;
 	}

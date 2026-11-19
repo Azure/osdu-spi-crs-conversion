@@ -67,11 +67,11 @@ public class CRSConverter implements ICRSConverter {
 	public ConvertPointsResponse convertPoint(String from, String to, double[] xyCoordinates, double[] zCoordinates) {
 
 		if ((from == null) || (from.isEmpty()) || (to == null) || (to.isEmpty()) || (xyCoordinates == null)
-				|| (xyCoordinates.length == 0) || (zCoordinates == null) || (zCoordinates.length == 0)) {
+				|| (zCoordinates == null)) {
 			throw new IllegalArgumentException(Constants.ERROR_MSG_BAD_INPUT);
 		}
 
-		if (xyCoordinates.length / 2 != zCoordinates.length) {
+		if (xyCoordinates.length % 2 != 0 || xyCoordinates.length / 2 != zCoordinates.length) {
 			throw new IllegalArgumentException(Constants.ERROR_MSG_INPUT_ARRAY_MISMATCH);
 		}
 		ICrs sourceCRS = null;
@@ -88,6 +88,12 @@ public class CRSConverter implements ICRSConverter {
 		if (sourceCRS == null || targetCRS == null || !sourceCRS.isValid() || !targetCRS.isValid()) {
 			throw new IllegalArgumentException(Constants.ERROR_MSG_INVALID_INPUT_CRS_SPECIFICATION);
 		}
+        if (zCoordinates.length == 0) {
+            ConvertPointsResponse empty = new ConvertPointsResponse();
+            empty.setSuccessCount(0);
+            empty.setOperationsApplied(new java.util.ArrayList<>());
+            return empty;
+        }
 		ConvertOperationState opState = new ConvertOperationState(sourceCRS, targetCRS, xyCoordinates, zCoordinates);
 		int successCount = zCoordinates.length;
 		CRSCoordinateOperationFactory opFactory = new CRSCoordinateOperationFactory();
@@ -125,7 +131,11 @@ public class CRSConverter implements ICRSConverter {
 			String fromCrs, fromUnitZ, toUnitZ = requestedToUnitZ;
 			GeoJsonBase.GeoJsonVariant targetVariant;
 			GeoJsonCoordinates coordinates = featureCollection.extractCoordinates();
-			if (featureCollection.getGeoJsonVariant() == GeoJsonBase.GeoJsonVariant.GEO_JSON) {
+            if (coordinates.getLength() == 0) {
+                // No source coordinates or source units are needed for an empty collection.
+                fromCrs = toCrs;
+                fromUnitZ = requestedToUnitZ;
+            } else if (featureCollection.getGeoJsonVariant() == GeoJsonBase.GeoJsonVariant.GEO_JSON) {
 				fromCrs = Constants.WGS84;
 				fromUnitZ = METER;
 			} else {
@@ -168,7 +178,11 @@ public class CRSConverter implements ICRSConverter {
 			String fromCrs, fromUnitZ, toUnitZ = requestedToUnitZ;
 			GeoJsonBase.GeoJsonVariant targetVariant;
 			GeoJsonCoordinates coordinates = featureCollection.extractCoordinates();
-			if (featureCollection.getGeoJsonVariant() == GeoJsonBase.GeoJsonVariant.GEO_JSON) {
+            if (coordinates.getLength() == 0) {
+                // No source coordinates or source units are needed for an empty collection.
+                fromCrs = toCrs;
+                fromUnitZ = requestedToUnitZ;
+            } else if (featureCollection.getGeoJsonVariant() == GeoJsonBase.GeoJsonVariant.GEO_JSON) {
 				fromCrs = Constants.WGS84;
 				fromUnitZ = METER;
 			} else {
@@ -237,9 +251,9 @@ public class CRSConverter implements ICRSConverter {
 	public ConvertBinGridResponse squaring(String toCrs, AbstractBinGrid inBinGrid,
 			ConvertBinGridResponse outBinGrid) {
 
+			validateFeaturePoints(inBinGrid == null || inBinGrid.getABCDBinGridSpatialLocation() == null
+					? null : inBinGrid.getABCDBinGridSpatialLocation().getAsIngestedcoordinates());
 		logger.info("Starting convertBinGrid()..");
-
-			validateFeaturePoints(inBinGrid.getABCDBinGridSpatialLocation().getAsIngestedcoordinates());
 			// sort the point coordinates in the order (min, min), (min, max), (max, min),
 			// (max, max)
 			sortAnyCRSFeature(inBinGrid);
@@ -314,15 +328,15 @@ public class CRSConverter implements ICRSConverter {
 		double p6BinGridOriginNorthing = (northingA + northingB + northingC + northingD) / 4;
 		// if the scaleFactor value from the input request is 0.0 , then it is set to
 		// 1.0
-		if (inBinGrid.getP6ScaleFactorOfBinGrid() == 0.0) {
+		if (inBinGrid.getP6ScaleFactorOfBinGrid() == null || inBinGrid.getP6ScaleFactorOfBinGrid() == 0.0) {
 			inBinGrid.setP6ScaleFactorOfBinGrid(1.0);
 		}
 		// Setting the default value to 1 , if the value is 0 from the input request
-		if (inBinGrid.getP6BinNodeIncrementOnIaxis() == 0) {
+		if (inBinGrid.getP6BinNodeIncrementOnIaxis() == null || inBinGrid.getP6BinNodeIncrementOnIaxis() == 0) {
 			inBinGrid.setP6BinNodeIncrementOnIaxis(1);
 		}
 		// Setting the default value to 1 , if the value is 0 from the input request
-		if (inBinGrid.getP6BinNodeIncrementOnJaxis() == 0) {
+		if (inBinGrid.getP6BinNodeIncrementOnJaxis() == null || inBinGrid.getP6BinNodeIncrementOnJaxis() == 0) {
 			inBinGrid.setP6BinNodeIncrementOnJaxis(1);
 		}
 		inBinGrid.setP6BinGridOriginI(p6BinGridOriginI);
@@ -333,14 +347,23 @@ public class CRSConverter implements ICRSConverter {
 	}
 
 	private void validateFeaturePoints(AbstractAnyCrsFeatureCollection asIngestedcoordinates) {
+		if (asIngestedcoordinates == null || asIngestedcoordinates.getFeatures() == null) {
+			throw new ValidationException("Invalid bin grid request.");
+		}
 
 		asIngestedcoordinates.getFeatures().stream().forEach(feature -> {
-			int geometrySize = feature.getGeometry().getCoordinates().size();
-			if (geometrySize != 2) {
+			if (feature == null || feature.getGeometry() == null || feature.getGeometry().getCoordinates() == null) {
 				throw new ValidationException("Both x and y coordinates are mandatory.");
 			}
+			int geometrySize = feature.getGeometry().getCoordinates().size();
+			if (geometrySize != 2 || feature.getGeometry().getCoordinates().contains(null)) {
+				throw new ValidationException("Both x and y coordinates are mandatory.");
+			}
+			if (feature.getProperties() == null || feature.getProperties().getPointPropertiesList() == null) {
+				throw new ValidationException("Point properties (inLine and crossLine) are mandatory.");
+			}
 			int pointSize = feature.getProperties().getPointPropertiesList().size();
-			if (pointSize != 1) {
+			if (pointSize != 1 || feature.getProperties().getPointPropertiesList().get(0) == null) {
 				throw new ValidationException("Point properties (inLine and crossLine) are mandatory.");
 			}
 
@@ -428,11 +451,11 @@ public class CRSConverter implements ICRSConverter {
 	public ConvertPointsResponseV4 convertPointV4(String from, String to, String transform, double[] xyCoordinates, double[] zCoordinates) {
 		if ((from == null) || (from.isEmpty())
 				|| (to == null) || (to.isEmpty())
-				|| (xyCoordinates == null) || (xyCoordinates.length == 0)
-				|| (zCoordinates == null) || (zCoordinates.length == 0)) {
+				|| (xyCoordinates == null)
+				|| (zCoordinates == null) ) {
 			throw new IllegalArgumentException(Constants.ERROR_MSG_BAD_INPUT);
 		}
-		if (xyCoordinates.length / 2 != zCoordinates.length) {
+		if (xyCoordinates.length % 2 != 0 || xyCoordinates.length / 2 != zCoordinates.length) {
 			throw new IllegalArgumentException(Constants.ERROR_MSG_INPUT_ARRAY_MISMATCH);
 		}
 		ICrs sourceCRS = null;
@@ -459,6 +482,12 @@ public class CRSConverter implements ICRSConverter {
 			}
 		}
 
+        if (zCoordinates.length == 0) {
+            ConvertPointsResponseV4 empty = new ConvertPointsResponseV4();
+            empty.setSuccessCount(0);
+            empty.setOperationsApplied(new java.util.ArrayList<>());
+            return empty;
+        }
 		ConvertOperationState opState = new ConvertOperationState(sourceCRS, targetCRS, xyCoordinates, zCoordinates);
 		int successCount = zCoordinates.length;
 		CRSCoordinateOperationFactory opFactory = new CRSCoordinateOperationFactory();
@@ -539,17 +568,20 @@ public class CRSConverter implements ICRSConverter {
 
 		Integer iC = pointCoordinates.get(2).getProperties().getPointPropertiesList().get(0).getInline();
 
+		double inlineSpan = iC - iA;
+		double crosslineSpan = jB - jA;
+		if (inlineSpan == 0 || crosslineSpan == 0) {
+			throw new IllegalArgumentException("Bin grid corners do not define a finite inline and crossline span.");
+		}
 		Double rDeltaI = p6BinNodeIncrementOnIaxis
 				* (((spatialCoordinatesComputeMap.get(KEY_RAC) + spatialCoordinatesComputeMap.get(KEY_RBD)) / 2)
-						/ (iC - iA));
-
-		rDeltaIJMap.put(KEY_RDELTAI, rDeltaI);
-
+						/ inlineSpan);
 		Double rDeltaJ = p6BinNodeIncrementOnJaxis
 				* ((spatialCoordinatesComputeMap.get(KEY_RAB) + spatialCoordinatesComputeMap.get(KEY_RCD)) / 2)
-				/ (jB - jA);
+				/ crosslineSpan;
 
-		rDeltaIJMap.put(KEY_RDELTAJ, rDeltaJ);
+		rDeltaIJMap.put(KEY_RDELTAI, finiteNonZero(rDeltaI, "P6BinWidthOnIaxis"));
+		rDeltaIJMap.put(KEY_RDELTAJ, finiteNonZero(rDeltaJ, "P6BinWidthOnJaxis"));
 
 		return rDeltaIJMap;
 
@@ -577,7 +609,9 @@ public class CRSConverter implements ICRSConverter {
 		Double thetaCD = Math.toDegrees(Math.atan2(coordinateDx - coordinateCx, coordinateDy - coordinateCy));
 		Double theta = Math.toDegrees(Math.atan2(Math.sin(Math.toRadians(thetaAB)) + Math.sin(Math.toRadians(thetaCD)),
 				Math.cos(Math.toRadians(thetaAB)) + Math.cos(Math.toRadians(thetaCD))));
-		if (theta < 0) {
+		if (!Double.isFinite(theta)) {
+			throw new IllegalArgumentException("Bin grid P6MapGridBearingOfBinGridJaxis is not a finite number.");
+		} else if (theta < 0) {
 			theta = theta + 360;
 		}
 
@@ -599,8 +633,8 @@ public class CRSConverter implements ICRSConverter {
 			handedNessValue = -1;
 		}
 
-		convertBinGridResponse.getOutBinGrid().setP6BinWidthOnIaxis(rDeltaIJMap.get(KEY_RDELTAI));
-		convertBinGridResponse.getOutBinGrid().setP6BinWidthOnJaxis(rDeltaIJMap.get(KEY_RDELTAJ));
+		convertBinGridResponse.getOutBinGrid().setP6BinWidthOnIaxis(finiteNonZero(rDeltaIJMap.get(KEY_RDELTAI), "P6BinWidthOnIaxis"));
+		convertBinGridResponse.getOutBinGrid().setP6BinWidthOnJaxis(finiteNonZero(rDeltaIJMap.get(KEY_RDELTAJ), "P6BinWidthOnJaxis"));
 
 		Integer iA = abstractCoordinatesList.get(0).getProperties().getPointPropertiesList().get(0).getInline();
 		Integer jA = abstractCoordinatesList.get(0).getProperties().getPointPropertiesList().get(0).getCrossline();
@@ -733,17 +767,17 @@ public class CRSConverter implements ICRSConverter {
 		double dJ = (Math.max(maxvalueJ, -minvalueJ));
 
 		convertBinGridResponse.getOutBinGrid().getABCDBinGridSpatialLocation().getAsIngestedcoordinates().getFeatures()
-				.get(0).getGeometry().setCoordinates(Arrays.asList(Double.valueOf(upto3Decimal.format(valueAX)),
-						Double.valueOf(upto3Decimal.format(valueAY))));
+				.get(0).getGeometry().setCoordinates(Arrays.asList(formattedFinite(upto3Decimal, valueAX, "corner A"),
+						formattedFinite(upto3Decimal, valueAY, "corner A")));
 		convertBinGridResponse.getOutBinGrid().getABCDBinGridSpatialLocation().getAsIngestedcoordinates().getFeatures()
-				.get(1).getGeometry().setCoordinates(Arrays.asList(Double.valueOf(upto3Decimal.format(valueBX)),
-						Double.valueOf(upto3Decimal.format(valueBY))));
+				.get(1).getGeometry().setCoordinates(Arrays.asList(formattedFinite(upto3Decimal, valueBX, "corner B"),
+						formattedFinite(upto3Decimal, valueBY, "corner B")));
 		convertBinGridResponse.getOutBinGrid().getABCDBinGridSpatialLocation().getAsIngestedcoordinates().getFeatures()
-				.get(2).getGeometry().setCoordinates(Arrays.asList(Double.valueOf(upto3Decimal.format(valueCX)),
-						Double.valueOf(upto3Decimal.format(valueCY))));
+				.get(2).getGeometry().setCoordinates(Arrays.asList(formattedFinite(upto3Decimal, valueCX, "corner C"),
+						formattedFinite(upto3Decimal, valueCY, "corner C")));
 		convertBinGridResponse.getOutBinGrid().getABCDBinGridSpatialLocation().getAsIngestedcoordinates().getFeatures()
-				.get(3).getGeometry().setCoordinates(Arrays.asList(Double.valueOf(upto3Decimal.format(valueDX)),
-						Double.valueOf(upto3Decimal.format(valueDY))));
+				.get(3).getGeometry().setCoordinates(Arrays.asList(formattedFinite(upto3Decimal, valueDX, "corner D"),
+						formattedFinite(upto3Decimal, valueDY, "corner D")));
 
 		convertBinGridResponse.getOutBinGrid().getABCDBinGridSpatialLocation()
 				.setCoordinateQualityCheckPerformedBy("CRS Convert service, POST convertBinGrid");
@@ -755,17 +789,36 @@ public class CRSConverter implements ICRSConverter {
 		convertBinGridResponse.getOutBinGrid().getABCDBinGridSpatialLocation()
 				.setSpatialLocationCoordinatesDate(format.format(new Date()));
 		MaxMisLocation maxMisLocation = new MaxMisLocation();
-		maxMisLocation.setDI(Double.valueOf(upto2Decimal.format(dI)));
-		maxMisLocation.setDJ(Double.valueOf(upto2Decimal.format(dJ)));
+		maxMisLocation.setDI(formattedFinite(upto2Decimal, dI, "dI"));
+		maxMisLocation.setDJ(formattedFinite(upto2Decimal, dJ, "dJ"));
 		convertBinGridResponse.setMaxMisLocation(maxMisLocation);
-		convertBinGridResponse.getOutBinGrid().setP6BinGridOriginEasting(valueAX);
-		convertBinGridResponse.getOutBinGrid().setP6BinGridOriginNorthing(valueAY);
+		convertBinGridResponse.getOutBinGrid().setP6BinGridOriginEasting(finiteValue(valueAX, "P6BinGridOriginEasting"));
+		convertBinGridResponse.getOutBinGrid().setP6BinGridOriginNorthing(finiteValue(valueAY, "P6BinGridOriginNorthing"));
 		convertBinGridResponse.getOutBinGrid()
 				.setP6BinGridOriginI(inBinGrid.getABCDBinGridSpatialLocation().getAsIngestedcoordinates().getFeatures()
 						.get(0).getProperties().getPointPropertiesList().get(0).getInline().doubleValue());
 		convertBinGridResponse.getOutBinGrid()
 				.setP6BinGridOriginJ(inBinGrid.getABCDBinGridSpatialLocation().getAsIngestedcoordinates().getFeatures()
 						.get(0).getProperties().getPointPropertiesList().get(0).getCrossline().doubleValue());
+	}
+
+	private static double finiteValue(Double value, String field) {
+		if (value == null || !Double.isFinite(value)) {
+			throw new IllegalArgumentException("Bin grid " + field + " is not a finite number.");
+		}
+		return value;
+	}
+
+	private static double finiteNonZero(Double value, String field) {
+		double finite = finiteValue(value, field);
+		if (finite == 0.0) {
+			throw new IllegalArgumentException("Bin grid " + field + " is not a finite non-zero number.");
+		}
+		return finite;
+	}
+
+	private static Double formattedFinite(DecimalFormat format, double value, String field) {
+		return Double.valueOf(format.format(finiteValue(value, field)));
 	}
 
 }

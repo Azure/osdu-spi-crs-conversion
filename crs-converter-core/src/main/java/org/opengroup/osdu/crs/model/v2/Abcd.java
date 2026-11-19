@@ -1,5 +1,6 @@
 package org.opengroup.osdu.crs.model.v2;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +11,8 @@ import lombok.NonNull;
 @Data
 @AllArgsConstructor
 public class Abcd {
+    // Jackson 3 would otherwise bind via the all-args constructor and skip these defaults
+    @JsonCreator
     public Abcd() {
         this.a = Double.NaN;
         this.b = Double.NaN;

@@ -134,19 +134,8 @@ Each cloud provider handles grid files differently:
 
 | Provider | Storage Method | Custom Grid Addition | Restart Required |
 |----------|---------------|---------------------|------------------|
-| **Azure** | Azure File Share (mounted PVC) | Upload to file share | No |
 | **AWS** | Baked into Docker image | Rebuild image | Yes |
 | **GCP** | Baked into Docker image | Rebuild image | Yes |
-
----
-
-### Azure 
-
-- **Architecture**: Grid files stored in Azure File Share, mounted as a PersistentVolume.
-
-
-- **Adding Custom Grids**:
-Upload to Azure File Share. **No image rebuild or pod restart required**
 
 ---
 
@@ -286,7 +275,7 @@ SIS_DATA=/path/to/apachesis_setup/SIS_DATA
 |-------|----------|
 | Grid not found | Verify filename matches WKT `Dataset_` parameter |
 | HSQLDB not initializing | Delete `SpatialMetadata/` directory and restart |
-| New grid not recognized | For Azure: check file upload; For AWS/GCP: rebuild image |
+| New grid not recognized | Rebuild the image |
 
 ---
 

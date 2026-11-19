@@ -1,7 +1,8 @@
 package org.opengroup.osdu.crs.api;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.opengroup.osdu.core.common.logging.JaxRsDpsLog;
@@ -18,6 +19,8 @@ import org.opengroup.osdu.crs.util.ConstantsTests;
 import org.opengroup.osdu.crs.util.RecordIdNormalizer;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.util.ReflectionTestUtils;
+
+import jakarta.validation.ValidationException;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -79,6 +82,71 @@ class CrsConverterApiV3BinGridBehaviorTests {
         verify(storage).getRecord(RecordIdNormalizer.normalizeRecordID(CRS_ID));
     }
 
+    @Test
+    void coincidentCornersAreRejected() throws Exception {
+        ConvertBinGridRequest request = new JsonMapper().readValue("""
+                {
+                  "toCRS": "",
+                  "inBinGrid": {
+                    "P6ScaleFactorOfBinGrid": 0,
+                    "P6BinNodeIncrementOnIaxis": 0,
+                    "P6BinNodeIncrementOnJaxis": 0,
+                    "ABCDBinGridSpatialLocation": {
+                      "AsIngestedCoordinates": {
+                        "type": "",
+                        "features": [
+                          {"geometry":{"coordinates":[0.0,0.0],"type":"0"},"properties":{"PointProperties":[{"Crossline":0,"Inline":0}]}},
+                          {"geometry":{"coordinates":[0.0,0.0],"type":"0"},"properties":{"PointProperties":[{"Crossline":0,"Inline":0}]}},
+                          {"geometry":{"coordinates":[0.0,0.0],"type":"0"},"properties":{"PointProperties":[{"Crossline":0,"Inline":0}]}},
+                          {"geometry":{"coordinates":[0.0,0.0],"type":"0"},"properties":{"PointProperties":[{"Crossline":0,"Inline":0}]}}
+                        ]
+                      }
+                    }
+                  }
+                }
+                """, ConvertBinGridRequest.class);
+
+        ValidationException error = assertThrows(ValidationException.class, () -> api.convertBinGrid(request, httpRequest));
+        assertTrue(error.getMessage().contains("finite inline and crossline span"));
+    }
+
+    @Test
+    void failedWgs84ConversionOmitsProjectedCoordinates() throws Exception {
+        ConvertBinGridRequest request = request();
+        Record record = mock(Record.class);
+        when(record.getData()).thenReturn(Map.of("PersistableReference", "not-a-crs"));
+        when(storage.getRecord(RecordIdNormalizer.normalizeRecordID(CRS_ID))).thenReturn(record);
+
+        ConvertBinGridResponse response = api.convertBinGrid(request, httpRequest);
+
+        assertNull(response.getOutBinGrid().getABCDBinGridSpatialLocation().getWgs84Coordinates());
+        assertEquals(500000.0, response.getOutBinGrid().getABCDBinGridSpatialLocation()
+                .getAsIngestedcoordinates().getFeatures().get(0).getGeometry().getCoordinates().get(0), 1e-5);
+    }
+
+    @Test
+    void missingIngestedGeometryTypeIsRejected() throws Exception {
+        ConvertBinGridRequest request = new JsonMapper().readValue("""
+                {
+                  "toCRS": "",
+                  "inBinGrid": {
+                    "ABCDBinGridSpatialLocation": {
+                      "AsIngestedCoordinates": {
+                        "features": [
+                          {"geometry":{"coordinates":[0.0,0.0]},"properties":{"PointProperties":[{"Crossline":0,"Inline":0}]}},
+                          {"geometry":{"coordinates":[0.0,0.0],"type":"0"},"properties":{"PointProperties":[{"Crossline":0,"Inline":0}]}},
+                          {"geometry":{"coordinates":[0.0,0.0],"type":"0"},"properties":{"PointProperties":[{"Crossline":0,"Inline":0}]}},
+                          {"geometry":{"coordinates":[0.0,0.0],"type":"0"},"properties":{"PointProperties":[{"Crossline":0,"Inline":0}]}}
+                        ]
+                      }
+                    }
+                  }
+                }
+                """, ConvertBinGridRequest.class);
+
+        assertThrows(ValidationException.class, () -> api.convertBinGrid(request, httpRequest));
+    }
+
     private ConvertBinGridRequest request() throws Exception {
         String json = """
                 {
@@ -100,7 +168,7 @@ class CrsConverterApiV3BinGridBehaviorTests {
                   }
                 }
                 """;
-        ConvertBinGridRequest request = new ObjectMapper().readValue(json, ConvertBinGridRequest.class);
+        ConvertBinGridRequest request = JsonMapper.builderWithJackson2Defaults().build().readValue(json, ConvertBinGridRequest.class);
         AbstractAnyCrsFeatureCollection coordinates = request.getInBinGrid().getABCDBinGridSpatialLocation()
                 .getAsIngestedcoordinates();
         coordinates.setCoordinateReferenceSystemID(CRS_ID);
