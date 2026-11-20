@@ -4,6 +4,8 @@
 
 global:
   domain: ""
+  # Host the HTTPRoute attaches to when httpRoute.hostnames is empty.
+  hostname: ""
   onPremEnabled: false
   limitsEnabled: true
 
@@ -26,6 +28,21 @@ conf:
   configmap: "crs-conversion-config"
   appName: "crs-conversion"
   replicas: 1
+
+httpRoute:
+  enabled: false
+  # Route name. Defaults to "<release>-route" so it never collides with a route of the same name
+  # defined outside this chart.
+  name: ""
+  parentRefs:
+    - name: cimpl-gateway
+      namespace: istio-system
+  # Defaults to global.hostname when empty. The render fails when both are empty.
+  hostnames: []
+  # One rule per entry. Optional per entry: pathType (default PathPrefix), serviceName
+  # (default conf.appName), port (default 80) and filters (for example URLRewrite).
+  routes:
+    - path: /api/crs/converter/
 
 istio:
   proxyCPU: "5m"
