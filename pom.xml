@@ -33,7 +33,7 @@
         <!-- CVE-2026-49844 requires log4j >= 2.25.5 -->
         <log4j.version>2.25.5</log4j.version>
         <!-- Logback 1.6.5 fixes the SiftingAppender CVE-2026-104721; Spring Boot 4.0.9 still manages 1.5.x -->
-        <logback.version>1.6.5</logback.version>
+        <logback.version>1.6.8</logback.version>
         <!-- Guava 33.7.2 fixes CVE-2026-102554 -->
         <guava.version>33.7.2-jre</guava.version>
         <!-- Spring Boot 4 serves JSON with Jackson 3; Jackson 2 stays for third-party libraries (swagger-core, Azure SDK).
