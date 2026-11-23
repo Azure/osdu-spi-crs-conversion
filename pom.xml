@@ -16,7 +16,7 @@
         <!-- Spring Versions: Spring Framework CVE-2026-47884 / CVE-2026-47890 are fixed only in 7.0.9 (Spring Boot 4) -->
         <spring-boot.version>4.0.9</spring-boot.version>
         <spring-security.version>7.0.7</spring-security.version>
-        <spring-framework.version>7.0.10</spring-framework.version>
+        <spring-framework.version>7.0.11</spring-framework.version>
 
         <!-- Project Versions -->
         <openapi.version>3.0.3</openapi.version>
