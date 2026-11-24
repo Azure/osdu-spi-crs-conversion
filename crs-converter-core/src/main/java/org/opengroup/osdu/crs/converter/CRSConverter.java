@@ -568,8 +568,8 @@ public class CRSConverter implements ICRSConverter {
 
 		Integer iC = pointCoordinates.get(2).getProperties().getPointPropertiesList().get(0).getInline();
 
-		double inlineSpan = iC - iA;
-		double crosslineSpan = jB - jA;
+		double inlineSpan = (double) iC - iA;
+		double crosslineSpan = (double) jB - jA;
 		if (inlineSpan == 0 || crosslineSpan == 0) {
 			throw new IllegalArgumentException("Bin grid corners do not define a finite inline and crossline span.");
 		}
