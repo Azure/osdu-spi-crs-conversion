@@ -1,5 +1,87 @@
 # Changelog
 
+## [1.5.0](https://github.com/Azure/osdu-spi-crs-conversion/compare/v1.4.0...v1.5.0) (2026-11-25)
+
+
+### ✨ Features
+
+* **chart:** Add chart-owned HTTPRoute, remove VirtualService ([fce6029](https://github.com/Azure/osdu-spi-crs-conversion/commit/fce6029a5a11f2527634b258f272af977503a46c))
+* **chart:** Add chart-owned HTTPRoute, remove VirtualService ([a281bc2](https://github.com/Azure/osdu-spi-crs-conversion/commit/a281bc2437b155878a1b13d59b1cce32185b7b79))
+* Sync upstream changes from 8f4d1c27 ([f75d33b](https://github.com/Azure/osdu-spi-crs-conversion/commit/f75d33b6f4438d954689be507843ccb1fe9552b5))
+
+
+### 🐛 Bug Fixes
+
+* [Venus] Remove IBM provider code and CI/CD from CRS Conversion ([#338](https://github.com/Azure/osdu-spi-crs-conversion/issues/338)) ([8962045](https://github.com/Azure/osdu-spi-crs-conversion/commit/8962045567dd90ff9d1efa01e7e05cfa879c884d))
+* Allow /info without a token for v2, v3 and v4 ([61d4ca1](https://github.com/Azure/osdu-spi-crs-conversion/commit/61d4ca15728d80f09819999fc446ae5b03925ff0))
+* Allow /info without a token for v2, v3 and v4 ([4c6006a](https://github.com/Azure/osdu-spi-crs-conversion/commit/4c6006a5b8384efa8cf603f97fd051b0eed2b9c3))
+* Classify upstream schemathesis-tests in upstream filter ([eb76a06](https://github.com/Azure/osdu-spi-crs-conversion/commit/eb76a0672439fd2278812bcf42d8d08a4c375f8b))
+* Compute bin grid span in double to avoid int overflow ([8f4d1c2](https://github.com/Azure/osdu-spi-crs-conversion/commit/8f4d1c2797ebc0903ca4469ae26aa463b79bed9c))
+* Compute bin grid span in double to avoid int overflow ([28856b0](https://github.com/Azure/osdu-spi-crs-conversion/commit/28856b084f6e6305f9263de640f7941ba0e0fe25))
+* Replace unresolvable codeowners team with @Azure/osdu-spi ([4c91bd5](https://github.com/Azure/osdu-spi-crs-conversion/commit/4c91bd5172fb3fa5d18ed2d8551b79a5cee4dfb8))
+* Replace unresolvable CODEOWNERS team with @Azure/osdu-spi ([7bb5668](https://github.com/Azure/osdu-spi-crs-conversion/commit/7bb566802b25cb2a311e2294cb1f685b842b5bdc))
+* **security:** Enforce Entitlements auth on all non-whitelisted requests ([eef4200](https://github.com/Azure/osdu-spi-crs-conversion/commit/eef4200de8f36b85b92e440c87d051f28bdb5402))
+* **security:** Enforce Entitlements auth on all non-whitelisted requests ([b7abb88](https://github.com/Azure/osdu-spi-crs-conversion/commit/b7abb8801eb8bd72de940e4a32b7f8a0271c6904))
+* **security:** Permit error dispatch and versioned health paths ([eb33719](https://github.com/Azure/osdu-spi-crs-conversion/commit/eb33719822a6cc2a514465205aeaed0e6300d08d))
+* Sync upstream changes from 59170767 ([e03f895](https://github.com/Azure/osdu-spi-crs-conversion/commit/e03f8950b21a09e533626fef00d7c3130bf0f73a))
+* Sync upstream changes from 61d4ca15 ([54f2d02](https://github.com/Azure/osdu-spi-crs-conversion/commit/54f2d02dd317c92594c82e0c373ef17e1ec18b72))
+* Sync upstream changes from adc7ecbd ([2a05b90](https://github.com/Azure/osdu-spi-crs-conversion/commit/2a05b904d0f2108be38883ccda36874d21069cea))
+
+
+### 🔧 Miscellaneous
+
+* Declare component governance inputs ([701155f](https://github.com/Azure/osdu-spi-crs-conversion/commit/701155ff7b7fd5b18524b61d25d2190305662e56))
+* Declare component governance inputs ([87bcb1c](https://github.com/Azure/osdu-spi-crs-conversion/commit/87bcb1ceda7dfab072c9e52d688ffa2a1d2eafdf))
+* Generate filtered upstream tree ([2a82cf0](https://github.com/Azure/osdu-spi-crs-conversion/commit/2a82cf0fb239510ecca18a893ffc80eb0b8feebc))
+* Generate filtered upstream tree ([f23476c](https://github.com/Azure/osdu-spi-crs-conversion/commit/f23476cd5dbd36b0e43c187f5a49e38953f2050b))
+* Generate filtered upstream tree ([09881bb](https://github.com/Azure/osdu-spi-crs-conversion/commit/09881bb836e5b83f857f6dcab676633ae7806428))
+* Generate filtered upstream tree ([bdbf78a](https://github.com/Azure/osdu-spi-crs-conversion/commit/bdbf78a40c69bc377740110f0b54c1c8a581c549))
+* **notice:** Refresh NOTICE from Component Governance ([1898107](https://github.com/Azure/osdu-spi-crs-conversion/commit/1898107e12a25aac36aa45abeefa4bc6fdde0d18))
+* **notice:** Refresh NOTICE from Component Governance ([70a9887](https://github.com/Azure/osdu-spi-crs-conversion/commit/70a98877931e5ce134bc17397793bacdd28a1ae1))
+* Plan upstream filter classification for schemathesis-tests ([ca7f411](https://github.com/Azure/osdu-spi-crs-conversion/commit/ca7f411162970c7f262418154a7e85d6aa96a305))
+* Remove Azure provider and Azure CI/CD ([13bf47e](https://github.com/Azure/osdu-spi-crs-conversion/commit/13bf47ed147d7a903cd10dfbdba5ecc58968fd47))
+* Remove Azure provider and Azure CI/CD ([dc0e94f](https://github.com/Azure/osdu-spi-crs-conversion/commit/dc0e94f163575ecf7e1065a2a45a6d68a01a140a))
+* Stamp fork-owned pom versions ([2af9e3b](https://github.com/Azure/osdu-spi-crs-conversion/commit/2af9e3b6c77d9b6680ea338e1e0de9f8a1021663))
+* Sync template updates ([d365fb0](https://github.com/Azure/osdu-spi-crs-conversion/commit/d365fb07818d93d48320d71231e1c8063329fe67))
+* Sync template updates ([ab702ab](https://github.com/Azure/osdu-spi-crs-conversion/commit/ab702ab25a3e836c0e18f6aa4d34534f3f05efa5))
+* Sync template updates ([3d4f4d7](https://github.com/Azure/osdu-spi-crs-conversion/commit/3d4f4d737dfba3a39849e8d1b597604b4859d6c7))
+* Sync template updates ([1d21810](https://github.com/Azure/osdu-spi-crs-conversion/commit/1d21810fec779400c04346993b8a5c499f87ccc0))
+* Sync template updates ([ea82e26](https://github.com/Azure/osdu-spi-crs-conversion/commit/ea82e26da74cec825eeec8a9b6bda36d27efa23a))
+* Sync template updates ([a0fb8d0](https://github.com/Azure/osdu-spi-crs-conversion/commit/a0fb8d0856b0bc7dc211abc04a23f16209489074))
+* Sync template updates ([2901615](https://github.com/Azure/osdu-spi-crs-conversion/commit/29016156347733c3b181c8cfbbe61a9b8282c07a))
+* Sync template updates ([131f6b0](https://github.com/Azure/osdu-spi-crs-conversion/commit/131f6b0d4f700af4863058e0e7ec3f7fe5304530))
+* Sync template updates ([8f5c7f6](https://github.com/Azure/osdu-spi-crs-conversion/commit/8f5c7f61b7d0e918ec0a0d6541484d84bcbed31c))
+* Sync template updates ([f9df8d0](https://github.com/Azure/osdu-spi-crs-conversion/commit/f9df8d04f8fe02f087367d9c3b433b97d747e714))
+* Sync template updates ([0894163](https://github.com/Azure/osdu-spi-crs-conversion/commit/0894163afe36e7364385db25364d418f7b7ab59c))
+* Sync template updates ([fb5ddb6](https://github.com/Azure/osdu-spi-crs-conversion/commit/fb5ddb6c0cbb3f3398c1194a099b5643a8e45720))
+* **template-sync:** Sync template updates (updated 2026-10-22) ([6c1f30a](https://github.com/Azure/osdu-spi-crs-conversion/commit/6c1f30aa8bbc53f8c8df2b18e750c3e778244996))
+* **template-sync:** Sync template updates (updated 2026-10-27) ([b051535](https://github.com/Azure/osdu-spi-crs-conversion/commit/b051535a3bb0b6c98f292b54e6674ab0336a3577))
+* **template-sync:** Sync template updates (updated 2026-10-31) ([eb1d25f](https://github.com/Azure/osdu-spi-crs-conversion/commit/eb1d25fb6da4e22fe71e0a845f6df555d918daa3))
+* **template-sync:** Sync template updates (updated 2026-11-02) ([f875f4e](https://github.com/Azure/osdu-spi-crs-conversion/commit/f875f4ee051f5d39f3ef735c2fe430ccd080a633))
+* **template-sync:** Sync template updates (updated 2026-11-04) ([e677123](https://github.com/Azure/osdu-spi-crs-conversion/commit/e67712392c2829ff28ed483ea91a9ccb47047dac))
+* **template-sync:** Sync template updates (updated 2026-11-13) ([6ea0702](https://github.com/Azure/osdu-spi-crs-conversion/commit/6ea07025ce76273527d2bc729e43c7599a74c6a6))
+* **template-sync:** Sync template updates (updated 2026-11-18) ([39a4a8d](https://github.com/Azure/osdu-spi-crs-conversion/commit/39a4a8d033a6f6cef0486038e235199247c2a63b))
+* **template-sync:** Sync template updates 2026-10-27 ([d38e181](https://github.com/Azure/osdu-spi-crs-conversion/commit/d38e181c70f8876a863344ebe512c969e1cfbfdc))
+* **template-sync:** Sync template updates 2026-11-02 ([ccbb59c](https://github.com/Azure/osdu-spi-crs-conversion/commit/ccbb59cdc977816b7fd24abca4db827fdd8601e8))
+* **template-sync:** Sync template updates 2026-11-05 ([a0bb1cb](https://github.com/Azure/osdu-spi-crs-conversion/commit/a0bb1cb228c0d0de101a514b595d1b2b30db98a6))
+* **template-sync:** Sync template updates 2026-11-06 ([5040c87](https://github.com/Azure/osdu-spi-crs-conversion/commit/5040c87c8628c204cf25cc307fa65903bdcd51b2))
+* **template-sync:** Sync template updates 2026-11-24 ([3f4f7bd](https://github.com/Azure/osdu-spi-crs-conversion/commit/3f4f7bdeb3b97acac57d33e33f5f78b156ddbe7b))
+* Update NOTICE from fossa-check-notice ([f329d89](https://github.com/Azure/osdu-spi-crs-conversion/commit/f329d89dc42907c8462687f6989792e8ec8998bd))
+
+
+### 🔨 Build System
+
+* **deps:** Bump core-lib-azure to 5.0.0 and use its BOM ([20602d7](https://github.com/Azure/osdu-spi-crs-conversion/commit/20602d7a0619631ece08302f4331c527370a124b))
+* **deps:** Bump idna from 2.9 to 3.15 in /testing/crs_converter_test_azure ([4faa90f](https://github.com/Azure/osdu-spi-crs-conversion/commit/4faa90f812cc033d97284b2a56142f32d7d14b5f))
+* **deps:** Bump idna in /testing/crs_converter_test_azure ([9904bac](https://github.com/Azure/osdu-spi-crs-conversion/commit/9904bac5229388e0203a26c6b8ba73e4dc57f81d))
+* **deps:** Update azure test requirements and drop unused packages ([2355eb3](https://github.com/Azure/osdu-spi-crs-conversion/commit/2355eb3a29005394b2ca5545168f8e1c237e45d7))
+* **deps:** Update azure test requirements and drop unused packages ([21e3103](https://github.com/Azure/osdu-spi-crs-conversion/commit/21e31036cb7e1823f947a128b65d111bfd9d041b))
+
+
+### ⚙️ Continuous Integration
+
+* **spi:** Declare acceptance tests in service descriptor ([8464b84](https://github.com/Azure/osdu-spi-crs-conversion/commit/8464b84b263ac73f412498252c6bf39cbfe1fb7c))
+
 ## [1.4.0](https://github.com/Azure/osdu-spi-crs-conversion/compare/v1.3.0...v1.4.0) (2026-10-14)
 
 
